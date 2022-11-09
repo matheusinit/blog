@@ -1,5 +1,6 @@
 ---
 import Undraw from "react-undraw";
+import { TypeAnimation } from "react-type-animation";
 
 import Base from "../components/Base.astro";
 import { Header } from "../components/Header";
@@ -39,6 +40,27 @@ const DESCRIPTION = "This is my blog";
           <a href="https://tailwindcss.com/" class="flex align-middle">
             <img src="tailwindcss.svg" alt="React logo" class="w-20" />
           </a>
+        </div>
+
+        <div
+          class="text-xl mt-8 text-center font-['Cascadia Code'] font-medium from-blue-600 to-indigo-600 bg-gradient-to-br rounded-full w-72 py-2 mx-auto text-white"
+        >
+          <TypeAnimation
+            client:load
+            sequence={[
+              "Working with React.js",
+              1000,
+              "Working with Typescript",
+              1000,
+              "Working with Astro",
+              1000,
+              "Working with Tailwindcss",
+              1000,
+            ]}
+            wrapper="h3"
+            repeat={9999}
+            speed={30}
+          />
         </div>
       </div>
 
