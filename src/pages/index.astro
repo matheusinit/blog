@@ -11,15 +11,17 @@ const DESCRIPTION = "This is my blog";
 
 <Base title={TITLE} description={DESCRIPTION}>
   <Header />
-  <main class="pt-10 w-full flex justify-center h-full">
-    <div class="flex w-full justify-center align-middle">
+  <main class="w-full flex justify-center h-full mt-24 lg:mt-0">
+    <div class="flex w-full justify-center align-middle px-8">
       <div class="my-auto">
         <h1
-          class="text-4xl from-blue-600 to-purple-700 text-transparent bg-gradient-to-r bg-clip-text font-bold mb-4"
+          class="text-4xl from-blue-600 text-center lg:text-start to-purple-700 text-transparent bg-gradient-to-r bg-clip-text font-bold mb-4"
         >
           matheusinit
         </h1>
-        <p class="max-w-md text-gray-600 font-normal mb-14">
+        <p
+          class="max-w-md text-gray-600 font-normal mb-14 text-center lg:text-start"
+        >
           Olá, me chamo Matheus. Sou apenas um outro desenvolvedor web que gosta
           de codar por codar seja lá o que for
         </p>
@@ -64,7 +66,7 @@ const DESCRIPTION = "This is my blog";
         </div>
       </div>
 
-      <div class="ml-60 w-[40rem]">
+      <div class="ml-60 w-[40rem] hidden lg:block">
         <Undraw name="programming" height="40rem" primaryColor="#2563eb" />
       </div>
     </div>
