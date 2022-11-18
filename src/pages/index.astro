@@ -1,26 +1,26 @@
 ---
-import Undraw from "react-undraw";
-import { TypeAnimation } from "react-type-animation";
+import Undraw from 'react-undraw';
+import { TypeAnimation } from 'react-type-animation';
 
-import Base from "../components/Base.astro";
-import { Header } from "../components/Header";
+import Base from '../components/Base.astro';
+import { Header } from '../components/Header';
 
-const TITLE = "matheusinit";
-const DESCRIPTION = "This is my blog";
+const TITLE = 'matheusinit';
+const DESCRIPTION = 'This is my blog';
 ---
 
 <Base title={TITLE} description={DESCRIPTION}>
   <Header />
-  <main class="w-full flex justify-center h-full mt-24 lg:mt-0">
-    <div class="flex w-full justify-center align-middle px-8">
+  <main class="mt-24 flex h-full w-full justify-center lg:mt-0">
+    <div class="flex w-full justify-center px-8 align-middle">
       <div class="my-auto">
         <h1
-          class="text-4xl from-blue-600 text-center lg:text-start to-purple-700 text-transparent bg-gradient-to-r bg-clip-text font-bold mb-4"
+          class="mb-4 bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-center text-4xl font-bold text-transparent lg:text-start"
         >
           matheusinit
         </h1>
         <p
-          class="max-w-md text-gray-600 font-normal mb-14 text-center lg:text-start"
+          class="mb-14 max-w-md text-center font-normal text-gray-600 lg:text-start"
         >
           Olá, me chamo Matheus. Sou apenas um outro desenvolvedor web que gosta
           de codar por codar seja lá o que for
@@ -65,19 +65,19 @@ const DESCRIPTION = "This is my blog";
         </div>
 
         <div
-          class="text-xl mt-8 text-center font-['Cascadia Code'] font-medium from-blue-600 to-indigo-600 bg-gradient-to-br rounded-full w-72 py-2 mx-auto text-white"
+          class="font-['Cascadia Code'] mx-auto mt-8 w-72 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 py-2 text-center text-xl font-medium text-white"
         >
           <TypeAnimation
             client:load
             sequence={[
-              "Working with React.js",
+              'Working with React.js',
               1000,
-              "Working with Typescript",
+              'Working with Typescript',
               1000,
-              "Working with Astro",
+              'Working with Astro',
               1000,
-              "Working with Tailwindcss",
-              1000,
+              'Working with Tailwindcss',
+              1000
             ]}
             wrapper="h3"
             repeat={9999}
@@ -86,7 +86,7 @@ const DESCRIPTION = "This is my blog";
         </div>
       </div>
 
-      <div class="ml-60 w-[40rem] hidden lg:block">
+      <div class="ml-60 hidden w-[40rem] lg:block">
         <Undraw name="programming" height="40rem" primaryColor="#2563eb" />
       </div>
     </div>
