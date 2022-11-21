@@ -1,9 +1,10 @@
 ---
 import Base from "../components/Base.astro";
+import { getPathPath } from "../utils/getPagePath";
 
 const { url } = Astro.request;
 
-const currentPage = new URL(url).pathname;
+const currentPage = getPathPath(url);
 ---
 
 <Base activeNavLink={currentPage}>
