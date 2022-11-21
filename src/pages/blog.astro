@@ -1,14 +1,11 @@
 ---
-import Base from '../components/Base.astro';
+import Base from "../components/Base.astro";
 
-const { url } = Astro.request
+const { url } = Astro.request;
 
-const currentPage = new URL(url).pathname
-
-console.log(currentPage)
-
+const currentPage = new URL(url).pathname;
 ---
 
-<Base>
+<Base activeNavLink={currentPage}>
   <>Hello World</>
 </Base>

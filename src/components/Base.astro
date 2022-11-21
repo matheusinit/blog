@@ -1,9 +1,14 @@
 ---
-import { Header } from '../components/Header'
+import { Header } from "../components/Header";
 
-import '../styles/base.css';
+import "../styles/base.css";
 
-const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
+const {
+  title,
+  description,
+  image = "/placeholder-social.jpg",
+  activeNavLink = "/",
+} = Astro.props;
 ---
 
 <head>
@@ -40,7 +45,7 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
   />
 </head>
 <body>
-  <Header />
+  <Header activePagePath={activeNavLink} />
 
   <slot />
 </body>
