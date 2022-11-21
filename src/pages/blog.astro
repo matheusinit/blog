@@ -1,5 +1,6 @@
 ---
 import Base from "../components/Base.astro";
+import { BlogCard } from "../components/BlogCard";
 import { getPathPath } from "../utils/getPagePath";
 
 const { url } = Astro.request;
@@ -8,5 +9,16 @@ const currentPage = getPathPath(url);
 ---
 
 <Base activeNavLink={currentPage}>
-  <>Hello World</>
+  <div
+    class="flex items-center py-10 px-5 flex-col gap-8 md:flex-row md:justify-center md:gap-16 md:flex-wrap"
+  >
+    <BlogCard title="How to use TailwindCSS" tags={["TailwindCSS"]} />
+    <BlogCard title="Prisma: the ORM that you need!" tags={["Prisma", "ORM"]} />
+    <BlogCard title="tRPC: Hype or not?" tags={["tRPC", "Typescript"]} />
+    <BlogCard title="ReactJS: Why do I like it?" tags={["ReactJS", "UI"]} />
+    <BlogCard
+      title="Yes, NextJS is Typescript now"
+      tags={["NextJS", "Typescript", "SSR"]}
+    />
+  </div>
 </Base>
