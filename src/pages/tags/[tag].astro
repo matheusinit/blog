@@ -1,0 +1,27 @@
+---
+import Base from '../../components/Base.astro';
+
+export async function getStaticPaths () {
+  const posts = (await Astro.glob('../blog/*.{md, mdx}'));
+
+  const uniqueTags: string[] = [...new Set(posts.map(post => post.frontmatter.tags).flat())]
+
+  const data = uniqueTags.map(tag => {
+    const filteredPosts = posts.filter(post => post.frontmatter.tags.includes(tag))
+    return {
+      params: { tag: tag.toLowerCase() },
+      props: { posts: filteredPosts }
+    }
+  })
+
+  console.log(data)
+
+  return data
+}
+
+const { tag } = Astro.params
+---
+
+<Base title={tag}>
+  <p>Posts tagged with {tag}</p>
+</Base>

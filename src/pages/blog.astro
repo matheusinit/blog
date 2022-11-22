@@ -21,7 +21,7 @@ const posts = (await Astro.glob('./blog/*.{md, mdx}')).sort((a, b) => (
       href={post.url}
       title={post.frontmatter.title}
       createdAt={post.frontmatter.pubDate}
-      tags={['TailwindCSS']}
+      tags={post.frontmatter.tags}
     />
   ))}
   </div>
