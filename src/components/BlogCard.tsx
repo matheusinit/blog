@@ -4,7 +4,7 @@ import reactUuid from 'react-uuid'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 
-interface Params extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface Params extends React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {
   title: string
   tags?: string[]
   createdAt?: string
@@ -19,7 +19,7 @@ export const BlogCard: FC<Params> = ({
   ...rest
 }) => {
   return (
-    <div {...rest} className="flex max-h-40 w-[22rem] flex-col rounded border border-gray-200 px-2 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800  md:max-h-48 md:w-96" >
+    <a {...rest} className="flex max-h-40 w-[22rem] flex-col rounded border border-gray-200 px-2 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800  md:max-h-48 md:w-96">
       <div className="flex flex-col pb-8">
         <div className="max-h-[4rem] text-xl font-medium">{title}</div>
         <div className="font-light text-slate-500">{createdAt}</div>
@@ -35,6 +35,6 @@ export const BlogCard: FC<Params> = ({
           </div>
         ))}
       </div>
-    </div>
+    </a>
   )
 }
