@@ -1,48 +1,18 @@
 ---
-import { Header } from "../components/Header";
+import { Header } from '../components/Header';
 
-import "../styles/base.css";
+import '../styles/base.css';
+import BaseHead from './BaseHead.astro';
 
 const {
   title,
   description,
-  image = "/placeholder-social.jpg",
-  activeNavLink = "/",
+  activeNavLink = '/'
 } = Astro.props;
 ---
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="generator" content={Astro.generator} />
-
-  <!-- Primary Meta Tags -->
-  <title>{title}</title>
-  <meta name="title" content={title} />
-  <meta name="description" content={description} />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={Astro.url} />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={new URL(image, Astro.url)} />
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content={Astro.url} />
-  <meta property="twitter:title" content={title} />
-  <meta property="twitter:description" content={description} />
-  <meta property="twitter:image" content={new URL(image, Astro.url)} />
-
-  <!-- Google fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
-    rel="stylesheet"
-  />
+  <BaseHead title={title} description={description} />
 </head>
 <body>
   <Header activePagePath={activeNavLink} />
