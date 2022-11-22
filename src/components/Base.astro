@@ -2,20 +2,22 @@
 import { Header } from '../components/Header';
 
 import '../styles/base.css';
+import { getPathPath } from '../utils/getPagePath';
 import BaseHead from './BaseHead.astro';
 
 const {
   title,
-  description,
-  activeNavLink = '/'
+  description
 } = Astro.props;
+
+const currentPage = getPathPath(Astro.request.url);
 ---
 
 <head>
   <BaseHead title={title} description={description} />
 </head>
 <body>
-  <Header activePagePath={activeNavLink} />
+  <Header activePagePath={currentPage} />
 
   <slot />
 </body>
