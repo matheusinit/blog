@@ -1,28 +1,31 @@
 ---
-import reactUuid from 'react-uuid'
+import reactUuid from "react-uuid";
 
-import Base from '../components/Base.astro';
-import { BlogCard } from '../components/BlogCard';
+import Base from "../components/Base.astro";
+import { BlogCard } from "../components/BlogCard";
 
-const posts = (await Astro.glob('./blog/*.{md, mdx}')).sort((a, b) => (
-  new Date(b.frontmatter.pubDate).valueOf() -
+const posts = (await Astro.glob("./blog/*.{md, mdx}")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
     new Date(a.frontmatter.pubDate).valueOf()
-))
-
+);
 ---
 
 <Base>
   <div
     class="flex flex-col items-center gap-8 py-10 px-5 md:flex-row md:flex-wrap md:justify-center md:gap-16"
   >
-  {posts.map(post => (
-    <BlogCard
-      key={reactUuid()}
-      href={post.url}
-      title={post.frontmatter.title}
-      createdAt={post.frontmatter.pubDate}
-      tags={post.frontmatter.tags}
-    />
-  ))}
+    {
+      posts.map((post) => (
+        <BlogCard
+          key={reactUuid()}
+          href={post.url}
+          title={post.frontmatter.title}
+          createdAt={post.frontmatter.pubDate}
+          tags={post.frontmatter.tags}
+          client:load
+        />
+      ))
+    }
   </div>
 </Base>

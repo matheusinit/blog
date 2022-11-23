@@ -1,25 +1,29 @@
 ---
-import Base from '../../components/Base.astro';
+import Base from "../../components/Base.astro";
 
-export async function getStaticPaths () {
-  const posts = (await Astro.glob('../blog/*.{md, mdx}'));
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../blog/*.{md, mdx}");
 
-  const uniqueTags: string[] = [...new Set(posts.map(post => post.frontmatter.tags).flat())]
+  const uniqueTags: string[] = [
+    ...new Set(posts.map((post) => post.frontmatter.tags).flat()),
+  ];
 
-  const data = uniqueTags.map(tag => {
-    const filteredPosts = posts.filter(post => post.frontmatter.tags.includes(tag))
+  const data = uniqueTags.map((tag) => {
+    const filteredPosts = posts.filter((post) =>
+      post.frontmatter.tags.includes(tag)
+    );
     return {
       params: { tag: tag.toLowerCase() },
-      props: { posts: filteredPosts }
-    }
-  })
+      props: { posts: filteredPosts },
+    };
+  });
 
-  return data
+  return data;
 }
 
-const { tag } = Astro.params
+const { tag } = Astro.params;
 ---
 
-<Base title={tag}>
-  <p>Posts tagged with {tag}</p>
+<Base title={tag} activeNavLink="/blog">
+  <p class="text-center">Posts tagged with {tag}</p>
 </Base>
