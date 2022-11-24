@@ -1,30 +1,65 @@
 ---
-import Undraw from 'react-undraw';
-import { TypeAnimation } from 'react-type-animation';
+import Undraw from "react-undraw";
+import { TypeAnimation } from "react-type-animation";
 
-import Base from '../components/Base.astro';
+import Base from "../components/Base.astro";
 
-import '../styles/index.css';
+import "../styles/index.css";
 
-const TITLE = 'matheusinit';
-const DESCRIPTION = 'This is my blog';
+const TITLE = "matheusinit";
+const DESCRIPTION = "This is my blog";
 ---
 
 <Base title={TITLE} description={DESCRIPTION}>
-  <main class="mt-24 flex h-full w-full justify-center lg:mt-0">
-    <div class="flex w-full justify-center px-8 align-middle">
+  <main class="mt-20 flex w-full h-full justify-center lg:mt-0">
+    <div class="flex w-full justify-center px-8 items-center">
       <div class="my-auto">
-        <h1
-          class="mb-4 bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-center text-4xl font-bold text-transparent lg:text-start"
-        >
-          matheusinit
-        </h1>
+        <div class="mb-8 lg:mb-4">
+          <div
+            class="text-5xl flex items-center lg:justify-start gap-x-2 justify-center"
+          >
+            <h1
+              class="bg-gradient-to-r from-blue-600 to-purple-800 bg-clip-text font-bold text-transparent lg:text-start"
+            >
+              matheusinit
+            </h1>
+
+            <span class="text-4xl">&#x1F44B;</span>
+          </div>
+          <h3
+            class="font-medium text-gray-600 text-center text-lg lg:text-left"
+          >
+            <TypeAnimation
+              client:load
+              sequence={[
+                "Working with ReactJS",
+                1000,
+                "Working with Typescript",
+                1000,
+                "Working with Astro",
+                1000,
+                "Working with TailwindCSS",
+                1000,
+              ]}
+              wrapper="span"
+              repeat={9999}
+              speed={30}
+            />
+          </h3>
+        </div>
+
         <p
           class="mb-14 max-w-md text-center font-normal text-gray-600 lg:text-start"
         >
           Olá, me chamo Matheus. Sou apenas um outro desenvolvedor web que gosta
           de codar por codar seja lá o que for
         </p>
+
+        <div
+          class="text-sm mb-8 text-center font-medium text-gray-600 lg:text-left lg:mb-6"
+        >
+          Esse blog usa as tecnologias
+        </div>
 
         <div class="flex justify-between">
           <a
@@ -63,31 +98,10 @@ const DESCRIPTION = 'This is my blog';
             <img src="tailwindcss.svg" alt="React logo" class="w-20" />
           </a>
         </div>
-
-        <div
-          class="font-['Cascadia Code'] mx-auto mt-8 w-72 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 py-2 text-center text-xl font-medium text-white"
-        >
-          <TypeAnimation
-            client:load
-            sequence={[
-              'Working with React.js',
-              1000,
-              'Working with Typescript',
-              1000,
-              'Working with Astro',
-              1000,
-              'Working with Tailwindcss',
-              1000
-            ]}
-            wrapper="h3"
-            repeat={9999}
-            speed={30}
-          />
-        </div>
       </div>
 
-      <div class="ml-60 hidden w-[40rem] lg:block">
-        <Undraw name="programming" height="40rem" primaryColor="#2563eb" />
+      <div class="ml-60 hidden w-[33rem] lg:block">
+        <Undraw name="programming" height="33rem" primaryColor="#2563eb" />
       </div>
     </div>
   </main>
