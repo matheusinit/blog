@@ -1,4 +1,5 @@
 ---
+import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons";
 import Undraw from "react-undraw";
 import { TypeAnimation } from "react-type-animation";
 
@@ -48,12 +49,44 @@ const DESCRIPTION = "This is my blog";
           </h3>
         </div>
 
-        <p
-          class="mb-14 max-w-md text-center font-normal text-gray-600 lg:text-start"
-        >
-          Olá, me chamo Matheus. Sou apenas um outro desenvolvedor web que gosta
-          de codar por codar seja lá o que for
-        </p>
+        <div class="mb-20">
+          <p
+            class="mb-4 max-w-md text-center font-normal text-gray-600 lg:text-start"
+          >
+            Olá, me chamo Matheus. Sou apenas um outro desenvolvedor web que
+            gosta de codar por codar seja lá o que for
+          </p>
+
+          <div class="flex gap-x-2 justify-center lg:justify-start">
+            <a
+              href="https://github.com/matheusinit"
+              class="inline-flex items-center rounded-md shadow bg-gray-900 text-white px-4 py-2 hover:text-gray-400"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="inline-block">
+                <IconBrandGithub />
+              </div>
+              <div class="ml-1 inline-block align-middle text-lg font-medium">
+                Github
+              </div>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/matheus-silva13"
+              class="inline-flex items-center rounded-md shadow bg-blue-800 text-white px-4 py-2 hover:text-gray-400"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="inline-block">
+                <IconBrandLinkedin />
+              </div>
+              <div class="ml-1 inline-block align-middle text-lg font-medium">
+                LinkedIn
+              </div>
+            </a>
+          </div>
+        </div>
 
         <div
           class="text-sm mb-8 text-center font-medium text-gray-600 lg:text-left lg:mb-6"
