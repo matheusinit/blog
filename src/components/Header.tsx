@@ -9,7 +9,7 @@ interface Params {
 export const Header: FC<Params> = ({ activePagePath = '/' }) => {
   return (
     <header className="flex w-full justify-center py-8 text-base">
-      <nav className="w-64">
+      <nav className="w-60">
         <ul className="flex justify-between font-medium text-gray-600">
           <Link href="/" active={activePagePath === '/'}>
             Início

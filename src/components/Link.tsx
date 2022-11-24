@@ -8,9 +8,11 @@ interface Props {
 }
 
 export const Link: FC<Props> = ({ href = '/', children, active = false }) => {
-  const classes = 'cursor-pointer rounded py-1 px-4 text-white transition-colors'
+  const classes = 'cursor-pointer transition-colors'
 
-  const bgClasses = active ? 'bg-blue-600' : 'bg-blue-400 hover:bg-blue-600'
+  const bgClasses = active
+    ? 'text-slate-900'
+    : 'text-gray-500 hover:text-slate-900'
 
   return (
     <li className={`${classes} ${bgClasses}`}>
