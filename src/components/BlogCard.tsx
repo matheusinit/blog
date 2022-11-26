@@ -88,7 +88,7 @@ export const BlogCard: FC<Params> = ({
 
       {isNew && (
         <div className="absolute right-3.5 bottom-4 rounded bg-green-600 px-2 py-0.5 text-sm font-medium text-white">
-          New
+          Novo
         </div>
       )}
     </a>
