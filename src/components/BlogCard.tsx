@@ -12,6 +12,7 @@ interface Params
   title: string
   description?: string
   tags?: string[]
+  isNew?: boolean
   createdAt?: string
 }
 
@@ -49,13 +50,14 @@ export const BlogCard: FC<Params> = ({
   title,
   description,
   tags = [],
+  isNew = false,
   createdAt = defaultCreatedAt,
   ...rest
 }) => {
   return (
     <a
       {...rest}
-      className="flex w-[22rem] flex-col justify-between rounded border border-gray-200 px-4 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800  md:min-h-[12rem] md:w-96"
+      className="relative flex w-[22rem] flex-col justify-between rounded border border-gray-200 px-4 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800  md:min-h-[12rem] md:w-96"
     >
       <div className="flex flex-col pb-8">
         <div className="max-h-[4rem] text-xl font-medium">{title}</div>
@@ -83,6 +85,12 @@ export const BlogCard: FC<Params> = ({
           </div>
         ))}
       </div>
+
+      {isNew && (
+        <div className="absolute right-3.5 bottom-4 rounded bg-green-600 px-2 py-0.5 text-sm font-medium text-white">
+          New
+        </div>
+      )}
     </a>
   )
 }

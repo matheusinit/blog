@@ -3,6 +3,7 @@ import reactUuid from "react-uuid";
 
 import Base from "../components/Base.astro";
 import { BlogCard } from "../components/BlogCard";
+import { isPostRecent } from "../utils/isPostRecent";
 
 const posts = (await Astro.glob("./blog/*.{md, mdx}")).sort(
   (a, b) =>
@@ -24,6 +25,7 @@ const posts = (await Astro.glob("./blog/*.{md, mdx}")).sort(
           description={post.frontmatter.description}
           createdAt={post.frontmatter.pubDate}
           tags={post.frontmatter.tags}
+          isNew={isPostRecent(post.frontmatter.pubDate)}
           client:load
         />
       ))
