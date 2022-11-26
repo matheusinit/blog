@@ -21,6 +21,7 @@ const posts = (await Astro.glob("./blog/*.{md, mdx}")).sort(
           key={reactUuid()}
           href={post.url}
           title={post.frontmatter.title}
+          description={post.frontmatter.description}
           createdAt={post.frontmatter.pubDate}
           tags={post.frontmatter.tags}
           client:load

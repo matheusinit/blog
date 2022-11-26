@@ -10,6 +10,7 @@ interface Params
   HTMLAnchorElement
   > {
   title: string
+  description?: string
   tags?: string[]
   createdAt?: string
 }
@@ -46,6 +47,7 @@ const onKeyDownWrapper = (
 
 export const BlogCard: FC<Params> = ({
   title,
+  description,
   tags = [],
   createdAt = defaultCreatedAt,
   ...rest
@@ -53,11 +55,18 @@ export const BlogCard: FC<Params> = ({
   return (
     <a
       {...rest}
-      className="flex max-h-40 w-[22rem] flex-col rounded border border-gray-200 px-2 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800  md:max-h-48 md:w-96"
+      className="flex w-[22rem] flex-col rounded border border-gray-200 px-2 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800  md:min-h-[12rem] md:w-96"
     >
       <div className="flex flex-col pb-8">
         <div className="max-h-[4rem] text-xl font-medium">{title}</div>
-        <div className="font-light text-slate-500">{createdAt}</div>
+
+        {description != null && (
+          <p className="line-clamp-2 text-base font-normal text-slate-500">
+            {description}
+          </p>
+        )}
+
+        <div className="font-light text-slate-400">{createdAt}</div>
       </div>
 
       <div className="flex grow flex-wrap gap-x-2">
