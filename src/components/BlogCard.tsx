@@ -55,7 +55,7 @@ export const BlogCard: FC<Params> = ({
   return (
     <a
       {...rest}
-      className="flex w-[22rem] flex-col rounded border border-gray-200 px-2 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800  md:min-h-[12rem] md:w-96"
+      className="flex w-[22rem] flex-col justify-between rounded border border-gray-200 px-4 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800  md:min-h-[12rem] md:w-96"
     >
       <div className="flex flex-col pb-8">
         <div className="max-h-[4rem] text-xl font-medium">{title}</div>
@@ -69,7 +69,7 @@ export const BlogCard: FC<Params> = ({
         <div className="font-light text-slate-400">{createdAt}</div>
       </div>
 
-      <div className="flex grow flex-wrap gap-x-2">
+      <div className="flex flex-wrap gap-x-2">
         {tags.map((tag) => (
           <div
             className="inline-flex h-8 cursor-pointer items-center justify-center rounded-2xl bg-blue-400 px-3 text-sm text-white hover:text-gray-900"
