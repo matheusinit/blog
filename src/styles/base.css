@@ -11,3 +11,7 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+pre.astro-code {
+  @apply rounded p-4 text-base leading-snug;
+}
