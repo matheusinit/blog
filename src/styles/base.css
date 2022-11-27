@@ -12,6 +12,10 @@ body {
   box-sizing: border-box;
 }
 
-pre.astro-code {
-  @apply rounded p-4 text-base leading-snug;
+.prose pre.astro-code {
+  @apply rounded-md p-4 text-base leading-snug;
+}
+
+.prose p, .prose pre {
+  @apply mb-6 leading-normal;
 }
