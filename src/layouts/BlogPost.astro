@@ -1,7 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 
-import { CalendarIcon, TagIcon } from "@heroicons/react/24/solid";
+import { CalendarIcon, TagIcon, ClockIcon } from "@heroicons/react/24/solid";
 
 export interface Props {
   content: {
@@ -9,13 +9,14 @@ export interface Props {
     description: string;
     pubDate?: string;
     tags?: string[];
+    minutesRead: string;
   };
 }
 
 import "../styles/base.css";
 
 const {
-  content: { title, description, pubDate, tags },
+  content: { title, description, pubDate, tags, minutesRead },
 } = Astro.props;
 ---
 
@@ -41,7 +42,7 @@ const {
             <div class="mt-1">{pubDate}</div>
           </div>
 
-          <div class="flex items-center gap-x-1">
+          <div class="flex items-center gap-x-1 mb-1">
             <TagIcon className="h-6 w-6 text-gray-600 mr-1" />
             <div class="flex items-center">
               {
@@ -55,6 +56,11 @@ const {
                 ))
               }
             </div>
+          </div>
+
+          <div class="flex items-center gap-x-1 text-gray-600">
+            <ClockIcon className="h-6 w-6" />
+            <div class="mt-1">{minutesRead}</div>
           </div>
         </div>
 
