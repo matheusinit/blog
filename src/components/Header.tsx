@@ -8,9 +8,16 @@ interface Params {
 
 export const Header: FC<Params> = ({ activePagePath = '/' }) => {
   return (
-    <header className="flex w-full justify-center py-8 text-base">
-      <nav className="w-60">
-        <ul className="flex justify-between font-medium text-gray-600">
+    <header className="mx-auto flex w-full items-center justify-between py-8 px-5 text-base xl:max-w-screen-xl">
+      <a href="/" className="flex items-center gap-x-3">
+        <img src="./logo.svg" alt="Logo" className="w-8" />
+        <h1 className="hidden text-lg font-medium text-gray-700 hover:text-gray-900 md:block">
+          matheusinit
+        </h1>
+      </a>
+
+      <nav>
+        <ul className="flex justify-between gap-x-8 font-medium text-gray-600">
           <Link href="/" active={activePagePath === '/'}>
             Início
           </Link>
@@ -22,6 +29,8 @@ export const Header: FC<Params> = ({ activePagePath = '/' }) => {
           </Link>
         </ul>
       </nav>
+
+      <div></div>
     </header>
   )
 }
