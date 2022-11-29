@@ -14,7 +14,7 @@ const currentPage = activeNavLink ?? getPathPath(Astro.request.url);
   <BaseHead title={title} />
 </head>
 <body>
-  <Header activePagePath={currentPage} />
+  <Header activePagePath={currentPage} client:load />
 
   <slot />
 </body>
