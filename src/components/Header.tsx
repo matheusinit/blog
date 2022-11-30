@@ -42,7 +42,7 @@ export const Header: FC<Params> = ({ activePagePath = '/' }) => {
       <div>
         {!darkMode && (
           <MoonIcon
-            className="h-6 w-6 cursor-pointer text-gray-600 hover:animate-bounce hover:text-gray-800"
+            className="h-6 w-6 cursor-pointer text-gray-500 hover:animate-bounce hover:text-gray-800"
             onClick={() => {
               if (document.documentElement.classList.contains('dark')) {
                 document.documentElement.classList.remove('dark')
@@ -57,7 +57,7 @@ export const Header: FC<Params> = ({ activePagePath = '/' }) => {
 
         {darkMode && (
           <SunIcon
-            className="h-6 w-6 cursor-pointer text-gray-600 hover:text-gray-800"
+            className="h-6 w-6 cursor-pointer text-gray-500 hover:text-gray-800"
             onClick={() => {
               if (document.documentElement.classList.contains('dark')) {
                 document.documentElement.classList.remove('dark')
