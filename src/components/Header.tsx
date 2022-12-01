@@ -11,7 +11,13 @@ export const Header: FC<Params> = ({ activePagePath = '/' }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false)
 
   useEffect(() => {
-    const isOnDarkMode = document.documentElement.classList.contains('dark')
+    const isOnDarkMode =
+      document.documentElement.classList.contains('dark') ||
+      localStorage.getItem('app-theme') === 'dark'
+
+    if (isOnDarkMode) {
+      document.documentElement.classList.add('dark')
+    }
 
     setDarkMode(isOnDarkMode)
   }, [])
@@ -50,6 +56,8 @@ export const Header: FC<Params> = ({ activePagePath = '/' }) => {
                 document.documentElement.classList.add('dark')
               }
 
+              localStorage.setItem('app-theme', 'dark')
+
               setDarkMode((previous) => !previous)
             }}
           />
@@ -64,6 +72,8 @@ export const Header: FC<Params> = ({ activePagePath = '/' }) => {
               } else {
                 document.documentElement.classList.add('dark')
               }
+
+              localStorage.setItem('app-theme', 'light')
 
               setDarkMode((previous) => !previous)
             }}
