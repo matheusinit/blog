@@ -30,7 +30,7 @@ const DESCRIPTION = "This is my blog";
             <span class="text-4xl">&#x1F44B;</span>
           </div>
           <h3
-            class="font-medium text-gray-600 text-center text-lg lg:text-left"
+            class="font-medium dark:text-gray-200 text-gray-600 text-center text-lg lg:text-left"
           >
             <TypeAnimation
               client:load
@@ -53,7 +53,7 @@ const DESCRIPTION = "This is my blog";
 
         <div class="mb-20">
           <p
-            class="mb-4 max-w-md text-center font-normal text-gray-600 lg:text-start"
+            class="mb-4 max-w-md text-center font-normal text-gray-600 dark:text-gray-200 lg:text-start"
           >
             Olá, me chamo Matheus. Sou apenas um outro desenvolvedor web que
             gosta de codar por codar seja lá o que for
@@ -62,7 +62,7 @@ const DESCRIPTION = "This is my blog";
           <div class="flex gap-x-2 justify-center lg:justify-start">
             <a
               href="https://github.com/matheusinit"
-              class="inline-flex items-center rounded-md shadow bg-gray-900 text-white px-4 py-2 hover:text-gray-400"
+              class="inline-flex items-center rounded-md shadow dark:bg-gray-700 transition-colors bg-gray-900 text-white px-4 py-2 hover:text-gray-400"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -76,7 +76,7 @@ const DESCRIPTION = "This is my blog";
 
             <a
               href="https://www.linkedin.com/in/matheus-silva13"
-              class="inline-flex items-center rounded-md shadow bg-blue-800 text-white px-4 py-2 hover:text-gray-400"
+              class="inline-flex items-center rounded-md shadow dark:bg-blue-600 transition-colors bg-blue-800 text-white px-4 py-2 hover:text-gray-400"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -91,7 +91,7 @@ const DESCRIPTION = "This is my blog";
         </div>
 
         <div
-          class="text-sm mb-8 text-center font-medium text-gray-600 lg:text-left lg:mb-6"
+          class="text-sm mb-8 text-center font-medium dark:text-gray-200 text-gray-600 lg:text-left lg:mb-6"
         >
           Esse blog usa as tecnologias
         </div>
@@ -125,7 +125,16 @@ const DESCRIPTION = "This is my blog";
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="astro.svg" alt="React logo" class="w-10 lg:w-12" />
+            <img
+              src="astro.svg"
+              alt="React logo"
+              class="w-10 lg:w-12 dark:hidden"
+            />
+            <img
+              src="astro.dark.svg"
+              alt="React logo"
+              class="w-10 lg:w-12 hidden dark:block"
+            />
           </a>
 
           <a

@@ -11,8 +11,8 @@ export const Link: FC<Props> = ({ href = '/', children, active = false }) => {
   const classes = 'cursor-pointer transition-colors'
 
   const bgClasses = active
-    ? 'text-slate-900'
-    : 'text-gray-500 hover:text-slate-900'
+    ? 'text-slate-900 dark:text-gray-50'
+    : 'text-gray-500 hover:text-slate-900 dark:text-gray-400 hover:dark:text-gray-100'
 
   return (
     <li className={`${classes} ${bgClasses}`}>

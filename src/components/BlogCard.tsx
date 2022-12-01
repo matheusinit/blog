@@ -57,24 +57,26 @@ export const BlogCard: FC<Params> = ({
   return (
     <a
       {...rest}
-      className="relative flex w-[22rem] flex-col justify-between rounded border border-gray-200 bg-gray-50 px-4 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800  md:min-h-[12rem] md:w-96"
+      className="relative flex w-[22rem] flex-col justify-between rounded border border-gray-200 bg-gray-50 px-4 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800 dark:border-gray-600 dark:bg-slate-700 dark:text-gray-300 dark:hover:text-gray-200  md:min-h-[12rem] md:w-96"
     >
       <div className="flex flex-col pb-8">
         <div className="max-h-[4rem] text-xl font-medium">{title}</div>
 
         {description != null && (
-          <p className="line-clamp-2 text-base font-normal text-gray-600">
+          <p className="line-clamp-2 text-base font-normal text-gray-600 dark:text-gray-400">
             {description}
           </p>
         )}
 
-        <div className="font-light text-slate-400">{createdAt}</div>
+        <div className="font-light text-slate-400 dark:text-slate-500">
+          {createdAt}
+        </div>
       </div>
 
       <div className="flex flex-wrap gap-x-2">
         {tags.map((tag) => (
           <div
-            className="inline-flex h-8 cursor-pointer items-center justify-center rounded-2xl bg-blue-400 px-3 text-sm text-white hover:text-gray-900"
+            className="inline-flex h-8 cursor-pointer items-center justify-center rounded-2xl bg-blue-400 px-3 text-sm text-white hover:bg-blue-600 dark:border dark:border-gray-600 dark:bg-slate-600 dark:hover:border-gray-500"
             key={reactUuid()}
             onClick={(event) => onClickWrapper(event, tag)}
             onKeyDown={(event) => onKeyDownWrapper(event, tag)}
