@@ -1,5 +1,9 @@
 ---
-import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons";
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconChevronRight,
+} from "@tabler/icons";
 import Undraw from "react-undraw";
 import { TypeAnimation } from "react-type-animation";
 
@@ -14,7 +18,7 @@ const DESCRIPTION = "This is my blog";
 <Base title={TITLE} description={DESCRIPTION}>
   <main class="mt-20 flex w-full h-full justify-center lg:mt-0">
     <div
-      class="flex w-full xl:max-w-screen-xl px-5 lg:justify-between items-center justify-center"
+      class="flex w-full xl:max-w-screen-xl lg:justify-between items-center justify-center"
     >
       <div class="my-auto">
         <div class="mb-8 lg:mb-4">
@@ -51,7 +55,7 @@ const DESCRIPTION = "This is my blog";
           </h3>
         </div>
 
-        <div class="mb-20">
+        <div class="mb-16">
           <p
             class="mb-4 max-w-md text-center font-normal text-gray-600 dark:text-gray-200 lg:text-start"
           >
@@ -62,7 +66,7 @@ const DESCRIPTION = "This is my blog";
           <div class="flex gap-x-2 justify-center lg:justify-start">
             <a
               href="https://github.com/matheusinit"
-              class="inline-flex items-center rounded-md shadow dark:bg-gray-700 transition-colors bg-gray-900 text-white px-4 py-2 hover:text-gray-400"
+              class="inline-flex items-center rounded-md shadow dark:bg-gray-800 transition-colors bg-gray-900 text-white px-4 py-2 hover:text-gray-400"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -146,6 +150,17 @@ const DESCRIPTION = "This is my blog";
             <img src="tailwindcss.svg" alt="React logo" class="w-10 lg:w-12" />
           </a>
         </div>
+
+        <a
+          href="/blog"
+          role="button"
+          class="inline-flex items-center border mt-16 text-gray-700 border-gray-700 hover:bg-gray-700 hover:text-gray-50 dark:text-indigo-300 dark:border-indigo-500 dark:hover:bg-indigo-600 dark:hover:border-indigo-600 transition-colors dark:bg-transparent dark:hover:text-gray-200 pl-4 pr-2 py-2 rounded-md duration-400"
+        >
+          <span class="font-medium text-base">Blog</span>
+          <div class="inline-block">
+            <IconChevronRight />
+          </div>
+        </a>
       </div>
 
       <div class="ml-60 hidden w-[33rem] lg:block">
