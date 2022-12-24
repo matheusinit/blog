@@ -57,7 +57,7 @@ export const BlogCard: FC<Params> = ({
   return (
     <a
       {...rest}
-      className="relative flex w-[22rem] flex-col justify-between rounded border border-gray-200 bg-gray-50 px-4 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800 dark:border-gray-700 dark:bg-slate-800 dark:text-gray-300 dark:hover:text-gray-200  md:min-h-[12rem] md:w-96"
+      className="relative flex w-[22rem] flex-col justify-between rounded-md border border-gray-200 bg-gray-50 px-4 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-200  md:min-h-[12rem] md:w-96"
     >
       <div className="flex flex-col pb-8">
         <div className="max-h-[4rem] text-xl font-medium">{title}</div>

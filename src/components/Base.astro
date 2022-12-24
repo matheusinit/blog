@@ -2,18 +2,15 @@
 import { Header } from "../components/Header";
 
 import "../styles/base.css";
-import { getPathPath } from "../utils/getPagePath";
 import BaseHead from "./BaseHead.astro";
 
-const { title, description, activeNavLink } = Astro.props;
-
-const currentPage = activeNavLink ?? getPathPath(Astro.request.url);
+const { title } = Astro.props;
 ---
 
 <head>
   <BaseHead title={title} />
 </head>
-<body class="dark:bg-slate-700 transition-colors duration-500">
+<body class="dark:bg-slate-800 transition-colors">
   <Header client:load />
 
   <slot />

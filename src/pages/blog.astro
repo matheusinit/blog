@@ -1,17 +1,24 @@
 ---
 import reactUuid from "react-uuid";
-
 import { IconHome } from "@tabler/icons";
 
 import Base from "../components/Base.astro";
 import { BlogCard } from "../components/BlogCard";
 import { isPostRecent } from "../utils/isPostRecent";
 
-const posts = (await Astro.glob("./blog/*.{md, mdx}")).sort(
-  (a, b) =>
-    new Date(b.frontmatter.pubDate).valueOf() -
-    new Date(a.frontmatter.pubDate).valueOf()
-);
+let posts: Record<string, any> = [];
+
+try {
+  posts = (await Astro.glob("./blog/*.{md, mdx}"))
+    .filter((post) => !post.frontmatter.draft)
+    .sort(
+      (a, b) =>
+        new Date(b.frontmatter.pubDate).valueOf() -
+        new Date(a.frontmatter.pubDate).valueOf()
+    );
+} catch (err) {
+  posts = [];
+}
 ---
 
 <Base>
@@ -20,7 +27,7 @@ const posts = (await Astro.glob("./blog/*.{md, mdx}")).sort(
       <a
         href="/"
         role="button"
-        class="inline-flex items-center gap-x-2 dark:bg-gray-800 px-3 py-2 rounded-md dark:text-gray-400 dark:hover:text-gray-200 text-gray-100 bg-gray-600 hover:text-gray-400"
+        class="inline-flex items-center gap-x-2 dark:bg-gray-700 px-3 py-2 rounded-md dark:text-gray-200 dark:hover:text-gray-50 text-gray-100 bg-gray-600 hover:text-gray-400"
       >
         <span class="mb-0.5">
           <IconHome />
@@ -33,19 +40,30 @@ const posts = (await Astro.glob("./blog/*.{md, mdx}")).sort(
       class="flex flex-col justify-center items-center gap-8 py-10 md:flex-row md:flex-wrap md:gap-8 md:justify-around lg:justify-between"
     >
       {
-        posts.map((post) => (
-          <BlogCard
-            key={reactUuid()}
-            href={post.url}
-            title={post.frontmatter.title}
-            description={post.frontmatter.description}
-            createdAt={post.frontmatter.pubDate}
-            tags={post.frontmatter.tags}
-            isNew={isPostRecent(post.frontmatter.pubDate)}
-            client:load
-          />
-        ))
+        posts.length == 0 && (
+          <div class="dark:text-white w-full text-center text-xl font-medium">
+            My bad. Postei nada ainda :/
+          </div>
+        )
       }
+
+      <>
+        {
+          posts.length > 0 &&
+            posts.map((post) => (
+              <BlogCard
+                key={reactUuid()}
+                href={post.url}
+                title={post.frontmatter.title}
+                description={post.frontmatter.description}
+                createdAt={post.frontmatter.pubDate}
+                tags={post.frontmatter.tags}
+                isNew={isPostRecent(post.frontmatter.pubDate)}
+                client:load
+              />
+            ))
+        }
+      </>
     </div>
   </div>
 </Base>
