@@ -2,7 +2,11 @@
 import BaseHead from "../components/BaseHead.astro";
 
 import { IconChevronLeft } from "@tabler/icons";
-import { CalendarIcon, TagIcon, ClockIcon } from "@heroicons/react/24/solid";
+import {
+  CalendarIcon,
+  TagIcon,
+  ClockIcon,
+} from "@heroicons/react/24/solid/index";
 
 export interface Props {
   content: {
@@ -55,13 +59,14 @@ const {
           <div
             class="flex items-center gap-x-2 mb-1 text-gray-600 dark:text-gray-400"
           >
-            <CalendarIcon className="h-6 w-6" />
+            <CalendarIcon className="h-6 w-6" client:only="react" />
             <div class="mt-1">{pubDate}</div>
           </div>
 
           <div class="flex items-center gap-x-1 mb-1">
             <TagIcon
               className="h-6 w-6 text-gray-600 dark:text-gray-400 mr-1 "
+              client:only="react"
             />
             <div class="flex items-center gap-x-2">
               {
@@ -80,7 +85,7 @@ const {
           <div
             class="flex items-center gap-x-1 text-gray-600 dark:text-gray-400"
           >
-            <ClockIcon className="h-6 w-6" />
+            <ClockIcon className="h-6 w-6" client:only="react" />
             <div class="mt-1">{minutesRead}</div>
           </div>
         </div>

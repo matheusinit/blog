@@ -23,7 +23,8 @@
         "react",
         "jsx-a11y",
         "astro",
-        "tailwindcss"
+        "tailwindcss",
+        "standard"
     ],
     "rules": {
         "semi": "off",

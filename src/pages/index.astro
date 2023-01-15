@@ -71,7 +71,7 @@ const DESCRIPTION = "This is my blog";
               rel="noopener noreferrer"
             >
               <div class="inline-block">
-                <IconBrandGithub />
+                <IconBrandGithub client:only="react" />
               </div>
               <div class="ml-1 inline-block align-middle text-lg font-medium">
                 Github
@@ -85,7 +85,7 @@ const DESCRIPTION = "This is my blog";
               rel="noopener noreferrer"
             >
               <div class="inline-block">
-                <IconBrandLinkedin />
+                <IconBrandLinkedin client:only="react" />
               </div>
               <div class="ml-1 inline-block align-middle text-lg font-medium">
                 LinkedIn
@@ -163,14 +163,19 @@ const DESCRIPTION = "This is my blog";
             </span>
             <span class="font-medium text-base"></span>
             <div class="inline-block">
-              <IconChevronRight />
+              <IconChevronRight client:only="react" />
             </div>
           </a>
         </div>
       </div>
 
       <div class="ml-60 hidden w-[33rem] lg:block">
-        <Undraw name="programming" height="33rem" primaryColor="#2563eb" />
+        <Undraw
+          name="programming"
+          height="33rem"
+          primaryColor="#2563eb"
+          client:only="react"
+        />
       </div>
     </div>
   </main>

@@ -1,50 +1,53 @@
-import React from 'react'
-import type { FC } from 'react'
-import reactUuid from 'react-uuid'
-import { format } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
+import React from "react";
+import type { FC } from "react";
+import reactUuid from "react-uuid";
+import { format } from "date-fns";
+
+import ptBrPkg from "date-fns/locale/pt-BR/index";
+
+const { ptBR } = ptBrPkg;
 
 interface Params
   extends React.DetailedHTMLProps<
-  React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  HTMLAnchorElement
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
   > {
-  title: string
-  description?: string
-  tags?: string[]
-  isNew?: boolean
-  createdAt?: string
+  title: string;
+  description?: string;
+  tags?: string[];
+  isNew?: boolean;
+  createdAt?: string;
 }
 
-const defaultCreatedAt = format(new Date(), 'PP', { locale: ptBR })
+const defaultCreatedAt = format(new Date(), "PP", { locale: ptBR });
 
 const onClickWrapper = (
   event:
-  | React.MouseEvent<HTMLDivElement, MouseEvent>
-  | React.KeyboardEvent<HTMLDivElement>,
+    | React.MouseEvent<HTMLDivElement, MouseEvent>
+    | React.KeyboardEvent<HTMLDivElement>,
   tag: string
 ) => {
-  event.preventDefault()
+  event.preventDefault();
 
-  navigateTagPage(tag)
-}
+  navigateTagPage(tag);
+};
 
 const navigateTagPage = (tag: string) => {
-  const cleanUrlResource = tag.toLowerCase().replaceAll(' ', '-')
+  const cleanUrlResource = tag.toLowerCase().replaceAll(" ", "-");
 
-  const url = new URL(`/tags/${cleanUrlResource}`, location.origin)
+  const url = new URL(`/tags/${cleanUrlResource}`, location.origin);
 
-  window.open(url, '_self')
-}
+  window.open(url, "_self");
+};
 
 const onKeyDownWrapper = (
   event: React.KeyboardEvent<HTMLDivElement>,
   tag: string
 ) => {
-  if (event.key === 'Enter') {
-    navigateTagPage(tag)
+  if (event.key === "Enter") {
+    navigateTagPage(tag);
   }
-}
+};
 
 export const BlogCard: FC<Params> = ({
   title,
@@ -94,5 +97,5 @@ export const BlogCard: FC<Params> = ({
         </div>
       )}
     </a>
-  )
-}
+  );
+};
