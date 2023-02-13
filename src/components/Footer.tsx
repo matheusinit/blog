@@ -15,10 +15,10 @@ export const Footer = () => {
       </div>
 
       <div className="flex gap-x-2">
-        <a href="/">
+        <a href="https://github.com/matheusinit">
           <IconBrandGithub className="h-8 w-8 hover:rotate-12 hover:text-gray-600 dark:hover:text-gray-200" />
         </a>
-        <a href="/">
+        <a href="https://www.linkedin.com/in/matheus-silva13">
           <IconBrandLinkedin className="h-8 w-8 hover:rotate-12 hover:text-gray-600 dark:hover:text-gray-200" />
         </a>
       </div>
