@@ -2,11 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 
 import { IconChevronLeft } from "@tabler/icons";
-import {
-  CalendarIcon,
-  TagIcon,
-  ClockIcon,
-} from "@heroicons/react/24/solid/index";
+import { CalendarIcon, TagIcon, ClockIcon } from "@heroicons/react/24/solid";
 
 export interface Props {
   content: {
@@ -40,12 +36,12 @@ const {
         role="button"
         class="inline-flex items-center pl-2 pr-4 py-2 rounded-md text-gray-100 bg-gray-600 hover:text-gray-400 mb-6 dark:bg-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
       >
-        <IconChevronLeft />
+        <IconChevronLeft client:only="react" />
         <span class="font-medium text-sm">Voltar</span>
       </a>
 
       <main>
-        <div class="mb-8 border-b pb-6 border-gray-300 dark:border-slate-600">
+        <div class="mb-8 border-b pb-6 border-gray-300 dark:border-slate-700">
           <div class="mb-2">
             <h1 class="text-4xl font-bold text-gray-600 dark:text-gray-100">
               {title}

@@ -1,5 +1,8 @@
 ---
 import Base from "../../components/Base.astro";
+import { BlogCard } from "../../components/BlogCard";
+import reactUuid from "react-uuid";
+import { isPostRecent } from "../../utils/isPostRecent";
 
 export async function getStaticPaths() {
   const posts = await Astro.glob("../blog/*.{md, mdx}");
@@ -9,8 +12,8 @@ export async function getStaticPaths() {
   ];
 
   const data = uniqueTags.map((tag) => {
-    const filteredPosts = posts.filter((post) =>
-      post.frontmatter.tags.includes(tag)
+    const filteredPosts = posts.filter(
+      (post) => post.frontmatter.tags.includes(tag) && !post.frontmatter.draft
     );
     return {
       params: { tag: tag.toLowerCase() },
@@ -22,8 +25,38 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.params;
+const { posts } = Astro.props;
+console.log(posts);
 ---
 
 <Base title={tag} activeNavLink="/blog">
-  <p class="text-center">Posts tagged with {tag}</p>
+  <div class="p-8 xl:max-w-screen-xl lg:mx-auto xl:px-0">
+    <p class="dark:text-white text-4xl dark:hover:text-gray-300 text-gray-600">
+      #{tag}
+    </p>
+
+    <div class="flex justify-center mt-8 md:justify-start flex-wrap">
+      {
+        posts.map((post) => (
+          <BlogCard
+            key={reactUuid()}
+            href={post.url}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            createdAt={post.frontmatter.pubDate}
+            tags={post.frontmatter.tags}
+            isNew={isPostRecent(post.frontmatter.pubDate)}
+            client:load
+          />
+        ))
+      }
+      {
+        posts.length === 0 && (
+          <div class="p-4 border border-gray-300 text-zinc-800 dark:text-gray-200 mx-auto dark:border-slate-600 rounded-lg dark:hover:bg-gray-200 dark:hover:text-zinc-700 transition-colors ">
+            Não há postagens nessa categoria
+          </div>
+        )
+      }
+    </div>
+  </div>
 </Base>
