@@ -38,8 +38,8 @@ const { title, description } = Astro.props;
 
 <script>
   if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
+    localStorage.getItem("app-theme") === "dark" ||
+    (!("app-theme" in localStorage) &&
       window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
     document.documentElement.classList.add("dark");
