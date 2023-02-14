@@ -54,4 +54,3 @@ O Astro possuí outras funcionalidades muito mais interessante. Veja mais na pr�
     <a className="hover:text-gray-600 dark:hover:text-gray-400" href="https://docs.astro.build/en/guides/server-side-rendering/">Server⁠-⁠side Rendering - Astro Blog</a>
   </li>
 </ul>
-
