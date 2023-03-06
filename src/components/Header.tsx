@@ -18,10 +18,9 @@ export const Header: FC = () => {
   }, []);
 
   return (
-    <header className="mx-auto flex w-full items-center justify-between p-8 text-base xl:max-w-screen-xl xl:px-0">
+    <header className="mx-auto flex w-full items-center justify-between p-8 text-base lg:max-w-screen-lg xl:px-0">
       <a href="/" className="flex items-center gap-x-3">
-        <img src="/logo.svg" alt="Logo" className="w-8" />
-        <h1 className="hidden text-lg font-medium text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-50 md:block">
+        <h1 className="hidden text-xl font-semibold text-white dark:text-gray-200 dark:hover:text-gray-50 md:block">
           matheusinit
         </h1>
       </a>

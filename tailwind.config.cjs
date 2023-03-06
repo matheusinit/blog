@@ -1,42 +1,32 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  darkMode: "class",
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        "violet-dark": "#24283b",
+      },
+    },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [require("@tailwindcss/line-clamp")],
   fontFamily: {
-    sans: [
-      'system-ui',
-      '-apple-system',
-      'Roboto',
-      '"Segoe UI"',
-      '"Helvetica Neue"',
-      'Arial',
-      '"Noto Sans"',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-      '"Noto Color Emoji"'
-    ],
-    serif: ['ui-serif', 'Georgia'],
+    sans: ["Comfortaa", "system-ui", "-apple-system", "Roboto"],
+    serif: ["ui-serif", "Georgia"],
     mono: [
-      '"Cascadia Mono"',
-      '"JetBrains Mono"',
-      'monospace',
-      'ui-monospace',
-      'Menlo',
-      'Monaco',
-      '"Segoe UI Mono"',
       '"Roboto Mono"',
+      '"JetBrains Mono"',
+      "monospace",
+      "ui-monospace",
+      "Menlo",
+      "Monaco",
+      '"Segoe UI Mono"',
       '"Oxygen Mono"',
       '"Ubuntu Monospace"',
       '"Source Code Pro"',
       '"Fira Mono"',
       '"Droid Sans Mono"',
-      '"Courier New"'
-    ]
-  }
+      '"Courier New"',
+    ],
+  },
 };
