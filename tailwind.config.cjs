@@ -5,9 +5,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "violet-dark": "#1a1b26",
-        "violet-not-much-dark": "#24283b",
-        "app-red-base": "#f7768e"
+        "app-violet-dark": "#1a1b26",
+        "app-violet-base": "#24283b",
+        "app-red-base": "#f7768e",
       },
     },
   },
