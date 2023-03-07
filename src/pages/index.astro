@@ -8,30 +8,33 @@ const DESCRIPTION = "This is my blog";
 ---
 
 <Base title={TITLE} description={DESCRIPTION}>
-  <main class="text-white">
-    <div class="flex justify-start w-full items-center">
+  <main class="">
+    <div class="flex justify-start w-full items-center text-gray-50">
       <h3 class="font-bold text-3xl">Olá, eu sou Matheus &#128512;</h3>
     </div>
 
-    <p class="font-normal mt-8 text-lg">
-      Apaixonado por software, independente da tecnologia. Nesse momento
-      aprendendo <span class="font-bold hover:text-app-red-base">CI/CD</span> e <span
-        class="font-bold hover:text-app-red-base">testes</span
-      >.
-    </p>
+    <div class="text-gray-200">
+      <p class="font-normal mt-8 text-lg">
+        Apaixonado por software, independente da tecnologia. Nesse momento
+        aprendendo <span class="font-bold hover:text-app-red-base">CI/CD</span> e
+        <span class="font-bold hover:text-app-red-base">testes</span>.
+      </p>
 
-    <p class="font-normal mt-8 text-lg">
-      No útlimo semestre de Análise e Desenvolvimento de Sistemas no IFRN. Meu
-      objetivo atual é trabalhar como Desenvolvedor de Software Júnior e
-      terminar o <a
-        href="https://www.amazon.com.br/Compiladores-princ%C3%ADpios-ferramentas-Alfred-Aho/dp/8588639246"
-        class="underline hover:text-app-red-base font-bold underline-offset-4"
-        target="_blank">livro do Dragão</a
-      > &#128517;
-    </p>
+      <p class="font-normal mt-8 text-lg">
+        No útlimo semestre de Análise e Desenvolvimento de Sistemas no IFRN. Meu
+        objetivo atual é trabalhar como Desenvolvedor de Software Júnior e
+        terminar o <a
+          href="https://www.amazon.com.br/Compiladores-princ%C3%ADpios-ferramentas-Alfred-Aho/dp/8588639246"
+          class="underline hover:text-app-red-base font-bold underline-offset-4"
+          target="_blank">livro do Dragão</a
+        > &#128517;
+      </p>
+    </div>
 
     <section>
-      <h4 class="text-2xl font-bold mt-14 mb-6">&#128736;&#65039; Projetos</h4>
+      <h4 class="text-2xl font-bold mt-14 mb-6 text-gray-50">
+        &#128736;&#65039; Projetos
+      </h4>
 
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-3 auto-cols-max">
         <ProjectCard
