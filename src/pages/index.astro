@@ -1,6 +1,6 @@
 ---
-import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons";
 import Base from "../components/Base.astro";
+import Contacts from "../components/home/contacts.astro";
 import ProjectCard from "../components/home/project-card.astro";
 
 const TITLE = "home • matheusinit";
@@ -8,9 +8,7 @@ const DESCRIPTION = "This is my blog";
 ---
 
 <Base title={TITLE} description={DESCRIPTION}>
-  <main
-    class="mt-20 flex flex-col w-full h-full justify-center lg:mt-0 mx-auto md:px-8 xl:px-0 md:max-w-screen-md text-white"
-  >
+  <main class="text-white">
     <div class="flex justify-start w-full items-center">
       <h3 class="font-bold text-3xl">Olá, eu sou Matheus &#128512;</h3>
     </div>
@@ -31,10 +29,11 @@ const DESCRIPTION = "This is my blog";
         target="_blank">livro do Dragão</a
       > &#128517;
     </p>
+
     <section>
       <h4 class="text-2xl font-bold mt-14 mb-6">&#128736;&#65039; Projetos</h4>
 
-      <div class="grid grid-cols-2 gap-3 auto-cols-max">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-3 auto-cols-max">
         <ProjectCard
           title="authentication-api"
           description="Uma API para autenticação de usuário utilizando testes e SOLID"
@@ -69,24 +68,6 @@ const DESCRIPTION = "This is my blog";
 
     <hr class="border-app-violet-base" />
 
-    <div class="flex flex-col justify-center items-center mt-6 text-gray-500">
-      <span>Se interessou? Contate me no LinkedIn</span>
-
-      <div class="mt-3 flex gap-x-3">
-        <a href="https://github.com/matheusinit" target="_blank">
-          <IconBrandGithub
-            client:load
-            className="h-8 w-8 hover:text-white text-gray-400 hover:scale-110"
-          />
-        </a>
-
-        <a href="https://github.com/matheusinit" target="_blank">
-          <IconBrandLinkedin
-            client:load
-            className="h-8 w-8 hover:text-white text-gray-400 hover:scale-110"
-          />
-        </a>
-      </div>
-    </div>
+    <Contacts />
   </main>
 </Base>
