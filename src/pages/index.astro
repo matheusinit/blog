@@ -1,8 +1,9 @@
 ---
+import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons";
 import Base from "../components/Base.astro";
 import ProjectCard from "../components/home/project-card.astro";
 
-const TITLE = "matheusinit";
+const TITLE = "home • matheusinit";
 const DESCRIPTION = "This is my blog";
 ---
 
@@ -66,7 +67,21 @@ const DESCRIPTION = "This is my blog";
     <div class="flex flex-col justify-center items-center mt-6 text-gray-500">
       <span>Se interessou? Contate me no LinkedIn</span>
 
-      <div class="mt-3">Icons</div>
+      <div class="mt-3 flex gap-x-3">
+        <a href="https://github.com/matheusinit" target="_blank">
+          <IconBrandGithub
+            client:load
+            className="h-8 w-8 hover:text-white text-gray-400 hover:scale-110"
+          />
+        </a>
+
+        <a href="https://github.com/matheusinit" target="_blank">
+          <IconBrandLinkedin
+            client:load
+            className="h-8 w-8 hover:text-white text-gray-400 hover:scale-110"
+          />
+        </a>
+      </div>
     </div>
   </main>
 </Base>
