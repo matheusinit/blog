@@ -1,16 +1,122 @@
 ---
 import Base from "../components/Base.astro";
 
-import "../styles/index.css";
-
 const TITLE = "matheusinit";
 const DESCRIPTION = "This is my blog";
 ---
 
 <Base title={TITLE} description={DESCRIPTION}>
   <main
-    class="mt-20 flex w-full h-full justify-center lg:mt-0 mx-auto md:px-8 xl:px-0 xl:max-w-screen-xl"
+    class="mt-20 flex flex-col w-full h-full justify-center lg:mt-0 mx-auto md:px-8 xl:px-0 md:max-w-screen-md text-white"
   >
-    <h3></h3>
+    <div class="flex justify-start w-full items-center">
+      <h3 class="font-bold text-3xl">Olá, eu sou Matheus &#128512;</h3>
+    </div>
+
+    <p class="font-normal mt-8 text-lg">
+      Apaixonado por software, independente da tecnologia. Atualmente aprendendo
+      o que eu posso e tentando dar meu melhor. Nesse momento aprendendo <span
+        class="font-bold hover:text-[#f7768e]">CI/CD</span
+      > e <span class="font-bold hover:text-[#f7768e]">testes</span>.
+    </p>
+
+    <p class="font-normal mt-8 text-lg">
+      Meu objetivo atual é trabalhar como desenvolvedor de software júnior e
+      terminar o <a
+        href="https://www.amazon.com.br/Compiladores-princ%C3%ADpios-ferramentas-Alfred-Aho/dp/8588639246"
+        class="underline hover:text-[#f7768e] font-bold underline-offset-4"
+        target="_blank">livro do Dragão</a
+      > &#128517;
+    </p>
+
+    <h4 class="text-2xl font-bold mt-14 mb-6">&#128736;&#65039; Projetos</h4>
+
+    <div class="grid grid-cols-2 gap-3 auto-cols-max">
+      <div
+        class="border bg-violet-dark/95 border-violet-not-much-dark h-36 rounded-md p-4 cursor-pointer hover:bg-[#24283b] transition-colors"
+      >
+        <div>
+          <span class="font-medium text-lg text-[#f7768e]"
+            >authentication-api</span
+          >
+
+          <p class="text-sm mt-1 text-gray-300">
+            Uma API para autenticação de usuário utilizando testes e SOLID
+          </p>
+
+          <div class="mt-3 flex items-center gap-x-2 text-gray-300">
+            <span>•</span>
+            <span class="text-sm">Typescript</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="border bg-violet-dark/95 border-violet-not-much-dark h-36 rounded-md p-4 cursor-pointer hover:bg-[#24283b] transition-colors"
+      >
+        <div>
+          <span class="font-medium text-lg text-[#f7768e]"
+            >authentication-api</span
+          >
+
+          <p class="text-sm mt-1 text-gray-300">
+            Uma API para autenticação de usuário utilizando testes e SOLID
+          </p>
+
+          <div class="mt-3 flex items-center gap-x-2 text-gray-300">
+            <span>•</span>
+            <span class="text-sm">Typescript</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="border bg-violet-dark/95 border-violet-not-much-dark h-36 rounded-md p-4 cursor-pointer hover:bg-[#24283b] transition-colors"
+      >
+        <div>
+          <span class="font-medium text-lg text-[#f7768e]"
+            >authentication-api</span
+          >
+
+          <p class="text-sm mt-1 text-gray-300">
+            Uma API para autenticação de usuário utilizando testes e SOLID
+          </p>
+
+          <div class="mt-3 flex items-center gap-x-2 text-gray-300">
+            <span>•</span>
+            <span class="text-sm">Typescript</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="border bg-violet-dark/95 border-violet-not-much-dark h-36 rounded-md p-4 cursor-pointer hover:bg-[#24283b] transition-colors"
+      >
+        <div>
+          <span class="font-medium text-lg text-[#f7768e]"
+            >authentication-api</span
+          >
+
+          <p class="text-sm mt-1 text-gray-300">
+            Uma API para autenticação de usuário utilizando testes e SOLID
+          </p>
+
+          <div class="mt-3 flex items-center gap-x-2 text-gray-300">
+            <span>•</span>
+            <span class="text-sm">Typescript</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-20"></div>
+
+    <hr class="border-violet-not-much-dark" />
+
+    <div class="flex flex-col justify-center items-center mt-6 text-gray-500">
+      <span>Se interessou? Contate me no LinkedIn</span>
+
+      <div class="mt-3">Icons</div>
+    </div>
   </main>
 </Base>

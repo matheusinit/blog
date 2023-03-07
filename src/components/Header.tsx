@@ -18,7 +18,7 @@ export const Header: FC = () => {
   }, []);
 
   return (
-    <header className="mx-auto flex w-full items-center justify-between p-8 text-base lg:max-w-screen-lg xl:px-0">
+    <header className="mx-auto flex w-full items-center justify-between p-8 text-base md:max-w-screen-md xl:px-0">
       <a href="/" className="flex items-center gap-x-3">
         <h1 className="hidden text-xl font-semibold text-white dark:text-gray-200 dark:hover:text-gray-50 md:block">
           matheusinit
