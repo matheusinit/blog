@@ -1,6 +1,7 @@
 ---
 import Base from "../components/Base.astro";
 import Contacts from "../components/home/contacts.astro";
+import Nav from "../components/home/nav.astro";
 import ProjectCard from "../components/home/project-card.astro";
 
 const TITLE = "home • matheusinit";
@@ -12,6 +13,8 @@ const DESCRIPTION = "This is my blog";
     <div class="flex justify-start w-full items-center text-gray-50">
       <h3 class="font-bold text-3xl">Olá, eu sou Matheus &#128512;</h3>
     </div>
+
+    <Nav />
 
     <div class="text-gray-200">
       <p class="font-normal mt-8 text-lg">
