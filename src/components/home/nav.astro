@@ -1,10 +1,26 @@
-<nav class="text-app-red-base mt-4 text-base font-semibold">
+---
+import { clsx } from "clsx";
+
+const { pathname } = Astro.url;
+---
+
+<nav class="text-app-red-base mt-2 text-base font-semibold">
   <ul class="flex gap-x-4">
-    <li class="underline hover:underline underline-offset-4">
-      <a href="">Home</a>
+    <li
+      class={clsx(
+        pathname === "/" && "underline",
+        "hover:underline underline-offset-4"
+      )}
+    >
+      <a href="/">Home</a>
     </li>
 
-    <li class="hover:underline underline-offset-4">
+    <li
+      class={clsx(
+        pathname === "/blog" && "underline",
+        "hover:underline underline-offset-4"
+      )}
+    >
       <a href="/blog">Blog</a>
     </li>
 
