@@ -1,5 +1,5 @@
 ---
-import { clsx } from "clsx";
+import { clsx } from 'clsx';
 
 const { pathname } = Astro.url;
 ---
@@ -8,8 +8,8 @@ const { pathname } = Astro.url;
   <ul class="flex gap-x-4">
     <li
       class={clsx(
-        pathname === "/" && "underline",
-        "hover:underline underline-offset-4"
+        pathname === '/' && 'underline',
+        'underline-offset-4 hover:underline'
       )}
     >
       <a href="/">Home</a>
@@ -17,15 +17,15 @@ const { pathname } = Astro.url;
 
     <li
       class={clsx(
-        pathname === "/blog" && "underline",
-        "hover:underline underline-offset-4"
+        pathname === '/blog' && 'underline',
+        'underline-offset-4 hover:underline'
       )}
     >
       <a href="/blog">Blog</a>
     </li>
 
-    <li class="hover:underline underline-offset-4">
-      <a href="http://github.com/matheusinit" target="_blank">Github</a>
+    <li class="underline-offset-4 hover:underline">
+      <a href="http://github.com/matheusinit" target="_blank" rel="noreferrer">Github</a>
     </li>
   </ul>
 </nav>

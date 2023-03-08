@@ -6,17 +6,17 @@ type Props = {
   href?: string;
 };
 
-const { title, description, language, href = "/" } = Astro.props;
+const { title, description, language, href = '/' } = Astro.props as Props;
 ---
 
-<a href={href} target="_blank">
+<a href={href} target="_blank" rel="noreferrer">
   <div
-    class="border bg-app-violet-dark/95 border-app-violet-base h-36 rounded-md p-4 cursor-pointer hover:bg-app-violet-darker hover:border-app-violet-darker transition-colors"
+    class="bg-app-violet-dark/95 border-app-violet-base hover:bg-app-violet-darker hover:border-app-violet-darker h-36 cursor-pointer rounded-md border p-4 transition-colors"
   >
-    <div class="flex flex-col h-full">
-      <span class="font-medium text-lg text-app-red-base">{title}</span>
+    <div class="flex h-full flex-col">
+      <span class="text-app-red-base text-lg font-medium">{title}</span>
 
-      <p class="text-sm mt-1 text-gray-300 flex-auto">
+      <p class="mt-1 flex-auto text-sm text-gray-300">
         {description}
       </p>
 
