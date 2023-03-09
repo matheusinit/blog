@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import type { FC } from 'react'
 import { SunIcon, MoonIcon } from '@heroicons/react/24/solid/index'
 
+type AppTheme = 'dark' | 'light'
+
 export const Header: FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(false)
 
@@ -17,6 +19,18 @@ export const Header: FC = () => {
     setDarkMode(isOnDarkMode)
   }, [])
 
+  const toggleThemeTo = (theme: AppTheme) => {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.add('dark')
+    }
+
+    localStorage.setItem('app-theme', theme)
+
+    setDarkMode((previous) => !previous)
+  }
+
   return (
     <header className="mx-auto mt-8 flex w-full items-center justify-between text-base">
       <a href="/" className="hidden items-center gap-x-3 md:flex">
@@ -25,41 +39,21 @@ export const Header: FC = () => {
         </h1>
       </a>
 
-      <div className="flex w-full justify-center md:w-auto">
+      <button className="flex w-full justify-center rounded-lg bg-app-gray-darker/40 px-3 py-2 hover:bg-app-gray-darker/70 dark:bg-app-violet-base/70 dark:hover:bg-app-violet-base md:w-auto">
         {!darkMode && (
           <MoonIcon
-            className="h-6 w-6 cursor-pointer text-gray-500 hover:text-gray-800  dark:text-gray-300 dark:hover:text-white"
-            onClick={() => {
-              if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark')
-              } else {
-                document.documentElement.classList.add('dark')
-              }
-
-              localStorage.setItem('app-theme', 'dark')
-
-              setDarkMode((previous) => !previous)
-            }}
+            className="h-6 w-6 cursor-pointer text-gray-500  dark:text-gray-300"
+            onClick={() => toggleThemeTo('dark')}
           />
         )}
 
         {darkMode && (
           <SunIcon
-            className="h-6 w-6 cursor-pointer text-gray-500 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
-            onClick={() => {
-              if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark')
-              } else {
-                document.documentElement.classList.add('dark')
-              }
-
-              localStorage.setItem('app-theme', 'light')
-
-              setDarkMode((previous) => !previous)
-            }}
+            className="h-6 w-6 cursor-pointer text-gray-500 dark:text-gray-300"
+            onClick={() => toggleThemeTo('light')}
           />
         )}
-      </div>
+      </button>
     </header>
   )
 }
