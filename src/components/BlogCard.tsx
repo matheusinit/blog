@@ -66,7 +66,7 @@ export const BlogCard: FC<Params> = ({
         <div className="max-h-[4rem] text-xl font-medium">{title}</div>
 
         {description != null && (
-          <p className="line-clamp-2 text-base font-normal text-gray-600 dark:text-gray-400">
+          <p className="text-base font-normal text-gray-600 line-clamp-2 dark:text-gray-400">
             {description}
           </p>
         )}

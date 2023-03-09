@@ -9,8 +9,10 @@ module.exports = {
         'app-violet-darker': '#17181f',
         'app-violet-base': '#24283b',
         'app-red-base': '#f7768e',
-        'app-gray-base': '#d5d6db',
-        'app-blue-base': '#343b58'
+        'app-red-light': '#a95162',
+        'app-gray-base': '#e9eaec',
+        'app-gray-dark': '#dbdde7',
+        'app-gray-darker': '#bec0c7'
       }
     }
   },
