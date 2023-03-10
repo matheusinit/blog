@@ -1,10 +1,11 @@
 ---
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid';
 import { clsx } from 'clsx';
 
 const { pathname } = Astro.url;
 ---
 
-<nav class="mt-3 px-4 text-base font-semibold text-app-red-light dark:text-app-red-base md:px-0">
+<nav class="mt-6 text-base font-semibold text-app-red-light dark:text-app-red-base md:px-0">
   <ul class="flex gap-x-4">
     <li
       class={clsx(
@@ -34,7 +35,10 @@ const { pathname } = Astro.url;
     </li>
 
     <li class="underline-offset-4 hover:underline">
-      <a href="http://github.com/matheusinit" target="_blank" rel="noreferrer">Github</a>
+      <a class="flex items-center gap-x-1" href="http://github.com/matheusinit" target="_blank" rel="noreferrer">
+        <span>Github</span>
+        <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+      </a>
     </li>
   </ul>
 </nav>
