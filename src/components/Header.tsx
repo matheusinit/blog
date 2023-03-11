@@ -34,9 +34,9 @@ export const Header: FC = () => {
 
   return (
     <header className="mx-auto mt-8 flex w-full items-center justify-between text-base">
-      <a href="/" className="hidden items-center gap-x-3 md:flex">
+      <a href="/" className="flex md:items-center md:gap-x-3">
         <div className="rounded-full bg-white p-2">
-          <img src="/94.png" alt="" className="h-9 w-9 rounded-full" />
+          <img src="/94.png" alt="Gunter" className="h-9 w-9 rounded-full" />
         </div>
 
         <h1 className="hidden text-lg font-semibold dark:text-gray-200 dark:hover:text-gray-50 md:block">
@@ -44,7 +44,7 @@ export const Header: FC = () => {
         </h1>
       </a>
 
-      <div className="flex w-full items-center justify-end gap-x-4 md:w-auto">
+      <div className="flex w-auto items-center justify-end gap-x-4">
         <a role="button" href="https://github.com/matheusinit/blog" className="flex items-center gap-x-2 rounded-lg bg-app-gray-darker/40 p-3 text-sm hover:bg-app-gray-darker/70 dark:bg-app-violet-base/70 dark:hover:bg-app-violet-darker" target="_blank" rel="noreferrer" >
           <IconBrandGithub className="h-5 w-5" />
           <div className="font-bold">View on Github</div>
