@@ -7,16 +7,16 @@ draft: false
 tags: ["Astro", "SSR"]
 ---
 
-<h2 className="leading-tight font-medium text-3xl">
-  Um breve resumo sobre astro
-</h2>
+
+## Um breve resumo sobre astro
+
 
 [Astro](https://astro.build/) é um novo framework com um objetivo bem interessante de construir sites puramente ou com maior parte estático utilizando os frameworks já estabelecidos como [ReactJS](https://reactjs.org/) e
 [Vue](https://vuejs.org/) (mas também como frameworks considerados novos). Uma das características que distingue **Astro** é ser agnóstico a framework e possibilitar utilizar mais de um framework no mesmo código.
 
-<p>Abaixo temos um exemplo de código em Astro</p>
+Abaixo temos um exemplo de código em Astro
 
-```astro
+```astro:index.astro
 ---
 // Código que rodará em Server-Side (lado do servidor)
 ---
@@ -24,9 +24,8 @@ tags: ["Astro", "SSR"]
 <!-- Código astro com qualquer outro framework se preferir (React, Vue)  -->
 ```
 
-<h2 className="leading-tight font-medium text-3xl">
-  Código do lado do servidor
-</h2>
+
+## Código do lado do servidor
 
 O código entre **---** rodará no servidor, ou um termo mais conhecido **SSR** (_Server Side Rendering_). Mas como isso seria feito?
 
@@ -36,14 +35,12 @@ O código que estará rodando em serviço de nuvem como AWS, Azure ou um simples
 
 O Astro faz isso de tal forma que retorna o HTML puro, sem Javascript (só se for necessário). Por isso um dos melhores casos para ele ser utilizados são sites estáticos como blogs e documentações.
 
-<small>
-  [Esse blog é feito em Astro. Veja o código como
-  exemplo](https://github.com/matheusinit/blog)!
-</small>
+[Esse blog é feito em Astro. Veja o código como
+exemplo](https://github.com/matheusinit/blog)!
 
 O Astro possuí outras funcionalidades muito mais interessante. Veja mais na própria documentação do **[Astro](https://docs.astro.build/)**
 
-<h4 className="leading-loose font-medium text-2xl">Referências</h4>
+#### Referências
 
 <ul className="list-disc ml-8">
   <li>
