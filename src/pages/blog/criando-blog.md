@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "Criando blog em Astro"
-description: "Utilizando o novo framework Astro para criar páginas estáticas para o meu blog"
+description: "Astro é um dos mais novos frameworks. Se destacando com as Islands e a geração de código estático"
 pubDate: "Feb 14 2023"
 draft: false
 tags: ["Astro", "SSR"]

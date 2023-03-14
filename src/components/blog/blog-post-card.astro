@@ -4,12 +4,14 @@ type Props = {
   description: string
   createdAt: string
   readTime: string
+  key: string
+  href?: string
 }
 
-const { title, description, createdAt, readTime } = Astro.props as Props
+const { title, description, createdAt, readTime, href, key } = Astro.props as Props
 ---
 
-<a href="/" class="flex flex-col rounded-lg border border-gray-300 p-3 transition-colors hover:bg-app-gray-dark dark:border-app-violet-base dark:bg-app-violet-dark/95 dark:hover:border-app-violet-darker dark:hover:bg-app-violet-darker">
+<a key={key} href={href} class="flex flex-col rounded-lg border border-gray-300 p-3 transition-colors hover:bg-app-gray-dark dark:border-app-violet-base dark:bg-app-violet-dark/95 dark:hover:border-app-violet-darker dark:hover:bg-app-violet-darker">
   <h3 class="mb-3 text-xl font-bold text-app-red-light dark:text-app-red-base">{title}</h3>
 
   <p class="mb-2 font-medium">{description}</p>
