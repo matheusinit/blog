@@ -1,64 +1,50 @@
-# Astro Starter Kit: Blog
+# Blog - matheusinit
 
-```
-npm create astro@latest -- --template blog
-```
+Esse é um projeto para gravar os meus aprendizados para mim mesmo. Dessa forma não poderei ter registrado meu progresso e quem sabe ajudar alguém com uma das minhas postagens.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
+> Light mode
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+![Home - Light Mode](./.github/readme/Home%20-%20Light%20mode.png)
 
+> Dark mode
 
-![blog](https://user-images.githubusercontent.com/4677417/186189140-4ef17aac-c3c9-4918-a8c2-ce86ba1bb394.png)
+![Home - Dark Mode](./.github/readme/Home%20-%20Dark%20mode.png)
 
-Features:
+## Tecnologias
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+ - Astro
+ - React
+ - Typescript
+ - Tailwindcss
 
-## 🚀 Project Structure
+> Essas são as principais, não são todas. Para ver todas as tecnologias, veja o arquivo `package.json`
 
-Inside of your Astro project, you'll see the following folders and files:
+## Como contribuir?
 
-```
-├── public/
-├── src/
-│   ├── components/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+Se por algum motivo esteja interessado em contribuir ou somente rodar na sua máquina, esses são os comandos:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
++ Instale as dependências:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+  ```bash
+  pnpm i
+  ```
 
-Any static assets, like images, can be placed in the `public/` directory.
++ Inicie em modo de desenvolvimento:
 
-## 🧞 Commands
+  ```bash
+  pnpm dev
+  ```
 
-All commands are run from the root of the project, from a terminal:
++ Crie a `build` do projeto:
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
+  ```bash
+  pnpm build
+  ```
 
-## 👀 Want to learn more?
+## Créditos
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+<img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/68296035?v=4" width="100px" />
 
-## Credit
+Feito com :heart: por Matheus Oliveira
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+[![Linkedin Badge](https://img.shields.io/badge/-Matheus-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/matheus-silva13/)](https://www.linkedin.com/in/matheus-silva13/) 
