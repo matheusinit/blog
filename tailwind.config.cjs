@@ -20,7 +20,7 @@ module.exports = {
       },
       fontFamily: {
         display: ['Comfortaa', 'system-ui', '-apple-system', 'Roboto'],
-        sans: ['Nunito', 'system-ui', '-apple-system', 'Roboto'],
+        sans: ['Barlow', 'system-ui', '-apple-system', 'Roboto'],
         serif: ['ui-serif', 'Georgia'],
         mono: [
           'JetBrains Mono',

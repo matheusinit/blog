@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   min-height: 100vh;
   background-color: #fafafa;
@@ -9,6 +13,10 @@ body {
   box-sizing: border-box;
 }
 
+.markdown {
+  @apply dark:text-gray-200;
+}
+
 /* Heading */
 
 .markdown h1 {
@@ -16,33 +24,53 @@ body {
 }
 
 .markdown h2 {
-  @apply text-[24px] font-semibold mb-4;
+  @apply text-2xl font-semibold mb-4;
 }
 
 .markdown h3 {
-  @apply text-2xl font-semibold mb-4;
+  @apply text-xl font-semibold mb-4;
 }
 
 /* Texts */
 
 .markdown p {
-  @apply text-lg leading-relaxed mb-6 dark:text-gray-200 font-normal;
-}
-
-.markdown a {
-  @apply text-lg px-1.5 py-0.5 rounded bg-slate-300 dark:bg-neutral-800 dark:hover:bg-app-violet-base font-medium hover:bg-slate-400 transition-colors;
+  @apply text-lg leading-relaxed mb-6 font-normal;
 }
 
 .markdown p a {
-  @apply text-base;
+  @apply text-lg underline underline-offset-2 text-gray-700 decoration-gray-700 dark:decoration-gray-300 dark:text-gray-300;
 }
 
 .markdown ul {
-  @apply ml-0 !important;
+  @apply ml-8 list-disc list-inside;
+}
+
+.markdown ul > li {
+  @apply list-disc text-lg pb-2;
+}
+
+.markdown ul > li::marker {
+  @apply text-neutral-500;
 }
 
 .markdown li {
-  @apply mb-4 inline-block;
+  @apply inline-block;
+}
+
+.markdown li a {
+  @apply underline font-medium underline-offset-2;
+}
+
+.markdown p code {
+  @apply p-1 dark:text-gray-100 border dark:border-neutral-800 rounded text-base dark:bg-neutral-900;
+}
+
+.markdown blockquote {
+  @apply rounded py-2 px-3 border text-gray-700 dark:text-gray-300 dark:border-neutral-700 dark:bg-neutral-900 border-neutral-400 bg-neutral-300 my-4 transition-colors;
+}
+
+.markdown blockquote p {
+  @apply m-0;
 }
 
 /* Code block */
