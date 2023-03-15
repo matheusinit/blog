@@ -46,7 +46,7 @@ O Astro possuÃ­ outras funcionalidades muito mais interessante. Veja mais na prÃ
 
 <ul>
   <li>
-    <a href="https://www.ionos.com/digitalguide/websites/web-development/server-side-and-client-side-scripting-the-differences/">Server side rendering, client side rendering, and static site generation at a glance - Ionos</a>
+    <a href="https://www.ionos.com/digitalguide/websites/web-development/server-side-and-client-side-scripting-the-differences/">Server side rendering</a>
   </li>
 
   <li>

@@ -4,7 +4,6 @@
 
 body {
   min-height: 100vh;
-  background-color: #fafafa;
 }
 
 * {
@@ -14,21 +13,21 @@ body {
 }
 
 .markdown {
-  @apply dark:text-gray-200;
+  @apply dark:text-gray-200 prose;
 }
 
 /* Heading */
 
 .markdown h1 {
-  @apply text-3xl font-semibold mb-4;
+  @apply text-3xl font-semibold mb-4 text-inherit;
 }
 
 .markdown h2 {
-  @apply text-2xl font-semibold mb-4;
+  @apply text-2xl font-semibold mb-4 text-inherit;
 }
 
 .markdown h3 {
-  @apply text-xl font-semibold mb-4;
+  @apply text-xl font-semibold mb-4 text-inherit;
 }
 
 /* Texts */
@@ -42,35 +41,31 @@ body {
 }
 
 .markdown ul {
-  @apply ml-8 list-disc list-inside;
+  @apply prose;
 }
 
 .markdown ul > li {
-  @apply list-disc text-lg pb-2;
+  @apply text-lg pl-0;
 }
 
 .markdown ul > li::marker {
-  @apply text-neutral-500;
+  @apply text-neutral-600;
 }
 
-.markdown li {
-  @apply inline-block;
-}
-
-.markdown li a {
-  @apply underline font-medium underline-offset-2;
+.markdown ul > li > a {
+  @apply underline underline-offset-2 leading-snug font-semibold block text-inherit dark:text-neutral-200;
 }
 
 .markdown p code {
-  @apply p-1 dark:text-gray-100 border dark:border-neutral-800 rounded text-base dark:bg-neutral-900;
+  @apply p-1 bg-neutral-300 border-neutral-400 dark:text-gray-100 border dark:border-neutral-800 rounded text-base dark:bg-neutral-900;
 }
 
 .markdown blockquote {
-  @apply rounded py-2 px-3 border text-gray-700 dark:text-gray-300 dark:border-neutral-700 dark:bg-neutral-900 border-neutral-400 bg-neutral-300 my-4 transition-colors;
+  @apply rounded italic py-2 px-3 border text-gray-700 dark:text-gray-300 dark:border-neutral-700 dark:bg-neutral-900 border-neutral-400 bg-neutral-300 my-4 transition-colors;
 }
 
 .markdown blockquote p {
-  @apply m-0;
+  @apply m-0 text-[1.1rem];
 }
 
 /* Code block */
