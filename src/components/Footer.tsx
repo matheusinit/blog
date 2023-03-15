@@ -7,7 +7,7 @@ export const Footer = () => {
       <div className="max-w-[20rem] font-mono text-sm font-semibold lg:max-w-full lg:text-base">
         Todas postagens e sistema feito por{' '}
         <a
-          href="/"
+          href="https://github.com/matheusinit"
           className="text-blue-600 decoration-red-600 decoration-wavy hover:underline dark:text-blue-300"
         >
           Matheus Oliveira (me)
