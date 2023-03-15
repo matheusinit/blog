@@ -1,9 +1,5 @@
 body {
-  font-family: "Comfortaa", -apple-system, system-ui, BlinkMacSystemFont,
-    "Segoe UI", "Heletica Neue", Arial, sans-serif;
-
   min-height: 100vh;
-
   background-color: #fafafa;
 }
 
@@ -13,10 +9,44 @@ body {
   box-sizing: border-box;
 }
 
-.prose pre.astro-code {
-  @apply rounded-md p-4 text-base leading-snug;
+/* Heading */
+
+.markdown h1 {
+  @apply text-3xl font-semibold mb-4;
 }
 
-.prose p, .prose pre {
-  @apply mb-6 leading-normal;
+.markdown h2 {
+  @apply text-[24px] font-semibold mb-4;
+}
+
+.markdown h3 {
+  @apply text-2xl font-semibold mb-4;
+}
+
+/* Texts */
+
+.markdown p {
+  @apply text-xl leading-relaxed mb-6;
+}
+
+.markdown a {
+  @apply text-lg px-2 py-1 rounded bg-slate-300 dark:bg-neutral-800 dark:hover:text-neutral-400 font-medium hover:text-neutral-900;
+}
+
+.markdown ul {
+  @apply ml-0 !important;
+}
+
+.markdown li {
+  @apply mb-4 inline-block;
+}
+
+/* Code block */
+
+.markdown .remark-code-title {
+  @apply py-1.5 pl-3 pr-2 border border-gray-700 text-base rounded-t text-white  bg-neutral-900 mt-6 font-mono;
+}
+
+.markdown pre {
+  @apply rounded-b p-4 text-base leading-snug font-mono border-b border-l border-r bg-neutral-900 border-gray-700 mb-6 !important;
 }

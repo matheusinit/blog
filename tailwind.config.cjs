@@ -13,27 +13,29 @@ module.exports = {
         'app-gray-base': '#e9eaec',
         'app-gray-dark': '#dbdde7',
         'app-gray-darker': '#bec0c7'
+      },
+      fontFamily: {
+        display: ['Comfortaa', 'system-ui', '-apple-system', 'Roboto'],
+        sans: ['Source Sans Pro', 'system-ui', '-apple-system', 'Roboto'],
+        serif: ['ui-serif', 'Georgia'],
+        mono: [
+          'JetBrains Mono',
+          'Roboto Mono',
+          'monospace',
+          'ui-monospace',
+          'Menlo',
+          'Monaco',
+          'Segoe UI Mono',
+          'Oxygen Mono',
+          'Ubuntu Monospace',
+          'Source Code Pro',
+          'Fira Mono',
+          'Droid Sans Mono',
+          'Courier New'
+        ]
       }
     }
   },
   plugins: [require('@tailwindcss/line-clamp')],
-  fontFamily: {
-    sans: ['Comfortaa', 'system-ui', '-apple-system', 'Roboto'],
-    serif: ['ui-serif', 'Georgia'],
-    mono: [
-      '"Roboto Mono"',
-      '"JetBrains Mono"',
-      'monospace',
-      'ui-monospace',
-      'Menlo',
-      'Monaco',
-      '"Segoe UI Mono"',
-      '"Oxygen Mono"',
-      '"Ubuntu Monospace"',
-      '"Source Code Pro"',
-      '"Fira Mono"',
-      '"Droid Sans Mono"',
-      '"Courier New"'
-    ]
-  }
+  important: true
 };

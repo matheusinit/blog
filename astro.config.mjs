@@ -16,7 +16,7 @@ export default defineConfig({
     remarkPlugins: [remarkReadingTime, remarkCodeTitles],
     syntaxHighlight: 'shiki',
     shikiConfig: {
-      theme: 'github-dark',
+      theme: 'one-dark-pro',
       wrap: true
     },
     drafts: true

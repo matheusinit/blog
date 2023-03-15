@@ -6,6 +6,7 @@ specifiers:
   '@astrojs/rss': ^1.0.2
   '@astrojs/sitemap': ^1.0.0
   '@astrojs/tailwind': ^3.1.1
+  '@fontsource/jetbrains-mono': ^4.5.12
   '@heroicons/react': ^2.0.13
   '@tabler/icons': ^1.113.0
   '@tailwindcss/line-clamp': ^0.4.2
@@ -41,6 +42,7 @@ dependencies:
   '@astrojs/rss': 1.2.1
   '@astrojs/sitemap': 1.0.0
   '@astrojs/tailwind': 3.1.1_h4zgj5sjpevkaicetl7dajpvqy
+  '@fontsource/jetbrains-mono': 4.5.12
   '@heroicons/react': 2.0.13_react@18.2.0
   '@tabler/icons': 1.118.0_biqbaboplfbrettd7655fr4n2y
   '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.4
@@ -715,6 +717,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@fontsource/jetbrains-mono/4.5.12:
+    resolution: {integrity: sha512-LJF1ala1/u+wXZmESFqIk08FA9yGX4/uAAleCHmXUMgEjvNAYFHUQQ7eK5hQQoBOwh99cU5suTrqYqEkgzwzPA==}
+    dev: false
 
   /@heroicons/react/2.0.13_react@18.2.0:
     resolution: {integrity: sha512-iSN5XwmagrnirWlYEWNPdCDj9aRYVD/lnK3JlsC9/+fqGF80k8C7rl+1HCvBX0dBoagKqOFBs6fMhJJ1hOg1EQ==}

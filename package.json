@@ -16,6 +16,7 @@
     "@astrojs/rss": "^1.0.2",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^3.1.1",
+    "@fontsource/jetbrains-mono": "^4.5.12",
     "@heroicons/react": "^2.0.13",
     "@tabler/icons": "^1.113.0",
     "@tailwindcss/line-clamp": "^0.4.2",

@@ -1,0 +1,68 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+
+import { CalendarIcon, ClockIcon } from '@heroicons/react/24/solid';
+
+import '@fontsource/jetbrains-mono'
+import '../styles/base.css';
+import { Footer } from '../components/Footer';
+import Base from '../components/Base.astro';
+
+export interface Props {
+  content: {
+    title: string;
+    description: string;
+    pubDate?: string;
+    tags?: string[];
+    minutesRead: string;
+  };
+}
+
+const {
+  content: { title, description, pubDate, minutesRead }
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+
+  <Base>
+    <div>
+      <main class="font-sans">
+        <div class="mb-8 border-b border-gray-300 pb-6 dark:border-slate-700">
+          <div class="mb-2">
+            <h1 class="mb-2 text-4xl font-bold text-gray-600 dark:text-gray-100">
+              {title}
+            </h1>
+
+            <div class="text-lg font-normal text-gray-500 dark:text-gray-300">
+              {description}
+            </div>
+          </div>
+
+          <div
+            class="mb-1 flex items-center gap-x-2 text-lg text-gray-600 dark:text-gray-400"
+          >
+            <CalendarIcon className="h-6 w-6" client:only="react" />
+            <div class="mt-1">{pubDate}</div>
+          </div>
+
+          <div
+            class="flex items-center gap-x-1 text-lg text-gray-600 dark:text-gray-400"
+          >
+            <ClockIcon className="h-6 w-6" client:only="react" />
+            <div class="mt-1">{minutesRead}</div>
+          </div>
+        </div>
+
+        <div class="markdown text-lg">
+          <slot />
+        </div>
+      </main>
+
+      <Footer client:only="react" />
+    </div>
+  </Base>
+</html>
