@@ -1,16 +1,21 @@
 # Blog - matheusinit
 
+## 💻 Projeto
+
 Esse é um projeto para gravar os meus aprendizados para mim mesmo. Dessa forma não poderei ter registrado meu progresso e quem sabe ajudar alguém com uma das minhas postagens.
+
 
 > Light mode
 
 ![Home - Light Mode](./.github/readme/Home%20-%20Light%20mode.png)
 
+
 > Dark mode
 
 ![Home - Dark Mode](./.github/readme/Home%20-%20Dark%20mode.png)
 
-## Tecnologias
+
+## ⚙️ Tecnologias
 
  - Astro
  - React
