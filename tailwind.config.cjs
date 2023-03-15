@@ -7,12 +7,16 @@ module.exports = {
       colors: {
         'app-violet-dark': '#1a1b26',
         'app-violet-darker': '#17181f',
-        'app-violet-base': '#24283b',
+        'app-violet-base': '#23252f',
+        'app-violet-light': '#24283b',
         'app-red-base': '#f7768e',
         'app-red-light': '#a95162',
         'app-gray-base': '#e9eaec',
         'app-gray-dark': '#dbdde7',
-        'app-gray-darker': '#bec0c7'
+        'app-gray-darker': '#bec0c7',
+        'app-black-darker': '#111',
+        'app-black-base': '#171717',
+        'app-black-light': '#18181b'
       },
       fontFamily: {
         display: ['Comfortaa', 'system-ui', '-apple-system', 'Roboto'],

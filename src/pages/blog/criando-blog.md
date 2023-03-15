@@ -27,7 +27,6 @@ console.log(posts)
 <!-- Código astro com qualquer outro framework se preferir (React, Vue)  -->
 ```
 
-
 ## Código do lado do servidor
 
 O código entre **---** rodará no servidor, ou um termo mais conhecido **SSR** (_Server Side Rendering_). Mas como isso seria feito?
@@ -45,7 +44,7 @@ O Astro possuí outras funcionalidades muito mais interessante. Veja mais na pr�
 
 ### Referências
 
-<ul className="list-disc ml-8">
+<ul>
   <li>
     <a href="https://www.ionos.com/digitalguide/websites/web-development/server-side-and-client-side-scripting-the-differences/">Server side rendering, client side rendering, and static site generation at a glance - Ionos</a>
   </li>
