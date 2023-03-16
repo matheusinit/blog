@@ -16,7 +16,9 @@ const posts = (await Astro.glob<Frontmatter>('./blog/*.md')).slice(0, 5)
 ---
 
 <Base>
-  <div>
+  <div></div>
+
+  <div class="flex flex-col gap-y-4">
     {posts.map(post => (
       <BlogPostCard
         title={post.frontmatter.title}
