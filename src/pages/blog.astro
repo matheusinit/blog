@@ -9,6 +9,7 @@ type Frontmatter = {
   pubDate: string
   draft?: boolean
   tags: string[]
+  minutesRead: string
 }
 
 const posts = (await Astro.glob<Frontmatter>('./blog/*.md')).slice(0, 5)
@@ -21,7 +22,7 @@ const posts = (await Astro.glob<Frontmatter>('./blog/*.md')).slice(0, 5)
         title={post.frontmatter.title}
         description={post.frontmatter.description}
         createdAt={post.frontmatter.pubDate}
-        readTime="10 min read"
+        readTime={post.frontmatter.minutesRead}
         key={uuid()}
         href={post.url}
       />
