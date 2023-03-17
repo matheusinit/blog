@@ -33,6 +33,7 @@ specifiers:
   react-type-animation: ^2.1.2
   react-uuid: ^2.0.0
   reading-time: ^1.5.0
+  reading-time-estimator: ^1.8.0
   rehype-code-titles: ^1.2.0
   remark-code-titles: ^0.1.2
   tailwindcss: ^3.0.24
@@ -58,6 +59,7 @@ dependencies:
   react-type-animation: 2.1.2_v2m5e27vhdewzwhryxwfaorcca
   react-uuid: 2.0.0
   reading-time: 1.5.0
+  reading-time-estimator: 1.8.0
   rehype-code-titles: 1.2.0
   remark-code-titles: 0.1.2
   tailwindcss: 3.2.4_postcss@8.4.21
@@ -4392,6 +4394,10 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+
+  /reading-time-estimator/1.8.0:
+    resolution: {integrity: sha512-hD4p5qP0/6SR2sgRR7Elj4B8Gb5mnj3DIW46Jdi2Qglzcgg7AwBYyYujF3O6Gg3Up2jYjV0QpL5X6kp3AcxhrA==}
+    dev: false
 
   /reading-time/1.5.0:
     resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
