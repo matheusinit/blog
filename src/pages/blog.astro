@@ -1,30 +1,16 @@
 ---
 import Base from '../components/Base.astro';
-import BlogPostCard from '../components/blog/blog-post-card.astro';
-import uuid from 'react-uuid'
+import { BlogPostsSearch } from '../components/blog/blog-posts-search';
+import type { BlogPost, BlogPostFrontmatter } from '../types';
 
-type Frontmatter = {
-  title: string
-  description: string
-  pubDate: string
-  draft?: boolean
-  tags: string[]
-}
-
-const posts = (await Astro.glob<Frontmatter>('./blog/*.md')).slice(0, 5)
+const posts = (await Astro.glob<BlogPostFrontmatter>('./blog/*.md'))
+                .filter(post => !post.frontmatter.draft)
+                .sort((a, b) => 
+                  new Date(b.frontmatter.pubDate).valueOf() - 
+                  new Date(a.frontmatter.pubDate).valueOf()
+                ) as BlogPost[]
 ---
 
 <Base>
-  <div>
-    {posts.map(post => (
-      <BlogPostCard
-        title={post.frontmatter.title}
-        description={post.frontmatter.description}
-        createdAt={post.frontmatter.pubDate}
-        readTime="10 min read"
-        key={uuid()}
-        href={post.url}
-      />
-    ))}
-  </div>
+  <BlogPostsSearch posts={posts} client:load />
 </Base>

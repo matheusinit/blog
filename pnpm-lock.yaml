@@ -26,12 +26,14 @@ specifiers:
   eslint-plugin-promise: ^6.0.0
   eslint-plugin-react: ^7.31.8
   eslint-plugin-tailwindcss: ^3.6.2
+  fuse.js: ^6.6.2
   mdast-util-to-string: ^3.1.0
   react: ^18.0.0
   react-dom: ^18.0.0
   react-type-animation: ^2.1.2
   react-uuid: ^2.0.0
   reading-time: ^1.5.0
+  reading-time-estimator: ^1.8.0
   rehype-code-titles: ^1.2.0
   remark-code-titles: ^0.1.2
   tailwindcss: ^3.0.24
@@ -50,12 +52,14 @@ dependencies:
   astro: 2.1.3
   clsx: 1.2.1
   date-fns: 2.29.3
+  fuse.js: 6.6.2
   mdast-util-to-string: 3.1.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-type-animation: 2.1.2_v2m5e27vhdewzwhryxwfaorcca
   react-uuid: 2.0.0
   reading-time: 1.5.0
+  reading-time-estimator: 1.8.0
   rehype-code-titles: 1.2.0
   remark-code-titles: 0.1.2
   tailwindcss: 3.2.4_postcss@8.4.21
@@ -2551,6 +2555,11 @@ packages:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
     dev: true
 
+  /fuse.js/6.6.2:
+    resolution: {integrity: sha512-cJaJkxCCxC8qIIcPBF9yGxY0W/tVZS3uEISDxhYIdtk8OL93pe+6Zj7LjCqVV4dzbqcriOZ+kQ/NE4RXZHsIGA==}
+    engines: {node: '>=10'}
+    dev: false
+
   /gensync/1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
     engines: {node: '>=6.9.0'}
@@ -4385,6 +4394,10 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+
+  /reading-time-estimator/1.8.0:
+    resolution: {integrity: sha512-hD4p5qP0/6SR2sgRR7Elj4B8Gb5mnj3DIW46Jdi2Qglzcgg7AwBYyYujF3O6Gg3Up2jYjV0QpL5X6kp3AcxhrA==}
+    dev: false
 
   /reading-time/1.5.0:
     resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
