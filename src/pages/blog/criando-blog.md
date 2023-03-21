@@ -3,8 +3,7 @@ layout: "../../layouts/BlogPost.astro"
 title: "Criando blog em Astro"
 description: "Utilizando o novo framework Astro para criar páginas estáticas para o meu blog"
 pubDate: "Feb 14 2023"
-draft: false
-tags: ["Astro", "SSR"]
+draft: true
 ---
 
 <h2 className="leading-tight font-medium text-3xl">
