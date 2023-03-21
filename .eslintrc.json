@@ -4,6 +4,14 @@
         "es2021": true,
         "node": true
     },
+    "settings": {
+        "react": {
+            "version": "18"
+        },
+        "tailwindcss": {
+            "config": "tailwind.config.cjs"
+        }
+    },
     "extends": [
         "plugin:astro/recommended",
         "plugin:react/recommended",
@@ -21,10 +29,9 @@
     },
     "plugins": [
         "react",
-        "jsx-a11y",
-        "astro",
         "tailwindcss",
-        "standard"
+        "jsx-a11y",
+        "astro"
     ],
     "rules": {
         "semi": "off",

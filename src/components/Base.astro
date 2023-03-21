@@ -1,8 +1,7 @@
 ---
-import { Header } from "../components/Header";
-
-import "../styles/base.css";
-import BaseHead from "./BaseHead.astro";
+import '../styles/base.css';
+import BaseHead from './BaseHead.astro';
+import HeaderStatic from './HeaderStatic.astro';
 
 const { title } = Astro.props;
 ---
@@ -10,8 +9,14 @@ const { title } = Astro.props;
 <head>
   <BaseHead title={title} />
 </head>
-<body class="dark:bg-slate-800 transition-colors">
-  <Header client:only="react" />
+<body
+  class="bg-app-gray-base font-display text-neutral-700 transition-colors dark:bg-app-violet-darker dark:text-gray-50"
+>
+  <div class="mx-auto h-full w-full px-4 md:max-w-screen-md md:px-0">
+    <HeaderStatic />
 
-  <slot />
+    <div class="md:mt-4">
+      <slot />
+    </div>
+  </div>
 </body>

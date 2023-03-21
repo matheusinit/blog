@@ -5,20 +5,20 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
+import remarkCodeTitles from 'remark-code-titles'
 import { remarkReadingTime } from './remark-reading-time.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://example.com/',
   integrations: [mdx(), sitemap(), react(), tailwind()],
   markdown: {
-    remarkPlugins: [remarkReadingTime],
+    remarkPlugins: [remarkReadingTime, remarkCodeTitles],
     syntaxHighlight: 'shiki',
     shikiConfig: {
-      theme: 'github-dark',
+      theme: 'one-dark-pro',
       wrap: true
     },
-    drafts: true,
-    extendDefaultPlugins: true
+    drafts: true
   }
 });
