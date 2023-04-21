@@ -45,7 +45,7 @@ body {
 }
 
 .markdown ul > li {
-  @apply text-lg pl-0;
+  @apply text-lg pl-0 dark:text-gray-50;
 }
 
 .markdown ul > li::marker {
