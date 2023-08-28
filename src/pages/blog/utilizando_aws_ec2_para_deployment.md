@@ -6,7 +6,7 @@ pubDate: "28 de Agosto de 2023"
 draft: false
 ---
 
-#### AWS EC2
+### AWS EC2
 
 Máquinas virtuais (Virtual Machine/VM) permitem que sistemas operacionais rodem através de software em cima de máquina com hardware.
 
@@ -14,12 +14,12 @@ Amazon Web Services (AWS) possui um serviço para uso de máquinas virtuais. Ama
 
 Para demonstrar a criação de uma instância *EC2* utilizarei um sistema construído em Node.js com Typescript, mas qualquer linguagem de programação pode ser utilizado para hospedar no EC2.
 
-#### Requisitos
+### Requisitos
 
  - Uma conta AWS
  - Uma aplicação em qualquer linguagem com Docker
  
-#### Criando a VM
+### Criando a VM
 
 Para iniciar vá até a página do serviço EC2 na AWS. É onde todas as instâncias AWS serão listadas e as principais informações estarão disponíveis.  
 
@@ -45,7 +45,7 @@ Para podermos nos conectar via SSH na máquina virtual e expor as portas correta
 
 Após isso é somente se conectar e configurar para que sua aplicação seja executada na máquina virtual.
 
-#### Configuração da VM
+### Configuração da VM
 
 Para essa parte vou instalar somente dois *softwares*: Docker e Docker Compose. Com ele posso rodar qualquer aplicação que preciso com o auxílio de *Docker Images* do DockerHub. E isso automatiza toda a parte de configuração que seria necessário para rodar a aplicação. EC2 com Docker é a combinação perfeita para a liberdade que se precisa em nível de sistema operacional e automatização dos processos cansativos e *error-prone* para nós humanos.
 
@@ -79,7 +79,7 @@ sudo yum install ./compose-plugin.rpm -y
 
 Pronto. Os dois software estão instalados para ser utilizados.
 
-#### Pipeline de implatanção
+### Pipeline de implatanção
 
 Agora mostrarei o código de uma pipeline que implementei (nesse caso com GitHub Actions). Para que a pipeline seja executada corretamente utilizei dois arquivos de configuração do Docker. 
 
@@ -312,7 +312,7 @@ Nesse parte eu estou realizado uma sequência de operações para que no final e
 - Agora vou copiar os arquivos necessários para a execução dos containers utilizando o comando `scp`. Eles são o `docker-compose.yml`, `.env` (criado utilizando as variáveis ambientes definidas anteriormente) e `nginx.conf` para a execução do *Nginx*
 - Por último um script será executado com o comando `ssh`. O script baixará/atualizará o *Docker Image* do comando anterior, derrubará os containers em execução do `docker-compose.yml`, se tiver algum container ativo, construíra os containers a partir do container `proxy-reverse` e seus dependentes e é deletado os arquivos `docker-compose.yml` e `.env`.
 
-#### Resultado
+### Resultado
 
 O código utilizado está disponível no repositório [Ecommerce API](https://github.com/matheusinit/ecommerce-api).
 
