@@ -8,6 +8,8 @@ draft: false
 
 ### AWS EC2
 
+![aws-ec2-logo](/aws-ec2-logo.png)
+
 Máquinas virtuais (Virtual Machine/VM) permitem que sistemas operacionais rodem através de software em cima de máquina com hardware.
 
 Amazon Web Services (AWS) possui um serviço para uso de máquinas virtuais. Amazon Elastic Compute Cloud (EC2) é o serviço em que se aluga máquinas virtuais por demanda. Uma máquina virtual pode ser usada para diferentes propósitos como hospedar um *app web server* com Node.js por exemplo, um banco de dados PostgreSQL, um serviço que precisa de um nível de liberdade que outros serviços não oferecem.
@@ -85,7 +87,7 @@ Agora mostrarei o código de uma pipeline que implementei (nesse caso com GitHub
 
 O `Dockerfile` com código para que app seja construído e rode em produção.
 
-```dockerfile
+```dockerfile:Dockerfile
 FROM node:16-bullseye-slim as base
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -125,7 +127,7 @@ CMD ["node", "./dist/server.js"]
 
  Um arquivo `docker-compose.yml` para facilitar a construção e o gerenciamento dos containers.
  
-```yaml
+```yaml:docker-compose.yml
 version: '3.7'
 services:
   proxy-reverse:
@@ -215,7 +217,7 @@ volumes:
 
 O arquivo tem alguns containers que são necessário para produção e outros que servem para desenvolvimento ou para ambiente de *CI* (*Continuous Integration*). O containers de ambiente de produção são aqueles com `'production'` na propriedade `profiles`. Todos os outros não são necessários para que esta pipeline seja executado ou entendida.
 
-```yml
+```yaml:.github/workflows/continuous_deployment.yml
 name: 'Continuous Deployment'
 on:
   push:
