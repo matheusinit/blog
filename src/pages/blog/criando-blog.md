@@ -2,7 +2,7 @@
 layout: "../../layouts/blog-post.astro"
 title: "Criando blog em Astro"
 description: "Astro é um dos mais novos frameworks. Se destacando com as Islands e a geração de código estático"
-pubDate: "Feb 14 2023"
+pubDate: "2023-02-14"
 draft: true
 ---
 

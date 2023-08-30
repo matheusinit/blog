@@ -2,26 +2,33 @@
 import Base from '../components/Base.astro';
 import Contacts from '../components/home/contacts.astro';
 import ProjectCard from '../components/home/project-card.astro';
+import type { BlogPost, BlogPostFrontmatter } from '../types';
+import {format, addDays} from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR';
 
 const TITLE = 'home • matheusinit';
 const DESCRIPTION = 'Um blog de um dev que fala sobre desenvolvimento web e software engeneering. Me interesso por testes, cloud services, arquitetura de software e entre outros.';
+
+const posts = (await Astro.glob<BlogPostFrontmatter>('./blog/*.md'))
+                .filter(post => !post.frontmatter.draft)
+                .sort((a, b) => 
+                  new Date(b.frontmatter.pubDate).valueOf() - 
+                  new Date(a.frontmatter.pubDate).valueOf()
+                ).slice(0, 4) as BlogPost[]
 ---
 
 <Base title={TITLE} description={DESCRIPTION}>
   <main>
-    <div class="flex w-full items-center justify-start">
-      <h3 class="text-3xl font-bold">Olá, eu sou Matheus</h3>
-    </div>
-
     <div class="dark:text-gray-200">
       <p class="mt-8 text-lg font-normal">
-        Apaixonado por software, independente da tecnologia, e gosto de testar coisas. Aprendendo <span class="font-bold hover:text-app-red-light dark:hover:text-app-red-base">AWS</span> e
+        Olá, eu sou <b>Matheus</b>. Apaixonado por software, independente da tecnologia, e gosto de testar coisas. Aprendendo <span class="font-bold hover:text-app-red-light dark:hover:text-app-red-base">AWS</span> e
         <span class="font-bold hover:text-app-red-light dark:hover:text-app-red-base">testes</span>.
       </p>
     </div>
 
+
     <section>
-      <h4 class="mt-14 mb-6 text-2xl font-bold ">
+      <h4 class="mt-14 mb-6 text-xl font-bold ">
         &#128736;&#65039; Projetos
       </h4>
 
@@ -54,6 +61,22 @@ const DESCRIPTION = 'Um blog de um dev que fala sobre desenvolvimento web e soft
           href="https://github.com/matheusinit/todo-list-flutter"
         />
       </div>
+    </section>
+
+    <section>
+      <h4 class="mt-14 mb-6 text-xl font-bold">📓 Blog</h4>
+      <ul class="flex flex-col space-y-4">
+        {posts.map(p => (
+          <li class="flex justify-between">
+            <div class="underline underline-offset-4">{p.frontmatter.title}</div>
+            <div>{format(addDays(new Date(p.frontmatter.pubDate), 1), 'PP', { locale: ptBR })}</div>
+          </li>
+        ))}
+
+        <li>
+          <a href="/blog" class="underline underline-offset-4">Ver todos</a>
+        </li>
+      </ul>
     </section>
 
     <div class="pt-20"></div>

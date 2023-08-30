@@ -2,7 +2,7 @@
 layout: "../../layouts/blog-post.astro"
 title: "DevOps é essencial"
 description: "Introduzir conceitos de DevOps e como pode ser aplicado utilizando Github Actions"
-pubDate: "21 de Abril de 2023"
+pubDate: "2023-04-21"
 draft: false
 ---
 ### O que é DevOps?
