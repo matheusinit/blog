@@ -3,11 +3,11 @@ import '../styles/base.css';
 import BaseHead from './BaseHead.astro';
 import HeaderStatic from './HeaderStatic.astro';
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <head>
-  <BaseHead title={title} />
+  <BaseHead title={title} description={description} />
 </head>
 <body
   class="bg-app-gray-base font-display text-neutral-700 transition-colors dark:bg-app-violet-darker dark:text-gray-50"
