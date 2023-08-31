@@ -4,6 +4,8 @@ import Fuse from 'fuse.js'
 
 import type { BlogPost } from '../../types'
 import { BlogPostCard } from './blog-post-card'
+import { format } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 
 interface BlogPostsSearchParam {
   posts: BlogPost[]
@@ -60,7 +62,7 @@ export const BlogPostsSearch: FC<BlogPostsSearchParam> = ({ posts }) => {
             <BlogPostCard
               title={post.frontmatter.title}
               description={post.frontmatter.description}
-              createdAt={post.frontmatter.pubDate}
+              createdAt={format(new Date(post.frontmatter.pubDate), 'PP', { locale: ptBR })}
               readTime={post.frontmatter.minutesRead}
               key={uuid()}
               href={post.url}
