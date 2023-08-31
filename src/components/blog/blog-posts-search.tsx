@@ -5,7 +5,7 @@ import Fuse from 'fuse.js'
 import type { BlogPost } from '../../types'
 import { BlogPostCard } from './blog-post-card'
 import { format } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
+import ptBR from 'date-fns/locale/pt-BR/index'
 
 interface BlogPostsSearchParam {
   posts: BlogPost[]

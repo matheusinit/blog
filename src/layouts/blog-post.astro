@@ -6,10 +6,8 @@ import { CalendarIcon, ClockIcon } from '@heroicons/react/24/solid';
 import '@fontsource/jetbrains-mono'
 import '../styles/base.css';
 import { Footer } from '../components/Footer';
+import DateFormatted from '../components/blog/date-formatted'
 import Base from '../components/Base.astro';
-
-import {format } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR';
 
 export interface Props {
   content: {
@@ -49,7 +47,7 @@ const {
             class="mb-1 flex items-center gap-x-2 text-lg text-gray-600 dark:text-gray-400"
           >
             <CalendarIcon className="h-6 w-6" client:only="react" />
-            <div>{format(new Date(pubDate), 'PP', { locale: ptBR })}</div>
+            <DateFormatted pubDate={pubDate} client:only="react" />
           </div>
 
           <div

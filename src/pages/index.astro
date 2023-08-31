@@ -2,9 +2,8 @@
 import Base from '../components/Base.astro';
 import Contacts from '../components/home/contacts.astro';
 import ProjectCard from '../components/home/project-card.astro';
+import RecentPost from '../components/home/recent-post.tsx'
 import type { BlogPost, BlogPostFrontmatter } from '../types';
-import {format, addDays} from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR';
 
 const TITLE = 'home • matheusinit';
 const DESCRIPTION = 'Um blog de um dev que fala sobre desenvolvimento web e software engeneering. Me interesso por testes, cloud services, arquitetura de software e entre outros.';
@@ -67,10 +66,7 @@ const posts = (await Astro.glob<BlogPostFrontmatter>('./blog/*.md'))
       <h4 class="mt-14 mb-6 text-xl font-bold">📓 Blog</h4>
       <ul class="flex flex-col space-y-4">
         {posts.map(p => (
-          <li class="flex justify-between">
-            <div class="underline underline-offset-4">{p.frontmatter.title}</div>
-            <div>{format(addDays(new Date(p.frontmatter.pubDate), 1), 'PP', { locale: ptBR })}</div>
-          </li>
+          <RecentPost client:only="react" href={p.url} title={p.frontmatter.title} pubDate={p.frontmatter.pubDate} /> 
         ))}
 
         <li>
