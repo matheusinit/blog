@@ -17,7 +17,7 @@ export const BlogPostCard: FC<Props> = ({ title, description, createdAt, readTim
 
       <p className="mb-2 font-medium">{description}</p>
 
-      <div>
+      <div className="flex items-center gap-x-1">
         <span className="text-sm font-light">{createdAt}</span>
         <span className="text-gray-500">•</span>
         <span className="text-sm font-light">{readTime}</span>
