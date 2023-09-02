@@ -2,7 +2,7 @@
 import Base from '../components/Base.astro';
 import Contacts from '../components/home/contacts.astro';
 import ProjectCard from '../components/home/project-card.astro';
-import RecentPost from '../components/home/recent-post.tsx'
+import RecentPost from '../components/home/recent-post'
 import type { BlogPost, BlogPostFrontmatter } from '../types';
 
 const TITLE = 'home • matheusinit';
@@ -64,15 +64,7 @@ const posts = (await Astro.glob<BlogPostFrontmatter>('./blog/*.md'))
 
     <section>
       <h4 class="mt-14 mb-6 text-xl font-bold">📓 Blog</h4>
-      <ul class="flex flex-col space-y-4">
-        {posts.map(p => (
-          <RecentPost client:only="react" href={p.url} title={p.frontmatter.title} pubDate={p.frontmatter.pubDate} /> 
-        ))}
-
-        <li>
-          <a href="/blog" class="underline underline-offset-4">Ver todos</a>
-        </li>
-      </ul>
+        <RecentPost posts={posts} client:only="react"  /> 
     </section>
 
     <div class="pt-20"></div>

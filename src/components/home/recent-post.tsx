@@ -2,21 +2,29 @@ import { format, addDays } from 'date-fns/esm'
 import ptBR from 'date-fns/locale/pt-BR'
 import type { FC } from 'react'
 import React from 'react'
+import uuid from 'react-uuid'
+import type { BlogPost } from '../../types'
 
 interface RecentPostProps {
-  href: string
-  title: string
-  pubDate: string
+  posts: BlogPost[]
 }
 
-const RecentPost: FC<RecentPostProps> = ({ href, title, pubDate }) => {
+const RecentPost: FC<RecentPostProps> = ({ posts }) => {
   return (
-    <li>
-      <a href={href} className="flex justify-between">
-        <div className="underline underline-offset-4">{title}</div>
-        <div>{format(addDays(new Date(pubDate), 1), 'PP', { locale: ptBR })}</div>
-      </a>
-    </li>
+    <ul className="flex flex-col space-y-4">
+      {posts.map(p => (
+        <li key={uuid()}>
+          <a href={p.url} className="flex justify-between">
+            <div className="underline underline-offset-4">{p.frontmatter.title}</div>
+            <div>{format(addDays(new Date(p.frontmatter.pubDate), 1), 'PP', { locale: ptBR })}</div>
+          </a>
+        </li>
+      ))}
+
+      <li>
+        <a href="/blog" className="underline underline-offset-4">Ver todos</a>
+      </li>
+    </ul>
   )
 }
 
