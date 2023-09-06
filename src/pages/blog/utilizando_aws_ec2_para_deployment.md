@@ -1,6 +1,6 @@
 ---
 layout: "../../layouts/blog-post.astro"
-title: "Utilizando AWS EC2 para Deployment"
+title: "(AWS) Utilizando EC2 para Deployment"
 description: "Utilizar o serviço EC2 para Deployment de uma aplicação Node.js com PostgreSQL e Redis"
 pubDate: "2023-08-28"
 draft: false
