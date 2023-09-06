@@ -81,5 +81,5 @@ body {
 /* Assets */
 
 .markdown img {
-  @apply rounded;
+  @apply rounded mx-auto;
 }
