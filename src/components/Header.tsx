@@ -35,10 +35,6 @@ export const Header: FC = () => {
   return (
     <header className="mx-auto mt-8 flex w-full items-center justify-between text-base">
       <a href="/" className="flex md:items-center md:gap-x-3">
-        <div className="rounded-full bg-white p-2">
-          <img src="/94.png" alt="Gunter" className="h-9 w-9 rounded-full" />
-        </div>
-
         <h1 className="hidden text-lg font-semibold dark:text-gray-200 dark:hover:text-gray-50 md:block">
           matheusinit
         </h1>
