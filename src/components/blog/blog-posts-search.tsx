@@ -58,16 +58,16 @@ export const BlogPostsSearch: FC<BlogPostsSearchParam> = ({ posts }) => {
 
       {(postsToView != null) && postsToView.length > 0 && (
         <div className="flex flex-col gap-y-4">
-          {postsToView.map(post => (
-            <BlogPostCard
+          {postsToView.map(post => {
+            return <BlogPostCard
               title={post.frontmatter.title}
               description={post.frontmatter.description}
-              createdAt={format(new Date(post.frontmatter.pubDate), 'PP', { locale: ptBR })}
+              createdAt={format(new Date(post.frontmatter.pubDate.replaceAll(/-/g, '/')), 'PP', { locale: ptBR })}
               readTime={post.frontmatter.minutesRead}
               key={uuid()}
               href={post.url}
             />
-          ))}
+          })}
         </div>
       )}
 

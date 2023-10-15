@@ -1,4 +1,4 @@
-import { format, addDays } from 'date-fns/esm'
+import { format } from 'date-fns/esm'
 import ptBR from 'date-fns/locale/pt-BR'
 import type { FC } from 'react'
 import React from 'react'
@@ -16,7 +16,7 @@ const RecentPost: FC<RecentPostProps> = ({ posts }) => {
         <li key={uuid()}>
           <a href={p.url} className="flex justify-between">
             <div className="underline underline-offset-4">{p.frontmatter.title}</div>
-            <div>{format(addDays(new Date(p.frontmatter.pubDate), 1), 'PP', { locale: ptBR })}</div>
+            <div>{format(new Date(p.frontmatter.pubDate.replaceAll('-', '/')), 'PP', { locale: ptBR })}</div>
           </a>
         </li>
       ))}
