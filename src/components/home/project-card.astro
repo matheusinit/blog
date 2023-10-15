@@ -11,16 +11,16 @@ const { title, description, language, href = '/' } = Astro.props as Props;
 
 <a href={href} target="_blank" rel="noreferrer">
   <div
-    class="h-36 cursor-pointer rounded-lg border border-gray-300 bg-app-gray-darker/10 p-4 transition-colors hover:bg-app-gray-dark dark:border-app-violet-base dark:bg-app-violet-dark/95 dark:hover:border-app-violet-darker dark:hover:bg-app-violet-base"
+    class="h-36 cursor-pointer rounded-lg border border-gray-300 bg-app-gray-darker/10 py-2.5 px-4 transition-colors hover:bg-app-gray-dark dark:border-app-violet-base dark:bg-app-violet-dark/95 dark:hover:border-app-violet-darker dark:hover:bg-app-violet-base"
   >
     <div class="flex h-full flex-col">
-      <span class="text-lg font-medium text-app-red-light dark:text-app-red-base">{title}</span>
+      <span class="text-regular font-medium text-app-red-light dark:text-app-red-base">{title}</span>
 
       <p class="mt-1 flex-auto text-sm dark:text-gray-300">
         {description}
       </p>
 
-      <div class="mt-3 flex items-center gap-x-2 dark:text-gray-300">
+      <div class="mt-2.5 flex items-center gap-x-2 dark:text-gray-300">
         <span>•</span>
         <span class="text-sm">{language}</span>
       </div>
