@@ -31,10 +31,24 @@ const posts = (await Astro.glob<BlogPostFrontmatter>('./blog/*.md'))
         &#128736;&#65039; Projetos
       </h4>
 
-      <div class="grid auto-cols-max grid-cols-1 gap-4 md:grid-cols-2 md:gap-3">
+      <div class="grid auto-cols-max grid-cols-1 gap-4 md:grid-cols-3 md:gap-3">
+        <ProjectCard
+          title="ecommerce-api"
+          description="Uma API REST de e-commerce com TDD, SOLID e Message Brokers"
+          language="Typescript"
+          href="https://github.com/matheusinit/ecommerce-api"
+        />
+
+        <ProjectCard
+          title="ordering-api-aspnet"
+          description="Um sistema de pedidos em ASP.NET (C#) com TDD e SOLID"
+          language="C#"
+          href="https://github.com/matheusinit/ordering-api-aspnet"
+        />
+
         <ProjectCard
           title="authentication-api"
-          description="Uma API para autenticação de usuário utilizando testes e SOLID"
+          description="Uma API para autenticação utilizando testes e SOLID"
           language="Typescript"
           href="https://github.com/matheusinit/authetication-api"
         />
