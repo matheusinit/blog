@@ -13,16 +13,17 @@ const RecentPost: FC<RecentPostProps> = ({ posts }) => {
   return (
     <ul className="flex flex-col space-y-4">
       {posts.map(p => (
-        <li key={uuid()}>
-          <a href={p.url} className="flex justify-between">
+        <li key={uuid()} className="flex justify-between">
+          <a href={p.url}>
             <div className="underline underline-offset-4">{p.frontmatter.title}</div>
-            <div>{format(new Date(p.frontmatter.pubDate.replaceAll('-', '/')), 'PP', { locale: ptBR })}</div>
           </a>
+
+          <div>{format(new Date(p.frontmatter.pubDate.replaceAll('-', '/')), 'PP', { locale: ptBR })}</div>
         </li>
       ))}
 
       <li>
-        <a href="/blog" className="underline underline-offset-4">Ver todos</a>
+        <a href="/blog" className="font-bold underline underline-offset-4">Ver todos</a>
       </li>
     </ul>
   )
