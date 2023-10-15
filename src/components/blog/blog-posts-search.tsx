@@ -43,7 +43,7 @@ export const BlogPostsSearch: FC<BlogPostsSearchParam> = ({ posts }) => {
   }, [searchQuery])
 
   return (
-    <>
+    <div className="mb-8">
       <input
         type="text"
         className="mb-8 block w-full rounded-lg border border-app-violet-base px-3 py-2 text-gray-300 placeholder:text-gray-400 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-red-400 dark:bg-app-violet-dark/95"
@@ -99,6 +99,6 @@ export const BlogPostsSearch: FC<BlogPostsSearchParam> = ({ posts }) => {
           </div>
         </>
       )}
-  </>
+  </div>
   )
 }
