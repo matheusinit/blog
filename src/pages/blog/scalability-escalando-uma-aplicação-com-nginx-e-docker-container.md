@@ -500,3 +500,10 @@ Aprendi muito com essa prática e me mostrou alguns conhecimentos que pensei que
 - Como investigar problemas de concorrência
 
 O código dessa aplicação está no seguinte [repositório](https://github.com/matheusinit/ordering-api-aspnet), espere por novos assuntos e posts. Fiquem bem.
+
+### Links
+
+ - [What Is Load Balancing? How Load Balancers Work](https://www.nginx.com/resources/glossary/load-balancing/)
+ - [HTTP Load Balancing - Nginx Documentation](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/)
+ - [The managed thread pool - .NET](https://learn.microsoft.com/en-us/dotnet/standard/threading/the-managed-thread-pool)
+ - [The Task Asynchronous Programming (TAP) model with async and await" - C# | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/task-asynchronous-programming-model)
