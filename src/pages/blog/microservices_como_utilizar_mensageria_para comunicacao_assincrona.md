@@ -1,6 +1,6 @@
 ---
 layout: "../../layouts/blog-post.astro"
-title: "(Microservices) Como utilizar mensageria para comunicacao assíncrona"
+title: "(Microservices) Como utilizar mensageria (Message Queue) para comunicacao assíncrona com Apache Kafka"
 description: "Introduzir conceitos comunicação assíncrona com mensageria com Apache Kafka"
 pubDate: "2023-10-30"
 draft: false
