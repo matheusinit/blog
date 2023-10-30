@@ -99,7 +99,7 @@ e com o comando para iniciar o container de um `docker-compose.yml`
 docker compose up -d kafka
 ```
 
-Finalmente o comando para criar o Topic `"ordering"` que está no container recém-criado `"ordering-queue"`
+Finalmente o comando para criar o Topic `"ordering"` para o Kafka que está no container recém-criado `"ordering-queue"`
 
 ```bash
 docker exec ordering-queue kafka-topics.sh --bootstrap-server localhost:9092 --topic ordering --create --partitions 3 --replication-factor 1
