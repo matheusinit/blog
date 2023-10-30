@@ -75,6 +75,36 @@ Essa não é a única arquitetura de comunicação de um *Message Broker*, tamb�
 
 #### No código
 
+Para iniciar o Kafka utilizei Docker e Docker-compose para um único servidor Kafka para esse exemplo.
+
+```yml
+kafka:
+    container_name: ordering-queue
+    image: 'bitnami/kafka:latest'
+    hostname: suetham-workplace
+    environment:
+      - KAFKA_CFG_NODE_ID=0
+      - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9093
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+    ports:
+      - 9092:9092
+```
+
+e com o comando para iniciar o container de um `docker-compose.yml`
+
+```bash
+docker compose up -d kafka
+```
+
+Finalmente o comando para criar o Topic `"ordering"` que está no container recém-criado `"ordering-queue"`
+
+```bash
+docker exec ordering-queue kafka-topics.sh --bootstrap-server localhost:9092 --topic ordering --create --partitions 3 --replication-factor 1
+```
+
 No código abaixo está um `Consumer` utilizando o framework *Java Spring Boot* (**qualquer linguagem vai utilizar os mesmos conceitos!**) que irá executar uma classe `Service` a partir do conteúdo em JSON recebido. Na annotation `KafkaListener` está definido o nome do Topic, `"ordering"` e um `groupId` para determinar instâncias de aplicação em um determinado grupo, assim permitindo que haja um `Load Balancer` para os `Consumers` e dividir a carga de mensagens entre N instâncias.
 
 ```java
