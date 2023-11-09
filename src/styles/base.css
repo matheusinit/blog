@@ -45,7 +45,7 @@ body {
 }
 
 .markdown ul {
-  @apply prose;
+  @apply w-full;
 }
 
 .markdown ul > li {
@@ -57,7 +57,7 @@ body {
 }
 
 .markdown ul > li > a {
-  @apply underline underline-offset-2 leading-snug font-semibold block text-inherit dark:text-neutral-200;
+  @apply underline underline-offset-2 leading-snug font-semibold inline-block text-inherit dark:text-neutral-200;
 }
 
 .markdown p code {
