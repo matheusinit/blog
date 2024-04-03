@@ -75,7 +75,7 @@ Na *AWS* esses recursos são *Virtual Private Cloud*, ou *VPC*, para *Networking
 
 O código a seguir é um *Dockerfile* para um app em *Spring Boot* que uma rota em `/host-name` para retornar o nome do host.
 
-```yaml:Dockerfile
+```dockerfile
 FROM eclipse-temurin:17-jdk-alpine AS build
 
 WORKDIR /app
@@ -233,7 +233,7 @@ Para criar a *task definition*:
   - Vá em console.aws.amazon.com/ecs/v2/task-definitions e clique em **Create new task definition with JSON**
   - Insira o *JSON* abaixo e clique em **Create**
 
-```json:task_definition
+```json
 {
     "containerDefinitions": [
         {
@@ -299,7 +299,7 @@ Agora temos o nosso serviço rodando em uma instância de *EC2*
 
 Com o comando da ferramenta de *load testing* `wrk` posso testar se vai ser iniciado novas instâncias de *EC2*.
 
-```bash
+```zsh title="Terminal"
 wrk -t4 -c300 -d60s http://javaapploadbalancer-1023036236.us-east-1.elb.amazonaws.com/host-name
 ```
 

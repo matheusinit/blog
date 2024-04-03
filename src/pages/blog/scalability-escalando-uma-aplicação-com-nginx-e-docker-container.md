@@ -227,7 +227,7 @@ Transfer/sec:      1.31MB
 
 Agora esperamos que com 4 instâncias esse número aumente, né?
 
-```log
+```
 Running 30s test @ http://localhost/api
   1 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -338,7 +338,7 @@ seq 1 5 | xargs -n1 wrk -t1 -c400 -d30s http://localhost/products >> benchmarks/
 
 Resultado:
 
-```log
+```
 Running 30s test @ http://localhost/products
   1 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -389,7 +389,7 @@ Transfer/sec:      2.52MB
 
 Agora com 4 replicas/instâncias da API REST e 400 conexões simultâneas, temos:
 
-```log
+```
 Running 30s test @ http://localhost/products
   1 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev

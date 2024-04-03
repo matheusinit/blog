@@ -87,7 +87,7 @@ Agora mostrarei o código de uma pipeline que implementei (nesse caso com GitHub
 
 O `Dockerfile` com código para que app seja construído e rode em produção.
 
-```dockerfile:Dockerfile
+```dockerfile
 FROM node:16-bullseye-slim as base
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -127,7 +127,7 @@ CMD ["node", "./dist/server.js"]
 
  Um arquivo `docker-compose.yml` para facilitar a construção e o gerenciamento dos containers.
  
-```yaml:docker-compose.yml
+```yaml
 version: '3.7'
 services:
   proxy-reverse:
@@ -217,7 +217,7 @@ volumes:
 
 O arquivo tem alguns containers que são necessário para produção e outros que servem para desenvolvimento ou para ambiente de *CI* (*Continuous Integration*). O containers de ambiente de produção são aqueles com `'production'` na propriedade `profiles`. Todos os outros não são necessários para que esta pipeline seja executado ou entendida.
 
-```yaml:.github/workflows/continuous_deployment.yml
+```yaml
 name: 'Continuous Deployment'
 on:
   push:

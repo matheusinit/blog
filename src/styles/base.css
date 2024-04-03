@@ -74,13 +74,13 @@ body {
 
 /* Code block */
 
-.markdown .remark-code-title {
-  @apply py-1.5 pl-3 pr-2 border bg-neutral-800 border-gray-500 dark:border-gray-800 text-[0.85rem] rounded-t text-white dark:bg-neutral-900 mt-6 font-mono;
+.expressive-code pre > code {
+  @apply text-sm !important;
 }
 
-.markdown pre {
-  @apply rounded-b p-4 text-[0.95rem] leading-snug font-mono border-b border-l border-r bg-neutral-800 border-gray-500 dark:bg-neutral-900 dark:border-gray-800 mb-6 !important;
-}
+/* .markdown pre { */
+/*   @apply rounded-b leading-snug font-mono border-b border-l border-r border-gray-500 dark:bg-neutral-900 dark:border-gray-800 mb-6 !important; */
+/* } */
 
 /* Assets */
 

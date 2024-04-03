@@ -23,7 +23,7 @@ Recenemente criei um [projeto](https://github.com/matheusinit/LembrarMe/) para c
 
 Nesse projeto criei algumas pipelines. Pipeline é um conjunto de scripts para se obter um resultado ou produto do software. Por exemplo criei uma pipeline chamada *Unit tests* para rodar testes unitários.
 
-```yaml:.github/workflows/tests.yml
+```yaml
 name: 'Unit tests'
 on: [push, workflow_call]
 jobs:
@@ -60,7 +60,7 @@ O arquivo acima é um arquivo `.yml` no path `.github/workflows`. Aqui é onde f
 
 Essa é a configuração de uma pipeline de testes, mas pode ser criadas muitas outras. Como por exemplo um de **release** para ser acionado em quando der um push de commit para a branch principal.
 
-```yaml:.github/workflows/release.yml
+```yaml
 name: Release
 on:
   push:
@@ -157,7 +157,7 @@ jobs:
 
 Aqui é uma pipeline de release utilizando uma máquina virtual como servidor. E como pode ser visto lá em cima no trecho:
 
-```yaml:.github/workflows/release.yml
+```yaml
 [...]
 
 on:
