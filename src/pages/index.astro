@@ -1,90 +1,28 @@
 ---
 import Base from '../components/Base.astro';
-import Contacts from '../components/home/contacts.astro';
-import ProjectCard from '../components/home/project-card.astro';
-import RecentPost from '../components/home/recent-post'
-import type { BlogPost, BlogPostFrontmatter } from '../types';
 
-const TITLE = 'home • matheusinit';
-const DESCRIPTION = 'Um blog de um dev que fala sobre desenvolvimento web e software engeneering. Me interesso por testes, cloud services, arquitetura de software e entre outros.';
-
-const posts = (await Astro.glob<BlogPostFrontmatter>('./blog/*.md'))
-                .filter(post => !post.frontmatter.draft)
-                .sort((a, b) => 
-                  new Date(b.frontmatter.pubDate).valueOf() - 
-                  new Date(a.frontmatter.pubDate).valueOf()
-                ).slice(0, 4) as BlogPost[]
+const TITLE = 'Página inicial • matheusinit';
+const DESCRIPTION = 'Um blog de um dev que fala sobre desenvolvimento web e engenharia de software. Me interesso por testes, serviços cloud, arquitetura de software e entre outros';
 ---
 
 <Base title={TITLE} description={DESCRIPTION}>
-  <main>
-    <div class="dark:text-gray-200">
-      <p class="mt-8 text-lg font-normal">
-        Olá, eu sou <b>Matheus</b>. Apaixonado por software, independente da tecnologia, e gosto de testar coisas. Aprendendo <span class="font-bold hover:text-app-red-light dark:hover:text-app-red-base">AWS</span> e
-        <span class="font-bold hover:text-app-red-light dark:hover:text-app-red-base">testes</span>.
-      </p>
+  <div class="flex flex-col items-center pt-16">
+    <div class='flex flex-col space-y-4'>
+      <div class="inline-block text-[2rem] text-medium-gray">Oi, me chamo Matheus</div>
+      <div class="inline-block">
+        <div class="text-[9rem] leading-[8rem] font-bold text-dark-gray uppercase">
+          Software
+        </div>
+        <div class="text-[11rem] leading-[140px] font-bold text-dark-gray uppercase">
+          Developer
+        </div>
+      </div>
+      <div class="inline-block w-[543px] text-[1.5rem] self-end text-medium-gray">
+        Tenho experiência como Desenvolvedor Full Stack com Typescript. Apaixonado por Back-end e por novos aprendizados
+        na área da Computação. Atualmente me especializando em Ciência de Dados com Python no TRE/RN.
+      </div>
     </div>
 
-
-    <section>
-      <h4 class="mt-14 mb-6 text-xl font-bold ">
-        &#128736;&#65039; Projetos
-      </h4>
-
-      <div class="grid auto-cols-max grid-cols-1 gap-4 md:grid-cols-3 md:gap-3">
-        <ProjectCard
-          title="ecommerce-api"
-          description="Uma API REST de e-commerce com TDD, SOLID e Message Brokers"
-          language="Typescript"
-          href="https://github.com/matheusinit/ecommerce-api"
-        />
-
-        <ProjectCard
-          title="ordering-api-aspnet"
-          description="Um sistema de pedidos em ASP.NET (C#) com TDD e SOLID"
-          language="C#"
-          href="https://github.com/matheusinit/ordering-api-aspnet"
-        />
-
-        <ProjectCard
-          title="authentication-api"
-          description="Uma API para autenticação utilizando testes e SOLID"
-          language="Typescript"
-          href="https://github.com/matheusinit/authetication-api"
-        />
-
-        <ProjectCard
-          title="files-manager-backend"
-          description="API Rest para gerenciamento de arquivos utilizando Express"
-          language="Typescript"
-          href="https://github.com/matheusinit/files-manager-backend"
-        />
-
-        <ProjectCard
-          title="files-manager-frontend"
-          description="Aplicação construida com React e Next.js"
-          language="Typescript"
-          href="https://github.com/matheusinit/files-manager-frontend"
-        />
-
-        <ProjectCard
-          title="todo-list-flutter"
-          description="Um app híbrido de tarefas para mobile feito em Flutter"
-          language="Dart"
-          href="https://github.com/matheusinit/todo-list-flutter"
-        />
-      </div>
-    </section>
-
-    <section>
-      <h4 class="mt-14 mb-6 text-xl font-bold">📓 Blog</h4>
-        <RecentPost posts={posts} client:only="react"  /> 
-    </section>
-
-    <div class="pt-20"></div>
-
-    <hr class="border-app-gray-darker dark:border-app-violet-base" />
-
-    <Contacts />
-  </main>
+    <div class="flex text-light-gray pt-32 text-xl">Esse portfolio e design foi feito com ❤️ por mim!</div>
+  </div>
 </Base>

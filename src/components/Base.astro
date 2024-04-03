@@ -1,7 +1,7 @@
 ---
 import '../styles/base.css';
 import BaseHead from './BaseHead.astro';
-import HeaderStatic from './HeaderStatic.astro';
+import Header from './Header.vue'
 
 const { title, description } = Astro.props;
 ---
@@ -10,10 +10,10 @@ const { title, description } = Astro.props;
   <BaseHead title={title} description={description} />
 </head>
 <body
-  class="bg-app-gray-base font-display text-neutral-700 transition-colors dark:bg-app-violet-darker dark:text-gray-50"
+  class="bg-light-rose font-display font-normal text-dark-gray transition-colors"
 >
-  <div class="mx-auto h-full w-full px-4 md:max-w-screen-md md:px-0">
-    <HeaderStatic />
+  <div class="mx-auto size-full max-w-[1120px]">
+    <Header />
 
     <div class="md:mt-4">
       <slot />
