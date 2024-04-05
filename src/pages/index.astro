@@ -1,6 +1,7 @@
 ---
 import Base from '../components/Base.astro';
 import DocumentIcon from 'astro-heroicons/solid/DocumentText.astro';
+import HeartIcon from 'astro-heroicons/solid/Heart.astro'
 
 const TITLE = 'Página inicial • matheusinit';
 const DESCRIPTION = 'Um blog de um dev que fala sobre desenvolvimento web e engenharia de software. Me interesso por testes, serviços cloud, arquitetura de software e entre outros';
@@ -38,6 +39,6 @@ const DESCRIPTION = 'Um blog de um dev que fala sobre desenvolvimento web e enge
       </div>
     </div>
 
-    <div class="flex pt-20 text-xl text-light-gray">Esse portfolio e design foi feito com ❤️ por mim!</div>
+    <div class="flex items-center pt-20 text-xl text-light-gray">Esse portfolio e design foi feito com <HeartIcon class="mx-1.5 size-7 fill-[#e31b23]" /> por mim!</div>
   </div>
 </Base>
