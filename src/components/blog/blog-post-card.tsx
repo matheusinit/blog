@@ -12,8 +12,8 @@ interface Props {
 
 export const BlogPostCard: FC<Props> = ({ title, description, createdAt, readTime, href }) => {
   return (
-    <a href={href} className="flex flex-col rounded-lg border border-gray-300 bg-app-gray-darker/10 p-3 transition-colors hover:bg-app-gray-dark dark:border-app-violet-base dark:bg-app-violet-dark/95 dark:hover:border-app-violet-base dark:hover:bg-app-violet-base">
-      <h3 className="mb-3 text-xl font-bold text-app-red-light dark:text-app-red-base">{title}</h3>
+    <a href={href} className="bg-app-gray-darker/10 hover:bg-app-gray-dark dark:border-app-violet-base dark:bg-app-violet-dark/95 dark:hover:border-app-violet-base dark:hover:bg-app-violet-base flex flex-col rounded-lg border border-gray-300 p-3 transition-colors">
+      <h3 className="text-app-red-light dark:text-app-red-base mb-3 text-xl font-bold">{title}</h3>
 
       <p className="mb-2 font-medium">{description}</p>
 

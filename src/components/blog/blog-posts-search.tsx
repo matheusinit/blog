@@ -46,7 +46,7 @@ export const BlogPostsSearch: FC<BlogPostsSearchParam> = ({ posts }) => {
     <div className="mb-8">
       <input
         type="text"
-        className="mb-8 block w-full rounded-lg border border-app-violet-base px-3 py-2 text-gray-300 placeholder:text-gray-400 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-red-400 dark:bg-app-violet-dark/95"
+        className="border-app-violet-base dark:bg-app-violet-dark/95 mb-8 block w-full rounded-lg border px-3 py-2 text-gray-300 placeholder:text-gray-400 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-red-400"
         placeholder="Pesquise sobre Typescript"
         value={searchQuery}
         onChange={(event) => {
@@ -73,7 +73,7 @@ export const BlogPostsSearch: FC<BlogPostsSearchParam> = ({ posts }) => {
 
       {(postsToView != null) && posts.length > 0 && postsToView.length === 0 && (
         <>
-          <div className="mt-4 mb-12 text-center text-xl font-medium">
+          <div className="mb-12 mt-4 text-center text-xl font-medium">
             Não encontramos o que procura. Veja esses posts.
           </div>
 
@@ -94,7 +94,7 @@ export const BlogPostsSearch: FC<BlogPostsSearchParam> = ({ posts }) => {
 
       {posts.length === 0 && (
         <>
-           <div className="mt-4 mb-12 text-center text-xl font-medium">
+           <div className="mb-12 mt-4 text-center text-xl font-medium">
             Não tem nenhum post ainda, mas logo terá :)
           </div>
         </>

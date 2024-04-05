@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 const { pathname } = Astro.url;
 ---
 
-<nav class="mt-6 text-base font-semibold text-app-red-light dark:text-app-red-base md:px-0">
+<nav class="text-app-red-light dark:text-app-red-base mt-6 text-base font-semibold md:px-0">
   <ul class="flex gap-x-4">
     <li
       class={clsx(
@@ -37,7 +37,7 @@ const { pathname } = Astro.url;
     <li class="underline-offset-4 hover:underline">
       <a class="flex items-center gap-x-1" href="http://github.com/matheusinit" target="_blank" rel="noreferrer">
         <span>Github</span>
-        <ArrowTopRightOnSquareIcon client:only="react" className="h-4 w-4" />
+        <ArrowTopRightOnSquareIcon client:only="react" className="size-4" />
       </a>
     </li>
   </ul>

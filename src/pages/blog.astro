@@ -4,11 +4,11 @@ import { BlogPostsSearch } from '../components/blog/blog-posts-search';
 import type { BlogPost, BlogPostFrontmatter } from '../types';
 
 const posts = (await Astro.glob<BlogPostFrontmatter>('./blog/*.md'))
-                .filter(post => !post.frontmatter.draft)
-                .sort((a, b) => 
-                  new Date(b.frontmatter.pubDate).valueOf() - 
+  .filter(post => !post.frontmatter.draft)
+  .sort((a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
                   new Date(a.frontmatter.pubDate).valueOf()
-                ) as BlogPost[]
+  ) as BlogPost[]
 ---
 
 <Base>

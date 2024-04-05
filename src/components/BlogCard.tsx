@@ -60,13 +60,13 @@ export const BlogCard: FC<Params> = ({
   return (
     <a
       {...rest}
-      className="relative flex w-[22rem] flex-col justify-between rounded-md border border-gray-200 bg-gray-50 px-4 pt-2 pb-4 text-slate-600 shadow-md hover:text-slate-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-200  md:min-h-[12rem] md:w-96"
+      className="relative flex w-[22rem] flex-col justify-between rounded-md border border-gray-200 bg-gray-50 px-4 pb-4 pt-2 text-slate-600 shadow-md hover:text-slate-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-200  md:min-h-48 md:w-96"
     >
       <div className="flex flex-col pb-8">
-        <div className="max-h-[4rem] text-xl font-medium">{title}</div>
+        <div className="max-h-16 text-xl font-medium">{title}</div>
 
         {description != null && (
-          <p className="text-base font-normal text-gray-600 line-clamp-2 dark:text-gray-400">
+          <p className="line-clamp-2 text-base font-normal text-gray-600 dark:text-gray-400">
             {description}
           </p>
         )}
@@ -92,7 +92,7 @@ export const BlogCard: FC<Params> = ({
       </div>
 
       {isNew && (
-        <div className="absolute right-3.5 bottom-4 rounded bg-green-600 px-2 py-0.5 text-sm font-medium text-white">
+        <div className="absolute bottom-4 right-3.5 rounded bg-green-600 px-2 py-0.5 text-sm font-medium text-white">
           Novo
         </div>
       )}
