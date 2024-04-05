@@ -1603,6 +1603,11 @@ astro-expressive-code@^0.33.5:
     hast-util-to-html "^8.0.4"
     remark-expressive-code "^0.33.5"
 
+astro-heroicons@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/astro-heroicons/-/astro-heroicons-2.1.1.tgz#8f67766ef756ee04561ea42dd3e6218f82c726b2"
+  integrity sha512-NcQIhCyF85hrbJEFssEVGo2t2vha1CqQilNfy/POTl1bknZFANjOjbKG6+Wndvxmumj4O8RTmUUNU7k8UDbw9g==
+
 astro@^4.5.14:
   version "4.5.14"
   resolved "https://registry.yarnpkg.com/astro/-/astro-4.5.14.tgz#1607df977d403252e1595fe30e67a4965aab700a"

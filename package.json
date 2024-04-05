@@ -23,6 +23,7 @@
     "@tailwindcss/line-clamp": "^0.4.2",
     "astro": "^4.5.14",
     "astro-expressive-code": "^0.33.5",
+    "astro-heroicons": "^2.1.1",
     "clsx": "^1.2.1",
     "date-fns": "^2.29.3",
     "fuse.js": "^6.6.2",
