@@ -52,6 +52,6 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-tailwindcss": "^3.6.2",
-    "typescript": "*"
+    "typescript": "<5.2"
   }
 }
