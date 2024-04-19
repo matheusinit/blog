@@ -3,6 +3,14 @@ import Base from '../components/Base.astro';
 import LandingPage from '../components/landing-page.astro'
 import ProjectCard from '../components/project-card.astro'
 
+import nodejsVector from '../../public/vector/techs/nodejs.svg'
+import pythonVector from '../../public/vector/techs/python.svg'
+import javaVector from '../../public/vector/techs/java.svg'
+import postgresqlVector from '../../public/vector/techs/postgresql.svg'
+import dockerVector from '../../public/vector/techs/docker.svg'
+import kubernetesVector from '../../public/vector/techs/kubernetes.svg'
+import awsVector from '../../public/vector/techs/aws.svg'
+
 const TITLE = 'Página inicial • matheusinit';
 const DESCRIPTION =
   'Um blog de um dev que fala sobre desenvolvimento de software';
@@ -36,6 +44,40 @@ const DESCRIPTION =
           name="Ecommerce API"
           description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
         />
+      </li>
+    </ul>
+  </section>
+
+  <section class="w-full">
+    <h3 class="pb-6 pt-12 text-2xl font-bold text-dark-gray">Tecnologias</h3>
+
+    <ul class="flex justify-evenly">
+      <li>
+        <img src={nodejsVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
+      </li>
+
+      <li>
+        <img src={pythonVector.src} alt="NodeJS" class="transtion size-20 grayscale hover:grayscale-0" />
+      </li>
+
+      <li>
+        <img src={javaVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
+      </li>
+
+      <li>
+        <img src={postgresqlVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
+      </li>
+
+      <li>
+        <img src={dockerVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
+      </li>
+
+      <li>
+        <img src={kubernetesVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
+      </li>
+
+      <li>
+        <img src={awsVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
       </li>
     </ul>
   </section>
