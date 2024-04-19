@@ -2,8 +2,8 @@
 import DocumentIcon from 'astro-heroicons/solid/DocumentText.astro';
 import HeartIcon from 'astro-heroicons/solid/Heart.astro';
 
-import GithubVector from '../../public/vector/github.svg?raw'
-import LinkedinVector from '../../public/vector/linkedin.svg?raw'
+import GithubVector from '../../public/vector/github.svg'
+import LinkedinVector from '../../public/vector/linkedin.svg'
 
 ---
 <div class="flex flex-col space-y-4">
@@ -22,8 +22,13 @@ import LinkedinVector from '../../public/vector/linkedin.svg?raw'
         <DocumentIcon
           class="size-10 fill-[#3B92E3] transition-transform hover:animate-bounce"
         />
-        <Fragment set:html={GithubVector} />
-        <Fragment set:html={LinkedinVector} />
+
+        <img src={GithubVector.src} alt="Hello"
+          class="size-10 transition-transform hover:animate-bounce"
+        />
+        <img src={LinkedinVector.src} alt="hello"
+          class="size-9 transition-transform hover:animate-bounce"
+        />
       </div>
     </div>
     <div
