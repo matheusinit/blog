@@ -1,6 +1,7 @@
 ---
 import Base from '../components/Base.astro';
 import LandingPage from '../components/landing-page.astro'
+import ProjectCard from '../components/project-card.astro'
 
 const TITLE = 'Página inicial • matheusinit';
 const DESCRIPTION =
@@ -11,4 +12,31 @@ const DESCRIPTION =
   <div class="flex flex-col items-center pt-16">
     <LandingPage />
   </div>
+
+  <section class="w-full">
+    <h3 class="pb-6 pt-24 text-2xl font-bold text-dark-gray">Projetos</h3>
+
+    <ul class="flex justify-between">
+      <li>
+        <ProjectCard
+          name="Ecommerce API"
+          description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
+        />
+      </li>
+
+      <li>
+        <ProjectCard
+          name="Ecommerce API"
+          description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
+        />
+      </li>
+
+      <li>
+        <ProjectCard
+          name="Ecommerce API"
+          description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
+        />
+      </li>
+    </ul>
+  </section>
 </Base>
