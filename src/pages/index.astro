@@ -1,10 +1,6 @@
 ---
 import Base from '../components/Base.astro';
-import DocumentIcon from 'astro-heroicons/solid/DocumentText.astro';
-import HeartIcon from 'astro-heroicons/solid/Heart.astro';
-
-import GithubVector from '../../public/vector/github.svg?raw'
-import LinkedinVector from '../../public/vector/linkedin.svg?raw'
+import LandingPage from '../components/landing-page.astro'
 
 const TITLE = 'Página inicial • matheusinit';
 const DESCRIPTION =
@@ -13,45 +9,6 @@ const DESCRIPTION =
 
 <Base title={TITLE} description={DESCRIPTION}>
   <div class="flex flex-col items-center pt-16">
-    <div class="flex flex-col space-y-4">
-      <div class="inline-block text-[2rem] text-medium-gray">
-        Oi, me chamo Matheus
-      </div>
-      <div class="inline-block">
-        <div class="flex items-end">
-          <div
-            class="text-[8rem] font-bold uppercase leading-[7rem] text-dark-gray"
-          >
-            Software
-          </div>
-
-          <div class="mb-2 ml-6 flex items-end space-x-6">
-            <DocumentIcon
-              class="size-10 fill-[#3B92E3] transition-transform hover:animate-bounce"
-            />
-            <Fragment set:html={GithubVector} />
-            <Fragment set:html={LinkedinVector} />
-          </div>
-        </div>
-        <div
-          class="text-[10rem] font-bold uppercase leading-[140px] text-dark-gray"
-        >
-          Developer
-        </div>
-      </div>
-      <div
-        class="inline-block w-[543px] self-end text-[1.5rem] text-medium-gray"
-      >
-        Tenho experiência como Desenvolvedor Full Stack com Typescript.
-        Apaixonado por Back-end e por novos aprendizados na área da Computação.
-        Atualmente me especializando em Ciência de Dados com Python no TRE/RN.
-      </div>
-    </div>
-
-    <div class="flex items-center pt-20 text-xl text-light-gray">
-      <div>Esse portfolio e design foi feito com</div>
-      <HeartIcon class="mx-1.5 size-7 fill-[#e31b23]" />
-      <div>por mim!</div>
-    </div>
+    <LandingPage />
   </div>
 </Base>
