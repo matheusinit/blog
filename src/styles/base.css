@@ -48,15 +48,15 @@ body {
   @apply w-full;
 }
 
-.markdown ul > li {
+.markdown ul>li {
   @apply text-lg pl-0;
 }
 
-.markdown ul > li::marker {
+.markdown ul>li::marker {
   @apply text-neutral-600;
 }
 
-.markdown ul > li > a {
+.markdown ul>li>a {
   @apply underline underline-offset-2 leading-snug font-semibold inline-block text-inherit;
 }
 
@@ -74,7 +74,7 @@ body {
 
 /* Code block */
 
-.expressive-code pre > code {
+.expressive-code pre>code {
   @apply text-sm !important;
 }
 
