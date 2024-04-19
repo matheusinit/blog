@@ -11,74 +11,101 @@ import dockerVector from '../../public/vector/techs/docker.svg'
 import kubernetesVector from '../../public/vector/techs/kubernetes.svg'
 import awsVector from '../../public/vector/techs/aws.svg'
 
+import awsLogo from '../../public/vector/certifications/aws.svg'
+import cloudBadge from '../../public/vector/certifications/cloud-badge.svg'
+import codeWithMosh from '../../public/vector/certifications/code-with-mosh.svg'
+
 const TITLE = 'Página inicial • matheusinit';
 const DESCRIPTION =
   'Um blog de um dev que fala sobre desenvolvimento de software';
 ---
 
 <Base title={TITLE} description={DESCRIPTION}>
-  <div class="flex flex-col items-center pt-16">
-    <LandingPage />
+  <div class="mb-16">
+    <div class="flex flex-col items-center pt-16">
+      <LandingPage />
+    </div>
+
+    <section class="w-full">
+      <h3 class="pb-6 pt-24 text-2xl font-bold text-dark-gray">Projetos</h3>
+
+      <ul class="flex justify-between">
+        <li>
+          <ProjectCard
+            name="Ecommerce API"
+            description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
+          />
+        </li>
+
+        <li>
+          <ProjectCard
+            name="Ecommerce API"
+            description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
+          />
+        </li>
+
+        <li>
+          <ProjectCard
+            name="Ecommerce API"
+            description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
+          />
+        </li>
+      </ul>
+    </section>
+
+    <section class="w-full">
+      <h3 class="pb-6 pt-12 text-2xl font-bold text-dark-gray">Tecnologias</h3>
+
+      <ul class="flex justify-evenly">
+        <li>
+          <img src={nodejsVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
+        </li>
+
+        <li>
+          <img src={pythonVector.src} alt="NodeJS" class="transtion size-20 grayscale hover:grayscale-0" />
+        </li>
+
+        <li>
+          <img src={javaVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
+        </li>
+
+        <li>
+          <img src={postgresqlVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
+        </li>
+
+        <li>
+          <img src={dockerVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
+        </li>
+
+        <li>
+          <img src={kubernetesVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
+        </li>
+
+        <li>
+          <img src={awsVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
+        </li>
+      </ul>
+    </section>
+
+    <section class="w-full">
+      <h3 class="pb-6 pt-12 text-2xl font-bold text-dark-gray">Certificações</h3>
+
+      <ul class="flex justify-evenly">
+        <li class="flex flex-col items-center space-y-1">
+          <img src={cloudBadge.src} alt="NodeJS" class="size-36" />
+          <h6 class="text-lg">Developer Learning Plan</h6>
+        </li>
+
+        <li class="flex flex-col items-center space-y-5">
+          <img src={awsLogo.src} alt="NodeJS" class="size-32" />
+          <h6 class="text-lg">AWS Cloud Essentials</h6>
+        </li>
+
+        <li class="flex flex-col items-center space-y-5">
+          <img src={codeWithMosh.src} alt="NodeJS" class="size-32" />
+          <h6 class="text-lg">The Complete Node.js Course</h6>
+        </li>
+      </ul>
+    </section>
   </div>
-
-  <section class="w-full">
-    <h3 class="pb-6 pt-24 text-2xl font-bold text-dark-gray">Projetos</h3>
-
-    <ul class="flex justify-between">
-      <li>
-        <ProjectCard
-          name="Ecommerce API"
-          description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
-        />
-      </li>
-
-      <li>
-        <ProjectCard
-          name="Ecommerce API"
-          description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
-        />
-      </li>
-
-      <li>
-        <ProjectCard
-          name="Ecommerce API"
-          description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
-        />
-      </li>
-    </ul>
-  </section>
-
-  <section class="w-full">
-    <h3 class="pb-6 pt-12 text-2xl font-bold text-dark-gray">Tecnologias</h3>
-
-    <ul class="flex justify-evenly">
-      <li>
-        <img src={nodejsVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
-      </li>
-
-      <li>
-        <img src={pythonVector.src} alt="NodeJS" class="transtion size-20 grayscale hover:grayscale-0" />
-      </li>
-
-      <li>
-        <img src={javaVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
-      </li>
-
-      <li>
-        <img src={postgresqlVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
-      </li>
-
-      <li>
-        <img src={dockerVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
-      </li>
-
-      <li>
-        <img src={kubernetesVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
-      </li>
-
-      <li>
-        <img src={awsVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
-      </li>
-    </ul>
-  </section>
 </Base>
