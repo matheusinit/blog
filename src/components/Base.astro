@@ -1,9 +1,14 @@
 ---
+import clsx from 'clsx';
 import '../styles/base.css';
 import BaseHead from './BaseHead.astro';
 import Header from './header.astro'
 
 const { title, description } = Astro.props;
+const { pathname: currentPath } = Astro.url
+
+const classProp = clsx('mx-auto size-full', currentPath === '/blog' ? 'max-w-[740px]' : 'max-w-[1120px]')
+
 ---
 
 <head>
