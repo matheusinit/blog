@@ -9,7 +9,7 @@ const { pathname: currentPathname } = Astro.url
 
 const { href } = Astro.props as Props
 
-const classProps = clsx('hover:text-dark-gray', href === currentPathname ? 'text-dark-gray' : 'text-light-gray')
+const classProps = clsx('transition-colors', href === currentPathname ? 'text-dark-gray' : 'text-light-gray hover:text-dark-gray')
 
 ---
 
