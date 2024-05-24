@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import vue from '@astrojs/vue';
 
@@ -12,7 +11,7 @@ export default defineConfig({
   site: 'https://example.com/',
   integrations: [expressiveCode({
     themes: ['github-dark']
-  }), mdx(), sitemap(), react(), tailwind(), vue()],
+  }), mdx(), sitemap(), tailwind(), vue()],
   markdown: {
     drafts: true
   }
