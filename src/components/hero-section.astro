@@ -5,9 +5,9 @@ import HeartIcon from 'astro-heroicons/solid/Heart.astro';
 import GithubVector from '../../public/vector/github.svg'
 import LinkedinVector from '../../public/vector/linkedin.svg'
 
-const CV_URL = "https://docs.google.com/document/d/12tTYKw8gcPDiKaeFXR2aqfUAER0uCKxTlAHb_py9C_A/edit?usp=sharing"
-const GITHUB_URL = "https://github.com/matheusinit"
-const LINKEDIN_URL = "https://www.linkedin.com/in/matheus-oliveira13"
+const CV_URL = 'https://docs.google.com/document/d/12tTYKw8gcPDiKaeFXR2aqfUAER0uCKxTlAHb_py9C_A/edit?usp=sharing'
+const GITHUB_URL = 'https://github.com/matheusinit'
+const LINKEDIN_URL = 'https://www.linkedin.com/in/matheus-oliveira13'
 ---
 <div class="flex flex-col space-y-4">
   <div class="inline-block text-[2rem] text-medium-gray">
@@ -24,19 +24,19 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/matheus-oliveira13"
       <div class="mb-2 ml-6 flex items-end space-x-6">
         <a href={CV_URL} target="_blank" rel="noopener noreferrer">
           <DocumentIcon
-            class="size-10 fill-[#3B92E3] transition-transform hover:-translate-y-1 cursor-pointer"
+            class="size-10 cursor-pointer fill-[#3B92E3] transition-transform hover:-translate-y-1"
           />
         </a>
 
         <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
           <img src={GithubVector.src} alt="GitHub profile link"
-            class="size-10 transition-transform hover:-translate-y-1 cursor-pointer"
+            class="size-10 cursor-pointer transition-transform hover:-translate-y-1"
           />
         </a>
 
         <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
           <img src={LinkedinVector.src} alt="LinkedIn profile link"
-            class="size-9 transition-transform hover:-translate-y-1 cursor-pointer"
+            class="size-9 cursor-pointer transition-transform hover:-translate-y-1"
           />
         </a>
       </div>
