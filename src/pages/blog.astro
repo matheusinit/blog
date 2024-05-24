@@ -1,34 +1,19 @@
 ---
-import Base from "../components/Base.astro";
-import type { BlogPostFrontmatter, BlogPost } from "../types";
+import Base from '../components/Base.astro';
+import type { BlogPostFrontmatter, BlogPost } from '../types';
+import dayjs from 'dayjs'
+import updateLocale from 'dayjs/plugin/updateLocale';
+import 'dayjs/locale/pt-br';
 
-// const posts = [
-//   {
-//     title: "Escalabilidade de Banco de Dados Relacional",
-//     description:
-//       "Neste blog post, discutiremos estratégias e práticas para escalar bancos de dados relacionais utilizando PostgreSQL. A escalabilidade é crucial para garantir que sua aplicação continue a funcionar de forma eficiente à medida que a quantidade de dados e o número de usuários aumentam.",
-//     date: "04 de agosto de 2024",
-//   },
-//   {
-//     title: "Streaming de Dados com Kafka e Java",
-//     description:
-//       "Neste blog post, vamos explorar como configurar e implementar um projeto de streaming de dados utilizando Apache Spark, Kafka e Java API Rest. A ideia é criar um pipeline de dados em tempo real, processando e analisando informações de forma eficiente.",
-//     date: "24 de junho de 2024",
-//   },
-//   {
-//     title: "Implementando Infrastructure as Code (IaC) com AWS",
-//     description:
-//       "Neste blog post, vamos explorar como utilizar o conceito de Infrastructure as Code (IaC) para automatizar a gestão de infraestrutura na AWS. IaC permite que você defina e gerencie sua infraestrutura de maneira programática, garantindo consistência, controle de versão e facilidade de replicação.",
-//     date: "04 de agosto de 2024",
-//   },
-// ];
+dayjs.extend(updateLocale)
+dayjs.locale('pt-br')
 
-const posts = (await Astro.glob<BlogPostFrontmatter>("./blog/*.md"))
+const posts = (await Astro.glob<BlogPostFrontmatter>('./blog/*.md'))
   .filter((post) => !post.frontmatter.draft)
   .sort(
     (a, b) =>
       new Date(b.frontmatter.pubDate).valueOf() -
-      new Date(a.frontmatter.pubDate).valueOf(),
+      new Date(a.frontmatter.pubDate).valueOf()
   ) as BlogPost[];
 ---
 
@@ -43,7 +28,7 @@ const posts = (await Astro.glob<BlogPostFrontmatter>("./blog/*.md"))
             <a href={post.url} class="flex flex-col space-y-2">
               <div class="flex flex-col">
                 <span class="text-[15px] text-medium-gray/70">
-                  {post.frontmatter.pubDate}
+                  {dayjs(post.frontmatter.pubDate).format('DD [de] MMMM [de] YYYY')}
                 </span>
                 <h3 class="text-[21px] font-semibold tracking-wide text-dark-gray transition-colors group-hover:text-dark-gray/60">
                   {post.frontmatter.title}
