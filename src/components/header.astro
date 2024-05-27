@@ -1,12 +1,16 @@
 ---
-import NavLink from './nav-link.astro';
+import NavLink from "./nav-link.astro";
 ---
 
 <header>
   <nav>
-    <ul class="flex space-x-6 pt-6 text-base">
+    <ul class="flex items-center space-x-6 pt-6 text-base">
       <li>
-        <NavLink href="/">Início</NavLink>
+        <NavLink href="/">
+          <img src="/logo.svg" alt="Logo" class="size-6 mr-2" />
+
+          Início
+        </NavLink>
       </li>
       <li><NavLink href="/blog">Blog</NavLink></li>
     </ul>
