@@ -16,7 +16,6 @@
     "@astrojs/sitemap": "^3.1.2",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/vue": "^4.0.10",
-    "@expressive-code/plugin-line-numbers": "^0.35.3",
     "@fontsource/jetbrains-mono": "^4.5.12",
     "@tabler/icons": "^1.113.0",
     "@tailwindcss/line-clamp": "^0.4.2",

@@ -299,7 +299,7 @@ Agora temos o nosso serviço rodando em uma instância de *EC2*
 
 Com o comando da ferramenta de *load testing* wrk posso testar se vai ser iniciado novas instâncias de *EC2*.
 
-```zsh title="Terminal" showLineNumbers=false
+```zsh title="Terminal"
 wrk -t4 -c300 -d60s http://javaapploadbalancer-1023036236.us-east-1.elb.amazonaws.com/host-name
 ```
 
