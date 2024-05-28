@@ -49,11 +49,7 @@ body {
 }
 
 .markdown ul>li {
-  @apply pl-0;
-}
-
-.markdown ul>li::marker {
-  @apply text-neutral-600;
+  @apply pl-0 text-dark-gray/80;
 }
 
 .markdown ul>li>a {
