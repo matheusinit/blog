@@ -1,32 +1,15 @@
 <!-- # Blog - matheusinit -->
-<h1 align="center">matheusinit - blog</h1>
+<h2 align="center">matheusinit - blog</h2>
 <p align="center">
   <i>Blog é um coleção de blog posts escrito por mim, vulgo matheusinit</i>
   <br/><br/>
   <img width="130" alt="matheusinit" src="./.github/readme/logo.svg"/>
   <br/><br/>
-  <img src="https://raw.githubusercontent.com/hywax/mafl/main/docs/public/cover.png" alt="Mafl" width="100%"/>
 </p>
-
-## 💻 Projeto
-
-Esse é um projeto para gravar os meus aprendizados para mim mesmo. Dessa forma não poderei ter registrado meu progresso e quem sabe ajudar alguém com uma das minhas postagens.
-
-
-> Light mode
-
-![Home - Light Mode](./.github/readme/Home%20-%20Light%20mode.png)
-
-
-> Dark mode
-
-![Home - Dark Mode](./.github/readme/Home%20-%20Dark%20mode.png)
-
 
 ## ⚙️ Tecnologias
 
  - Astro
- - React
  - Typescript
  - Tailwindcss
 
