@@ -39,8 +39,6 @@ Se por algum motivo esteja interessado em contribuir ou somente rodar na sua má
 
 ## Créditos
 
-<img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/68296035?v=4" width="100px" />
-
 Feito com :heart: por Matheus Oliveira
 
 [![Linkedin Badge](https://img.shields.io/badge/-Matheus-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/matheus-silva13/)](https://www.linkedin.com/in/matheus-silva13/)
