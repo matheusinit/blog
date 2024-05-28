@@ -51,7 +51,7 @@ body {
 /* Texts */
 
 .markdown p {
-  @apply leading-7 mb-6 font-normal text-foreground-primary/80 2xl:text-lg;
+  @apply leading-7 mb-6 font-normal text-foreground-primary/80;
 }
 
 .markdown p a {
@@ -63,7 +63,7 @@ body {
 }
 
 .markdown ul>li {
-  @apply pl-0 text-foreground-primary/80 2xl:text-lg;
+  @apply pl-0 text-foreground-primary/80;
 }
 
 .markdown ul>li>a {
