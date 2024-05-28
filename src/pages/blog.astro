@@ -16,9 +16,13 @@ const posts = (await Astro.glob<BlogPostFrontmatter>('./blog/*.md'))
       new Date(b.frontmatter.pubDate).valueOf() -
       new Date(a.frontmatter.pubDate).valueOf()
   ) as BlogPost[];
+
+const TITLE = "Blog • matheusinit";
+const DESCRIPTION =
+  "Blog posts sobre desenvolvimento de software escrito por matheusinit";
 ---
 
-<Base>
+<Base title={TITLE} description={DESCRIPTION}>
   <div class="mx-auto max-w-[740px] pb-8 pt-16">
     <h1 class="mb-6 text-4xl font-bold text-foreground-primary">Blog</h1>
 
