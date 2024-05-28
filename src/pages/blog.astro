@@ -20,7 +20,7 @@ const posts = (await Astro.glob<BlogPostFrontmatter>('./blog/*.md'))
 
 <Base>
   <div class="mx-auto max-w-[740px] pb-8 pt-16">
-    <h1 class="mb-6 text-4xl font-bold text-dark-gray">Blog</h1>
+    <h1 class="mb-6 text-4xl font-bold text-foreground-primary">Blog</h1>
 
     <div class="flex flex-col space-y-12">
       {
@@ -28,14 +28,14 @@ const posts = (await Astro.glob<BlogPostFrontmatter>('./blog/*.md'))
           <article class="group w-[42em] cursor-pointer" key={index}>
             <a href={post.url} class="flex flex-col space-y-2">
               <div class="flex flex-col space-y-2">
-                <span class="text-sm text-medium-gray font-thin 2xl:text-base">
+                <span class="text-sm text-foreground-secondary font-thin 2xl:text-base">
                   {dayjs(post.frontmatter.pubDate).format('DD [de] MMMM [de] YYYY')}
                 </span>
-                <h3 class="text-lg font-semibold text-dark-gray transition-colors group-hover:text-dark-gray/60 2xl:text-xl">
+                <h3 class="text-lg font-semibold text-foreground-primary transition-colors group-hover:text-foreground-primary/60 2xl:text-xl">
                   {post.frontmatter.title}
                 </h3>
               </div>
-              <p class="text-base font-normal leading-6 tracking-wide text-medium-gray 2xl:text-lg">
+              <p class="text-base font-normal leading-6 tracking-wide text-foreground-secondary 2xl:text-lg">
                 {post.frontmatter.description}
               </p>
             </a>

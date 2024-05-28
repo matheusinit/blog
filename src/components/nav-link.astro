@@ -12,8 +12,8 @@ const { href } = Astro.props as Props;
 const classProps = clsx(
   "font-medium transition-colors flex items-center space-x-2",
   href === currentPathname
-    ? "text-dark-gray"
-    : "text-light-gray hover:text-dark-gray",
+    ? "text-foreground-primary"
+    : "text-foreground-tertiary hover:text-foreground-primary",
 );
 ---
 

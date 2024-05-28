@@ -16,10 +16,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'light-rose': '#F6ECEC',
-        'dark-gray': '#343333',
-        'light-gray': '#A9A9A9',
-        'medium-gray': '#666666'
+        'background': 'hsl(var(--background))',
+
+        'foreground-primary': 'hsl(var(--foreground-primary))',
+        'foreground-secondary': 'hsl(var(--foreground-secondary))',
+        'foreground-tertiary': 'hsl(var(--foreground-tertiary))',
+
+        'border': 'hsl(var(--border))',
+        'ring': 'hsl(var(--ring)',
+        'input': 'hsl(var(--input))',
       },
       fontFamily: {
         display: ['Urbanist', 'system-ui', '-apple-system', 'Roboto'],

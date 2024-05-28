@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 0, 0%, 95.69%;
+    --foreground: 222.86, 84%, 4.9%;
+
+    --foreground-primary: 0, 0.97%, 20.2%;
+    --foreground-secondary: 0, 0%, 40%;
+    --foreground-tertiary: 0, 0%, 66.27%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+  }
+}
+
 body {
   min-height: 100vh;
 }
@@ -37,7 +52,7 @@ body {
 /* Texts */
 
 .markdown p {
-  @apply leading-loose mb-6 font-normal text-dark-gray/80;
+  @apply leading-loose mb-6 font-normal text-foreground-primary/80;
 }
 
 .markdown p a {
@@ -49,7 +64,7 @@ body {
 }
 
 .markdown ul>li {
-  @apply pl-0 text-dark-gray/80;
+  @apply pl-0 text-foreground-primary/80;
 }
 
 .markdown ul>li>a {
