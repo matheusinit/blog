@@ -1,4 +1,12 @@
-# Blog - matheusinit
+<!-- # Blog - matheusinit -->
+<h1 align="center">matheusinit - blog</h1>
+<p align="center">
+  <i>Blog é um coleção de blog posts escrito por mim, vulgo matheusinit</i>
+  <br/><br/>
+  <img width="130" alt="matheusinit" src="./.github/readme/logo.svg"/>
+  <br/><br/>
+  <img src="https://raw.githubusercontent.com/hywax/mafl/main/docs/public/cover.png" alt="Mafl" width="100%"/>
+</p>
 
 ## 💻 Projeto
 
@@ -52,4 +60,4 @@ Se por algum motivo esteja interessado em contribuir ou somente rodar na sua má
 
 Feito com :heart: por Matheus Oliveira
 
-[![Linkedin Badge](https://img.shields.io/badge/-Matheus-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/matheus-silva13/)](https://www.linkedin.com/in/matheus-silva13/) 
+[![Linkedin Badge](https://img.shields.io/badge/-Matheus-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/matheus-silva13/)](https://www.linkedin.com/in/matheus-silva13/)
