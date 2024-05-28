@@ -8,7 +8,7 @@ draft: false
 
 ### Introdução
 
-![AWS ECS](/ecs-cluster-ec2/03-aws-ecs.png)
+![AWS ECS](/ecs-cluster-ec2/03-aws-ecs.jpg)
 
 AWS Elastic Container Service é a solução desenvolvida pela AWS  para orquestração de containers. É uma das formas de realizar *deploy* de Docker Images na AWS. Nesse blog post mostrarei o meu aprendizado e método para o *deploy* de Docker containers na AWS.
 
