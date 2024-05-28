@@ -23,7 +23,7 @@ module.exports = {
       },
       fontFamily: {
         display: ['Urbanist', 'system-ui', '-apple-system', 'Roboto'],
-        sans: ['Barlow', 'system-ui', '-apple-system', 'Roboto'],
+        sans: ['PT Sans', 'system-ui', '-apple-system', 'Roboto'],
         serif: ['ui-serif', 'Georgia'],
         mono: [
           'JetBrains Mono',

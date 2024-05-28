@@ -5,8 +5,15 @@ import { CalendarIcon, ClockIcon } from '@heroicons/react/24/solid';
 
 import '@fontsource/jetbrains-mono'
 import '../styles/base.css';
-import { Footer } from '../components/Footer';
-import DateFormatted from '../components/blog/date-formatted'
+import Footer from '../components/footer.astro';
+import dayjs from 'dayjs'
+import updateLocale from 'dayjs/plugin/updateLocale';
+import 'dayjs/locale/pt-br';
+
+dayjs.extend(updateLocale)
+dayjs.locale('pt-br')
+
+
 import Base from '../components/Base.astro';
 
 export interface Props {
@@ -20,7 +27,7 @@ export interface Props {
 }
 
 const {
-  content: { title, description, pubDate, minutesRead }
+  content: { title, description, pubDate }
 } = Astro.props;
 ---
 
@@ -31,39 +38,23 @@ const {
 
   <Base>
     <div>
-      <main class="font-sans">
-        <div class="mb-8 border-b border-gray-300 pb-6 dark:border-slate-700">
-          <div class="mb-2">
-            <h1 class="mb-2 text-4xl font-bold text-gray-600 dark:text-gray-100">
-              {title}
-            </h1>
-
-            <div class="text-lg font-normal text-gray-500 dark:text-gray-300">
-              {description}
-            </div>
-          </div>
-
-          <div
-            class="mb-1 flex items-center gap-x-2 text-lg text-gray-600 dark:text-gray-400"
-          >
-            <CalendarIcon className="size-6" client:only="react" />
-            <DateFormatted pubDate={pubDate} client:only="react" />
-          </div>
-
-          <div
-            class="flex items-center gap-x-2 text-lg text-gray-600 dark:text-gray-400"
-          >
-            <ClockIcon className="size-6" client:only="react" />
-            <div>{minutesRead}</div>
-          </div>
+      <main class="font-sans max-w-[740px] mx-auto">
+        <div class="mb-8 pt-8 flex flex-col space-y-3">
+          <span class="text-sm text-medium-gray">{dayjs(pubDate).format('DD [de] MMMM [de] YYYY')}</span>
+      
+          <h1 class="text-3xl font-bold text-gray-600">
+            {title}
+          </h1>
         </div>
 
-        <div class="markdown text-lg">
+        <div class="markdown text-base">
+          <p>{description}</p>
+
           <slot />
         </div>
       </main>
 
-      <Footer client:only="react" />
+      <Footer />
     </div>
   </Base>
 </html>

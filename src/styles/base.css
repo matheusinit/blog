@@ -19,7 +19,7 @@ body {
 /* Heading */
 
 .markdown h1 {
-  @apply text-3xl font-semibold mb-4 text-inherit;
+  @apply text-3xl font-bold text-inherit;
 }
 
 .markdown h2 {
@@ -37,11 +37,11 @@ body {
 /* Texts */
 
 .markdown p {
-  @apply text-lg leading-relaxed mb-6 font-normal;
+  @apply leading-loose mb-6 font-normal text-dark-gray/80;
 }
 
 .markdown p a {
-  @apply text-lg underline underline-offset-2 text-gray-700 decoration-gray-700;
+  @apply underline underline-offset-2 text-gray-700 decoration-gray-700;
 }
 
 .markdown ul {
@@ -49,7 +49,7 @@ body {
 }
 
 .markdown ul>li {
-  @apply text-lg pl-0;
+  @apply pl-0;
 }
 
 .markdown ul>li::marker {
@@ -65,11 +65,11 @@ body {
 }
 
 .markdown blockquote {
-  @apply rounded italic py-2 px-4 border text-gray-700 border-neutral-400 bg-neutral-300 my-4 transition-colors;
+  @apply rounded py-2 px-4 border text-gray-700 border-gray-300 bg-white/20 my-4 transition-colors;
 }
 
 .markdown blockquote p {
-  @apply m-0 text-[1.1rem];
+  @apply m-0;
 }
 
 /* Code block */
