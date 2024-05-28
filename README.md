@@ -3,7 +3,7 @@
 <p align="center">
   <i>Blog é um coleção de blog posts escrito por mim, vulgo matheusinit</i>
   <br/><br/>
-  <img width="260" alt="matheusinit" src="./.github/readme/logo.svg"/>
+  <img width="390" alt="matheusinit" src="./.github/readme/logo.svg"/>
   <br/><br/>
 </p>
 
