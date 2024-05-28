@@ -45,7 +45,7 @@ jobs:
         run: npm run test
 ```
 
-O arquivo acima é um arquivo `.yml` no path `.github/workflows`. Aqui é onde ficará toda a configuração para essa pipeline.
+O arquivo acima é um arquivo .yml no path .github/workflows. Aqui é onde ficará toda a configuração para essa pipeline.
 
 *O que o arquivo está fazendo?*
 - **name**: É o nome da pipeline, ou no Github Actions o nome dado é Workflow
@@ -53,10 +53,10 @@ O arquivo acima é um arquivo `.yml` no path `.github/workflows`. Aqui é onde f
 	Aqui defini no **push** de commits no repositório e em **workflow_call** que permite que seja executado quando um outro workflow tentar executar esse workflow.
 - **jobs**: Job é uma serie de scripts que rodam pelo o mesmo *runner*.
 	Nesse exemplo, tem somente um job chamado **test**.
-- **runs-on**: Definimos o *runner*, descrito em anteriormente, para o job. Aqui estou definindo o Ubuntu versão `22.04`. 
+- **runs-on**: Definimos o *runner*, descrito em anteriormente, para o job. Aqui estou definindo o Ubuntu versão 22.04. 
 	Github actions executa os runners em Máquinas virtuais. Tem disponível os sistemas operacionais como runners, Ubnuntu Linux, WIndows ou MacOS. [Para saber mais detalhes](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners)
 - **steps**: São os scripts para ser executado. Para **step** definimos **name**, e ou **uses** ou **run** para rodar os scripts.
-	No primeiro usamos um script do próprio do Github para baixar o repositório de `actions/checkout` com a versão 3 (`v3`). E outro utilizado, é o step *Run unit tests* que executa um comando no runner  `npm run test` descrito em **run**.
+	No primeiro usamos um script do próprio do Github para baixar o repositório de actions/checkout com a versão 3 (v3). E outro utilizado, é o step *Run unit tests* que executa um comando no runner npm run test descrito em **run**.
 
 Essa é a configuração de uma pipeline de testes, mas pode ser criadas muitas outras. Como por exemplo um de **release** para ser acionado em quando der um push de commit para a branch principal.
 
