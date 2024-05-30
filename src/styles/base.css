@@ -46,19 +46,19 @@ body {
 /* Heading */
 
 .markdown h1 {
-  @apply text-3xl font-bold text-inherit;
+  @apply text-3xl 2xl:text-4xl font-bold mb-4 text-inherit;
 }
 
 .markdown h2 {
-  @apply text-2xl font-semibold mb-4 text-inherit;
+  @apply text-2xl 2xl:text-3xl font-semibold mb-4 text-inherit;
 }
 
 .markdown h3 {
-  @apply text-xl font-semibold mb-4 text-inherit;
+  @apply text-xl 2xl:text-2xl font-semibold mb-4 text-inherit;
 }
 
 .markdown h4 {
-  @apply text-lg font-semibold mb-4 text-inherit;
+  @apply text-lg 2xl:text-xl font-semibold mb-4 text-inherit;
 }
 
 /* Texts */

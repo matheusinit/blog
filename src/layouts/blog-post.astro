@@ -40,12 +40,12 @@ const {
         <div class="mb-8 pt-8 flex flex-col space-y-3">
           <span class="text-sm text-foreground-secondary 2xl:text-base">{dayjs(pubDate).format('DD [de] MMMM [de] YYYY')}</span>
       
-          <h1 class="text-3xl font-bold text-gray-600">
+          <h1 class="text-3xl 2xl:text-4xl font-bold text-gray-600">
             {title}
           </h1>
         </div>
 
-        <div class="markdown text-base">
+        <div class="markdown text-base 2xl:text-lg">
           <p>{description}</p>
 
           <slot />
