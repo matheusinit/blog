@@ -3,7 +3,6 @@ export interface BlogPostFrontmatter {
   description: string
   pubDate: string
   draft?: boolean
-  minutesRead: string
 }
 
 export interface BlogPost {

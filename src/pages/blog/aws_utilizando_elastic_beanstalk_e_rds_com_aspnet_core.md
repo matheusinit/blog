@@ -83,15 +83,15 @@ Bom, a configuração do Beanstalk simplifica muito hospedar uma aplicação. Ne
 
 ![EB Configuration Step 01](/aws-bs-rds-aspdotnet/aws-bs-1.png)
 
-Aqui será a parte em que definiremos o linguagem e como executaremos ela na máquina EC2 (Beanstalk é uma abstração do EC2). Vou escolher ".NET Core on Linux", porque estou utilizando uma aplicação em ASP.NET Core, um framework que pertence ao .NET Core. Aqui tem disponíveis outras linguagens, como Node.js, PHP, Go, Java, etc, e uma das opções é Docker. Com ele qualquer linguagem terá suporte então se tem o seu `Dockerfile` e `docker-compose.yml` pronto, só mandar ver.
+Aqui será a parte em que definiremos o linguagem e como executaremos ela na máquina EC2 (Beanstalk é uma abstração do EC2). Vou escolher ".NET Core on Linux", porque estou utilizando uma aplicação em ASP.NET Core, um framework que pertence ao .NET Core. Aqui tem disponíveis outras linguagens, como Node.js, PHP, Go, Java, etc, e uma das opções é Docker. Com ele qualquer linguagem terá suporte então se tem o seu Dockerfile e docker-compose.yml pronto, só mandar ver.
 
-E então devemos fornecer o nosso código, em "Local file" podemos dar upload em um arquivo `.zip` do código de produção da aplicação. Bom essa parte foi uma das partes que mais tive dificuldade. No caso de ASP.NET, para gerar essa *build* precisamos rodar o comando:
+E então devemos fornecer o nosso código, em "Local file" podemos dar upload em um arquivo .zip do código de produção da aplicação. Bom essa parte foi uma das partes que mais tive dificuldade. No caso de ASP.NET, para gerar essa *build* precisamos rodar o comando:
 
 ```sh
 dotnet publish -o UrlRedirector
 ```
 
-Com esse comando uma nova pasta será criado com somente `.dll` e arquivos de configuração. A sua linguagem também deve ter isso. Mais um exemplo é uma aplicação de Typescript em que geramos a pasta `dist` com um monte de arquivos `.js`. Essa é a nossa *build* de produção
+Com esse comando uma nova pasta será criado com somente .dll e arquivos de configuração. A sua linguagem também deve ter isso. Mais um exemplo é uma aplicação de Typescript em que geramos a pasta dist com um monte de arquivos .js. Essa é a nossa *build* de produção
 
 ![EB Configuration Step 02](/aws-bs-rds-aspdotnet/aws-bs-2.png)
 

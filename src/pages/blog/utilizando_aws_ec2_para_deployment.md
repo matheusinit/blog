@@ -35,7 +35,7 @@ Mais abaixo poderá escolher propriamente a configuração do "hardware" (não �
 
 ![instance-types](/aws-instance-types.png)
 
-A próxima etapa é criar a chave para que possa conectar no servidor via SSH. Através dela poderemos configurar o servidor, instalar e inspecionar por dentro como qualquer máquina. O conhecimento de linha de comando nesse momento é essencial. A chave vem em um formato `.pem` para acesso guarde ela com segurança pois qualquer um com essa chave e o IP da sua máquina terá total acesso a ela.
+A próxima etapa é criar a chave para que possa conectar no servidor via SSH. Através dela poderemos configurar o servidor, instalar e inspecionar por dentro como qualquer máquina. O conhecimento de linha de comando nesse momento é essencial. A chave vem em um formato .pem para acesso guarde ela com segurança pois qualquer um com essa chave e o IP da sua máquina terá total acesso a ela.
 
 ```sh
 ssh -i [ssh-key-in-pem] [user]@[ip-address-or-domain]
@@ -51,7 +51,7 @@ Após isso é somente se conectar e configurar para que sua aplicação seja exe
 
 Para essa parte vou instalar somente dois *softwares*: Docker e Docker Compose. Com ele posso rodar qualquer aplicação que preciso com o auxílio de *Docker Images* do DockerHub. E isso automatiza toda a parte de configuração que seria necessário para rodar a aplicação. EC2 com Docker é a combinação perfeita para a liberdade que se precisa em nível de sistema operacional e automatização dos processos cansativos e *error-prone* para nós humanos.
 
-Primeiro instalamos o Docker com o gerenciador de pacotes `yum` (similar ao `apt` do Debian/Ubuntu)
+Primeiro instalamos o Docker com o gerenciador de pacotes yum (similar ao apt do Debian/Ubuntu)
 
 ```sh
 sudo yum install docker
@@ -72,7 +72,7 @@ id ec2-user
 newgrp docker
 ```
 
-Agora é necessário o Docker Compose. Para baixaremos um pacote e executaremos com `yum`
+Agora é necessário o Docker Compose. Para baixaremos um pacote e executaremos com yum
 
 ```sh
 sudo curl -L https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-compose-plugin-2.6.0-3.el7.x86_64.rpm -o ./compose-plugin.rpm
@@ -85,9 +85,9 @@ Pronto. Os dois software estão instalados para ser utilizados.
 
 Agora mostrarei o código de uma pipeline que implementei (nesse caso com GitHub Actions). Para que a pipeline seja executada corretamente utilizei dois arquivos de configuração do Docker. 
 
-O `Dockerfile` com código para que app seja construído e rode em produção.
+O Dockerfile com código para que app seja construído e rode em produção.
 
-```dockerfile:Dockerfile
+```dockerfile
 FROM node:16-bullseye-slim as base
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -125,9 +125,9 @@ ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["node", "./dist/server.js"]
 ```
 
- Um arquivo `docker-compose.yml` para facilitar a construção e o gerenciamento dos containers.
+ Um arquivo docker-compose.yml para facilitar a construção e o gerenciamento dos containers.
  
-```yaml:docker-compose.yml
+```yaml
 version: '3.7'
 services:
   proxy-reverse:
@@ -215,9 +215,9 @@ volumes:
     driver: local
 ```
 
-O arquivo tem alguns containers que são necessário para produção e outros que servem para desenvolvimento ou para ambiente de *CI* (*Continuous Integration*). O containers de ambiente de produção são aqueles com `'production'` na propriedade `profiles`. Todos os outros não são necessários para que esta pipeline seja executado ou entendida.
+O arquivo tem alguns containers que são necessário para produção e outros que servem para desenvolvimento ou para ambiente de *CI* (*Continuous Integration*). O containers de ambiente de produção são aqueles com 'production' na propriedade profiles. Todos os outros não são necessários para que esta pipeline seja executado ou entendida.
 
-```yaml:.github/workflows/continuous_deployment.yml
+```yaml
 name: 'Continuous Deployment'
 on:
   push:
@@ -309,10 +309,10 @@ jobs:
 
 Nesse parte eu estou realizado uma sequência de operações para que no final eu tenha meu app na AWS EC2.
 - Defino todas as variáveis de ambiente para a construção dos containers (Node.js app, o banco de dados PostgreSQL e o Redis para armazenamento em memória).
-- Utilizo `actions/checkout` para baixar o código do repositório para o ambiente em que pipeline está sendo executada. `actions/checkout` é uma action, pense como uma abstração para um script para atingir um resultado ou um produto.
-- Com o comando anterior obtemos os dois arquivos de configuração do Docker. Agora o login para DockerHub será efetuado e então dar um equivalente a um `git push` para o repositório de *Docker Images* do DockerHub. O meu repositório é o `matheusinit/ecommerce-api`.
-- Agora vou copiar os arquivos necessários para a execução dos containers utilizando o comando `scp`. Eles são o `docker-compose.yml`, `.env` (criado utilizando as variáveis ambientes definidas anteriormente) e `nginx.conf` para a execução do *Nginx*
-- Por último um script será executado com o comando `ssh`. O script baixará/atualizará o *Docker Image* do comando anterior, derrubará os containers em execução do `docker-compose.yml`, se tiver algum container ativo, construíra os containers a partir do container `proxy-reverse` e seus dependentes e é deletado os arquivos `docker-compose.yml` e `.env`.
+- Utilizo actions/checkout para baixar o código do repositório para o ambiente em que pipeline está sendo executada. actions/checkout é uma action, pense como uma abstração para um script para atingir um resultado ou um produto.
+- Com o comando anterior obtemos os dois arquivos de configuração do Docker. Agora o login para DockerHub será efetuado e então dar um equivalente a um git push para o repositório de *Docker Images* do DockerHub. O meu repositório é o matheusinit/ecommerce-api.
+- Agora vou copiar os arquivos necessários para a execução dos containers utilizando o comando scp. Eles são o docker-compose.yml, .env (criado utilizando as variáveis ambientes definidas anteriormente) e nginx.conf para a execução do *Nginx*
+- Por último um script será executado com o comando ssh. O script baixará/atualizará o *Docker Image* do comando anterior, derrubará os containers em execução do docker-compose.yml, se tiver algum container ativo, construíra os containers a partir do container proxy-reverse e seus dependentes e é deletado os arquivos docker-compose.yml e .env.
 
 ### Resultado
 

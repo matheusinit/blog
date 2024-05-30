@@ -10,7 +10,7 @@ draft: false
 ![Asynchronous](/microservices-kafka/microservices-architecture.png)
 
 
-Mensageria (*Streaming*) é uma método de comunicação entre serviços em que é utilizado *logs* por meio de eventos. É uma alternativa a comunicação feita com *REST*. Esse tipo de comunicação é utilizado por soluções como **Apache Kafka**, **RabbitMQ** e **Redis Streams**, que vou chamar de `Message Broker`. Essa comunicação é um método utilizado na arquitetura de microsserviços por permitir o desacoplamento entre os microserviços. Isso vai ser explicado mais abaixo.
+Mensageria (*Streaming*) é uma método de comunicação entre serviços em que é utilizado *logs* por meio de eventos. É uma alternativa a comunicação feita com *REST*. Esse tipo de comunicação é utilizado por soluções como **Apache Kafka**, **RabbitMQ** e **Redis Streams**, que vou chamar de Message Broker. Essa comunicação é um método utilizado na arquitetura de microsserviços por permitir o desacoplamento entre os microserviços. Isso vai ser explicado mais abaixo.
 
 Para este exemplo utilizarei dois projetos em andamentos, um em Java com Spring Boot e outro com C# em ASP.NET MVC. O motivo de utilizar linguagens diferentes é mostrar que é possível, mas a linguagem não é importante nesse caso.
 
@@ -20,7 +20,7 @@ Para este exemplo utilizarei dois projetos em andamentos, um em Java com Spring 
 
 ![Request-Reply](/microservices-kafka/comunicação-sincrona.png)
 
-A comunicação síncrona é aquela em que um serviço A faz uma chamada a outro serviço B, mas tem que esperar a resposta do serviço B para dar continuidade, assim ficando bloqueado até que a resposta seja recebida. Isso é chamado de `Synchronous Blocking`.  Para que a chamada síncrona ocorra de forma correta, os dois microsserviços A e B precisam estar rodando. O que tornam um dependente do outro.
+A comunicação síncrona é aquela em que um serviço A faz uma chamada a outro serviço B, mas tem que esperar a resposta do serviço B para dar continuidade, assim ficando bloqueado até que a resposta seja recebida. Isso é chamado de Synchronous Blocking.  Para que a chamada síncrona ocorra de forma correta, os dois microsserviços A e B precisam estar rodando. O que tornam um dependente do outro.
 
 
 #### Assíncrona
@@ -29,7 +29,7 @@ A comunicação síncrona é aquela em que um serviço A faz uma chamada a outro
 
 A comunicação assíncrona é o inverso da síncrona. Quando um serviço A faz uma "chamada" para o serviço B ele não fica aguardando a resposta retornar, a aplicação continua. Eventualmente o serviço B vai ser receber a requisição feita pelo o serviço A e processar. Não necessariamente precisa retornar uma resposta, mas se precisar pode ser feito.
 
-Se caso o serviço que precisa receber a chamada não estiver rodando, assim que estiver, ele vai receber todas as chamadas feitas enquanto esteve ausente. E dessa forma os dois serviços se tornam independentes e desacoplados (`Loosely Coupled`).
+Se caso o serviço que precisa receber a chamada não estiver rodando, assim que estiver, ele vai receber todas as chamadas feitas enquanto esteve ausente. E dessa forma os dois serviços se tornam independentes e desacoplados (Loosely Coupled).
 
 Nessa arquitetura não feita uma requisição ou chamada, e sim uma mensagem é enviada. Essa mensagem pode conter, por exemplo, um conteúdo JSON.
 
@@ -44,7 +44,7 @@ Nessa arquitetura não feita uma requisição ou chamada, e sim uma mensagem é 
 }
 ```
 
-A solução utilizada foi com `Apache Kafka` como `Message Broker`.
+A solução utilizada foi com Apache Kafka como Message Broker.
 
 Para saber mais sobre isso recomendo o livro **Building Microservices: Designing Fine-Grained Systems** do **Sam Newman**
 
@@ -58,20 +58,20 @@ Nesse exemplo terei dois microsserviços que se comunicará de forma assíncrona
 
 ### Como Message Broker utiliza Topics
 
-O `Message Broker` vai armazenar as mensagens em uma estrutura de dados chamada `Topic` para então o `Consumer` ou `Subscriber` ler a mensagem. Especialmente no Kafka, as mensagens não são deletadas assim que lidas, elas permanecem armazenadas por X tempo. O *padrão é de 1 semana*, esse aspecto é chamado no Kafka de `Message Retention`.
+O Message Broker vai armazenar as mensagens em uma estrutura de dados chamada Topic para então o Consumer ou Subscriber ler a mensagem. Especialmente no Kafka, as mensagens não são deletadas assim que lidas, elas permanecem armazenadas por X tempo. O *padrão é de 1 semana*, esse aspecto é chamado no Kafka de Message Retention.
 
-Um `Topic` pode ser visto como uma `Queue` de estrutura de dados com logs armazenados. Topics podem ser nomeados e podem ter 0, 1 ou muitos `Producer` e `Consumer`.
+Um Topic pode ser visto como uma Queue de estrutura de dados com logs armazenados. Topics podem ser nomeados e podem ter 0, 1 ou muitos Producer e Consumer.
 
 #### Producer e Consumer
 
-Ou também o `Bounded-Buffer Problem` é um problema descrito por Dijkstra. Esse é um problema que foi resolvido com uma `Queue` em que é descrito que há:
-- 2 processos que são chamados de `Producer` e `Consumer`
-- `Producer` é um processo cíclico que a cada ciclo produz uma porção de informação
-- `Consumer` é um processo cíclico que a cada ciclo consome a próxima porção de informação produzida pelo `Producer`
+Ou também o Bounded-Buffer Problem é um problema descrito por Dijkstra. Esse é um problema que foi resolvido com uma Queue em que é descrito que há:
+- 2 processos que são chamados de Producer e Consumer
+- Producer é um processo cíclico que a cada ciclo produz uma porção de informação
+- Consumer é um processo cíclico que a cada ciclo consome a próxima porção de informação produzida pelo Producer
 
-Um `Message Broker` utilizada dessa arquitetura como solução. No entendo, é utilizado de forma distribuída com `TCP/IP` para permitir essa comunicação a nível de *Virtual Machines* (*VM*).
+Um Message Broker utilizada dessa arquitetura como solução. No entendo, é utilizado de forma distribuída com TCP/IP para permitir essa comunicação a nível de *Virtual Machines* (*VM*).
 
-Essa não é a única arquitetura de comunicação de um *Message Broker*, também há `Pub/Sub`.
+Essa não é a única arquitetura de comunicação de um *Message Broker*, também há Pub/Sub.
 
 #### No código
 
@@ -93,19 +93,19 @@ kafka:
       - 9092:9092
 ```
 
-e com o comando para iniciar o container de um `docker-compose.yml`
+e com o comando para iniciar o container de um docker-compose.yml
 
 ```bash
 docker compose up -d kafka
 ```
 
-Finalmente o comando para criar o Topic `"ordering"` para o Kafka que está no container recém-criado `"ordering-queue"`
+Finalmente o comando para criar o Topic "ordering" para o Kafka que está no container recém-criado "ordering-queue"
 
 ```bash
 docker exec ordering-queue kafka-topics.sh --bootstrap-server localhost:9092 --topic ordering --create --partitions 3 --replication-factor 1
 ```
 
-No código abaixo está um `Consumer` utilizando o framework *Java Spring Boot* (**qualquer linguagem vai utilizar os mesmos conceitos!**) que irá executar uma classe `Service` a partir do conteúdo em JSON recebido. Na annotation `KafkaListener` está definido o nome do Topic, `"ordering"` e um `groupId` para determinar instâncias de aplicação em um determinado grupo, assim permitindo que haja um `Load Balancer` para os `Consumers` e dividir a carga de mensagens entre N instâncias.
+No código abaixo está um Consumer utilizando o framework *Java Spring Boot* (**qualquer linguagem vai utilizar os mesmos conceitos!**) que irá executar uma classe Service a partir do conteúdo em JSON recebido. Na annotation KafkaListener está definido o nome do Topic, "ordering" e um groupId para determinar instâncias de aplicação em um determinado grupo, assim permitindo que haja um Load Balancer para os Consumers e dividir a carga de mensagens entre N instâncias.
 
 ```java
 package com.deliveryapirest.consumer;
@@ -179,7 +179,7 @@ public class OrderingConsumer {
 }
 ```
 
-O `Producer` o código é mais simples, na classe abaixo inicio uma nova configuração para o Kafka com o `ClientId` para debugging e `BootstrapServers` para definir os servidores do Kafka através de URL. Após isso é transformado em JSON o conteúdo da mensagem e enviado para o `Message Broker`.
+O Producer o código é mais simples, na classe abaixo inicio uma nova configuração para o Kafka com o ClientId para debugging e BootstrapServers para definir os servidores do Kafka através de URL. Após isso é transformado em JSON o conteúdo da mensagem e enviado para o Message Broker.
 
 ```c#
 namespace OrderingApi.Producers;
@@ -216,7 +216,7 @@ public class OrderingKafkaProducer : OrderingProducer
 
 ### Conclusão
 
-Me surpreendi como `Message Broker` é um conceito de tecnologia que herda de conceitos muito básicos e antigos como `File System`, `Queue`, `Pub/Sub`, `Decoupling` e `Interprocess Communication`. Esse foi um exemplo de um dos casos de uso de um `Message Broker`, mas com isso deu para entender o funcionamento básico e seu caso de uso com `Microservices`.
+Me surpreendi como Message Broker é um conceito de tecnologia que herda de conceitos muito básicos e antigos como File System, Queue, Pub/Sub, Decoupling e Interprocess Communication. Esse foi um exemplo de um dos casos de uso de um Message Broker, mas com isso deu para entender o funcionamento básico e seu caso de uso com Microservices.
 
 O projeto em [Spring Boot](https://github.com/matheusinit/delivery-api-springboot) e [ASP.NET MVC](https://github.com/matheusinit/ordering-api-aspnet) pode ser encontrado no meu Github
 

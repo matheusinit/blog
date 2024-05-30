@@ -16,22 +16,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'app-violet-dark': '#1a1b26',
-        'app-violet-darker': '#17181f',
-        'app-violet-base': '#23252f',
-        'app-violet-light': '#24283b',
-        'app-red-base': '#f7768e',
-        'app-red-light': '#a95162',
-        'app-gray-base': '#e9eaec',
-        'app-gray-dark': '#dbdde7',
-        'app-gray-darker': '#bec0c7',
-        'app-black-darker': '#111',
-        'app-black-base': '#171717',
-        'app-black-light': '#18181b'
+        'background': 'hsl(var(--background))',
+        'foreground': 'hsl(var(--foreground))',
+
+        'primary': 'hsl(var(--primary))',
+        'primary-foreground': 'hsl(var(--primary-foreground))',
+
+        'secondary': 'hsl(var(--secondary))',
+        'secondary-foreground': 'hsl(var(--secondary-foreground))',
+
+        'foreground-primary': 'hsl(var(--foreground-primary))',
+        'foreground-secondary': 'hsl(var(--foreground-secondary))',
+        'foreground-tertiary': 'hsl(var(--foreground-tertiary))',
+
+        'border': 'hsl(var(--border))',
+        'ring': 'hsl(var(--ring)',
+        'input': 'hsl(var(--input))',
       },
       fontFamily: {
-        display: ['Comfortaa', 'system-ui', '-apple-system', 'Roboto'],
-        sans: ['Barlow', 'system-ui', '-apple-system', 'Roboto'],
+        display: ['Urbanist', 'system-ui', '-apple-system', 'Roboto'],
+        sans: ['PT Sans', 'system-ui', '-apple-system', 'Roboto'],
         serif: ['ui-serif', 'Georgia'],
         mono: [
           'JetBrains Mono',
@@ -55,7 +59,6 @@ module.exports = {
     }
   },
   plugins: [
-    require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography')
   ],
   important: true

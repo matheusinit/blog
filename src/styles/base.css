@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 0, 0%, 95.69%;
+    --foreground: 222.2 47.4% 11.2%;
+
+
+    /* --primary: 202, 69%, 60%, 1; */
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --foreground-primary: 0, 0.97%, 20.2%;
+    --foreground-secondary: 0, 0%, 40%;
+    --foreground-tertiary: 0, 0%, 66.27%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+  }
+}
+
 body {
   min-height: 100vh;
 }
@@ -13,74 +40,70 @@ body {
 }
 
 .markdown {
-  @apply dark:text-gray-200 prose max-w-max;
+  @apply prose max-w-max;
 }
 
 /* Heading */
 
 .markdown h1 {
-  @apply text-3xl font-semibold mb-4 text-inherit;
+  @apply text-3xl 2xl:text-4xl font-bold mb-4 text-inherit;
 }
 
 .markdown h2 {
-  @apply text-2xl font-semibold mb-4 text-inherit;
+  @apply text-2xl 2xl:text-3xl font-semibold mb-4 text-inherit;
 }
 
 .markdown h3 {
-  @apply text-xl font-semibold mb-4 text-inherit;
+  @apply text-xl 2xl:text-2xl font-semibold mb-4 text-inherit;
 }
 
 .markdown h4 {
-  @apply text-lg font-semibold mb-4 text-inherit;
+  @apply text-lg 2xl:text-xl font-semibold mb-4 text-inherit;
 }
 
 /* Texts */
 
 .markdown p {
-  @apply text-lg leading-relaxed mb-6 font-normal;
+  @apply leading-7 mb-6 font-normal text-foreground-primary/80;
 }
 
 .markdown p a {
-  @apply text-lg underline underline-offset-2 text-gray-700 decoration-gray-700 dark:decoration-gray-300 dark:text-gray-300;
+  @apply underline underline-offset-2 text-gray-700 decoration-gray-700;
 }
 
 .markdown ul {
   @apply w-full;
 }
 
-.markdown ul > li {
-  @apply text-lg pl-0 dark:text-gray-50;
+.markdown ul>li {
+  @apply pl-0 text-foreground-primary/80;
 }
 
-.markdown ul > li::marker {
-  @apply text-neutral-600;
-}
-
-.markdown ul > li > a {
-  @apply underline underline-offset-2 leading-snug font-semibold inline-block text-inherit dark:text-neutral-200;
+.markdown ul>li>a {
+  @apply underline underline-offset-2 leading-snug font-semibold inline-block text-inherit;
 }
 
 .markdown p code {
-  @apply p-1 bg-neutral-300 border-neutral-400 dark:text-gray-100 border dark:border-neutral-800 rounded text-base dark:bg-neutral-900;
+  @apply p-1 bg-neutral-300 border-neutral-400 border rounded text-base;
 }
 
 .markdown blockquote {
-  @apply rounded italic py-2 px-4 border text-gray-700 dark:text-gray-400 dark:border-neutral-700 dark:bg-neutral-900 border-neutral-400 bg-neutral-300 my-4 transition-colors;
+  @apply rounded py-2 px-4 border text-gray-700 border-gray-300 bg-white/20 my-4 transition-colors;
 }
 
 .markdown blockquote p {
-  @apply m-0 text-[1.1rem];
+  @apply m-0;
 }
 
 /* Code block */
 
-.markdown .remark-code-title {
-  @apply py-1.5 pl-3 pr-2 border bg-neutral-800 border-gray-500 dark:border-gray-800 text-[0.85rem] rounded-t text-white dark:bg-neutral-900 mt-6 font-mono;
+.expressive-code pre>code {
+  @apply text-sm !important;
 }
 
-.markdown pre {
-  @apply rounded-b p-4 text-[0.95rem] leading-snug font-mono border-b border-l border-r bg-neutral-800 border-gray-500 dark:bg-neutral-900 dark:border-gray-800 mb-6 !important;
-}
+/* .markdown pre { */
+/*   @apply rounded-b leading-snug font-mono border-b border-l border-r border-gray-500 mb-6 !important; */
+/* } */
 
 /* Assets */
 

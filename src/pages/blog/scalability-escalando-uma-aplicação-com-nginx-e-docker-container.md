@@ -8,38 +8,38 @@ draft: false
 
 ### Introdução
 
-Desta vez, quero falar um pouco sobre escalabilidade (*Scaling*) com 4 instâncias de uma aplicação ASP.NET MVC. Para isso vou falar sobre Load Balancing, Scaling e estratégias existentes. Para demonstrar a prática utilizarei `Nginx`, `Docker` e uma aplicação API REST. Não importa a tecnologia utilizada, esse conhecimento é agnóstico a frameworks. Foi escolhido ASP.NET porque é o framework que estou aprendendo atualmente e estou construindo um projeto para dominar a tecnologia.
+Desta vez, quero falar um pouco sobre escalabilidade (*Scaling*) com 4 instâncias de uma aplicação ASP.NET MVC. Para isso vou falar sobre Load Balancing, Scaling e estratégias existentes. Para demonstrar a prática utilizarei Nginx, Docker e uma aplicação API REST. Não importa a tecnologia utilizada, esse conhecimento é agnóstico a frameworks. Foi escolhido ASP.NET porque é o framework que estou aprendendo atualmente e estou construindo um projeto para dominar a tecnologia.
 
 ![Load Balancer Architecture](/load-balancing/load-balancer-arch.png)
 
 ### O que é Scaling (Escalabilidade)?
 
-Como dito no livro `Designing Data-Intensive Applications` por Martin Kleppmann:
+Como dito no livro Designing Data-Intensive Applications por Martin Kleppmann:
 
 > Scalability is the term we use to describe a system's ability to cope with increased load
 
-Então quando a carga aumenta, nós precisamos adaptar a nossa aplicação para conseguir processar a carga com a aplicação funcionando devidamente. A carga aqui é usuários acessando nossa API REST, mas não se limita a isso, em outros casos pode ser `writes` no banco de dados ou `hit rate` no cache. No caso da API REST é considerado `requests per second`. No meu caso hipotético, eu estou criando 4 instâncias de uma API REST pois uma só não é capaz de lidar com a quantidade de requisições.
+Então quando a carga aumenta, nós precisamos adaptar a nossa aplicação para conseguir processar a carga com a aplicação funcionando devidamente. A carga aqui é usuários acessando nossa API REST, mas não se limita a isso, em outros casos pode ser writes no banco de dados ou hit rate no cache. No caso da API REST é considerado requests per second. No meu caso hipotético, eu estou criando 4 instâncias de uma API REST pois uma só não é capaz de lidar com a quantidade de requisições.
 
-Não vou me aprofundar muito sobre teorias de escalabilidade mas é o que pretendo estudar mais sobre logo. Para adaptar nossa aplicação, criarei uma instância exata para dividir as requisições entre essas 4 aplicações. Mas como as requisições serão divididas entre essas 4 cópias da aplicação API REST? `Load Balancer` é a solução para esse problema.
+Não vou me aprofundar muito sobre teorias de escalabilidade mas é o que pretendo estudar mais sobre logo. Para adaptar nossa aplicação, criarei uma instância exata para dividir as requisições entre essas 4 aplicações. Mas como as requisições serão divididas entre essas 4 cópias da aplicação API REST? Load Balancer é a solução para esse problema.
 
-No mundo real cada container desse seria um `virtual server` da AWS ou Google Cloud, mas como isso é prática de Load Balancer, um único servidor (meu computador) é suficiente para demonstrar. Por que? Quero demonstrar como um Load Balancer funciona e seus benefícios, e não como serviços podem ser divididos entre diferentes servidores.
+No mundo real cada container desse seria um virtual server da AWS ou Google Cloud, mas como isso é prática de Load Balancer, um único servidor (meu computador) é suficiente para demonstrar. Por que? Quero demonstrar como um Load Balancer funciona e seus benefícios, e não como serviços podem ser divididos entre diferentes servidores.
 
 ### Load Balancer
 
-Load Balancer é um `server` que pode distribuir os `requests` entre servidores. Isso é feito utilizando um algoritmo que é escolhido ao configurar, e dessa forma a carga (*Load*) é balanceado (*Balanced*) 
+Load Balancer é um server que pode distribuir os requests entre servidores. Isso é feito utilizando um algoritmo que é escolhido ao configurar, e dessa forma a carga (*Load*) é balanceado (*Balanced*) 
 
-Existem alguns métodos de balanceamento de carga, algoritmos que decidem qual servidor escolher. Temos o algoritmo `Round Robin`, utilizado também por `Schedulers`, em que a carga é distribuída seguindo a ordem dos servidores em um ciclo.
+Existem alguns métodos de balanceamento de carga, algoritmos que decidem qual servidor escolher. Temos o algoritmo Round Robin, utilizado também por Schedulers, em que a carga é distribuída seguindo a ordem dos servidores em um ciclo.
 
-Um outro método é `Least Connections`. O load balancer vai escolher o servidor com a menor quantidade de conexões abertas, no caso o com menos carga no momento. Também há o método `Generic Hash` em que é provido uma `hash key` para decidir qual servidor irá processar a requisição.
+Um outro método é Least Connections. O load balancer vai escolher o servidor com a menor quantidade de conexões abertas, no caso o com menos carga no momento. Também há o método Generic Hash em que é provido uma hash key para decidir qual servidor irá processar a requisição.
 
-Como soluções de Load Balancer, existem duas escolhas populares: Nginx e HAProxy. Para esse exemplo utilizarei `Nginx`.
+Como soluções de Load Balancer, existem duas escolhas populares: Nginx e HAProxy. Para esse exemplo utilizarei Nginx.
 ### Configuração Nginx como Load Balancer
 
-O método de *Round Robin* com o Nginx pode ser feito assim. No Nginx, `Round Robin` é o padrão.  No código de configuração abaixo do Nginx, eu estou definindo o grupo de `servers` em que o método *Round Robin* vai definir qual deles vai processar a requisição HTTP.
+O método de *Round Robin* com o Nginx pode ser feito assim. No Nginx, Round Robin é o padrão.  No código de configuração abaixo do Nginx, eu estou definindo o grupo de servers em que o método *Round Robin* vai definir qual deles vai processar a requisição HTTP.
 
 ![Thread Pool](/load-balancing/round-robin.png)
 
-Estou utilizando `api-rest-n` pois esse é nome do serviço no arquivo `docker-compose.yml`.
+Estou utilizando api-rest-n pois esse é nome do serviço no arquivo docker-compose.yml.
 
 ```nginx
 events {
@@ -63,7 +63,7 @@ http {
 }
 ```
 
-Para utilizar `Least Connections` basta inserir a seguinte linha em `upstream`. 
+Para utilizar Least Connections basta inserir a seguinte linha em upstream. 
 
 ```nginx
 events {
@@ -92,7 +92,7 @@ Cheque a documentação para ver como pode ser feito com os outros métodos.
 
 ### Escalando nossa aplicação com Docker compose
 
-Como estou utilizando 4 instâncias, ou réplicas, da API REST, serão 4 Docker containers rodando. O `docker-compose.yml` está configurado assim:
+Como estou utilizando 4 instâncias, ou réplicas, da API REST, serão 4 Docker containers rodando. O docker-compose.yml está configurado assim:
 
 ```yml
 version: '3.7'
@@ -139,11 +139,11 @@ services:
     restart: always
 ```
 
-- Utilizo o `extends` para utilizar a mesma configuração do serviço `api-rest-1` para todas as outras instâncias.
-- Defino `ports` em `api-rest-1` como sendo de `8000-8003` para que todas as instâncias da API REST vá da porta 8000 até 8003. Isso é possível graças ao `extends`.
+- Utilizo o extends para utilizar a mesma configuração do serviço api-rest-1 para todas as outras instâncias.
+- Defino ports em api-rest-1 como sendo de 8000-8003 para que todas as instâncias da API REST vá da porta 8000 até 8003. Isso é possível graças ao extends.
 ### Resultados
 
-Vamos ver o primeiro resultado para a rota `/api` que retorna o *host name* do container em JSON.
+Vamos ver o primeiro resultado para a rota /api que retorna o *host name* do container em JSON.
 
 ```c#
 namespace OrderingApi.Controllers;
@@ -164,13 +164,13 @@ public class ApiInfoController : ControllerBase
 }
 ```
 
-Utilizando a ferramenta `wrk` para `load testing` para verificar se os `requests per second` aumentava com o aumento de  instâncias da API REST.  Utilizei o seguinte comando:
+Utilizando a ferramenta wrk para load testing para verificar se os requests per second aumentava com o aumento de  instâncias da API REST.  Utilizei o seguinte comando:
 
 ```bash
 seq 1 5 | xargs -n1 wrk -t1 -c100 -d30s http://localhost/api >> benchmarks/api-1-replica-100-conn-1-th.log
 ```
 
-Com esse comando iria rodar o `wrk` na rota `/api` 5 vezes com 100 conexões ativas utilizando 1 CPU thread durante 30 segundos. E a cada resultado iria dar *append* no arquivo de log. Fiz assim para todos os casos mudando somente o número de conexões ativas e os servidores a serem balanceados no arquivo `nginx.conf`.
+Com esse comando iria rodar o wrk na rota /api 5 vezes com 100 conexões ativas utilizando 1 CPU thread durante 30 segundos. E a cada resultado iria dar *append* no arquivo de log. Fiz assim para todos os casos mudando somente o número de conexões ativas e os servidores a serem balanceados no arquivo nginx.conf.
 
 #### CASE 1: Leitura de RAW JSON na /api
 
@@ -223,11 +223,11 @@ Requests/sec:   6388.96
 Transfer/sec:      1.31MB
 ```
 
-- Aqui conseguimos ver que foi atingido uma média de `6300 requests per second`
+- Aqui conseguimos ver que foi atingido uma média de 6300 requests per second
 
 Agora esperamos que com 4 instâncias esse número aumente, né?
 
-```log
+```
 Running 30s test @ http://localhost/api
   1 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -274,9 +274,9 @@ Requests/sec:   4494.76
 Transfer/sec:      0.92MB
 ```
 
-- O número de `requests per second` diminui de uma média de `6.3k` para `4.4k`
+- O número de requests per second diminui de uma média de 6.3k para 4.4k
 
-Isso me deixou surpreso. Eu esperava que o número de `requests per second` fosse aumentar independente. Pois se imagina que como esse computador tem 4 CPU Thread então 4 instâncias vai rodar paralelamente e assim processar mais requisições por segundo. Eu estava errado.
+Isso me deixou surpreso. Eu esperava que o número de requests per second fosse aumentar independente. Pois se imagina que como esse computador tem 4 CPU Thread então 4 instâncias vai rodar paralelamente e assim processar mais requisições por segundo. Eu estava errado.
 
 Isso se repete se aumentarmos para 400 conexões simultâneas. Isso me deixa em dúvida.
 
@@ -284,7 +284,7 @@ Isso se repete se aumentarmos para 400 conexões simultâneas. Isso me deixa em 
 
 Isso me deixou uma lição, *Scaling* não é óbvio. Não existe uma regra.
 
-#### CASE 2: Leitura na rota `/products` com acesso ao banco de dados
+#### CASE 2: Leitura na rota /products com acesso ao banco de dados
 
 Nessa rota é feita a leitura ao banco de dados com todos os produtos e retornado o JSON.
 
@@ -338,7 +338,7 @@ seq 1 5 | xargs -n1 wrk -t1 -c400 -d30s http://localhost/products >> benchmarks/
 
 Resultado:
 
-```log
+```
 Running 30s test @ http://localhost/products
   1 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -385,11 +385,11 @@ Requests/sec:   1787.31
 Transfer/sec:      2.52MB
 ```
 
-- O resultado foi uma média de `1.7/1.8k requests per second`.
+- O resultado foi uma média de 1.7/1.8k requests per second.
 
 Agora com 4 replicas/instâncias da API REST e 400 conexões simultâneas, temos:
 
-```log
+```
 Running 30s test @ http://localhost/products
   1 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -451,45 +451,45 @@ Requests/sec:   1280.74
 Transfer/sec:      1.81MB
 ```
 
-- Uma queda de `1.7k` para `1.3k requests per second`. 
-- Em alguns momentos ocorreu `Socket errors` do tipo *timeout*. Provável que os requests foram descartados pelo a demora de ser processado.
+- Uma queda de 1.7k para 1.3k requests per second. 
+- Em alguns momentos ocorreu Socket errors do tipo *timeout*. Provável que os requests foram descartados pelo a demora de ser processado.
 
 E então porque o aumento de instâncias está fazendo a API REST aceitar menos requisições? Não foi óbvio de primeira, mas depois de um tempo descobri.
 
 ### Thread Pool
 
-ASP.NET MVC não precisa de replicas para processar as requisições paralelamente **na mesma máquina**. DotNet fornece uma ThreadPool, que é basicamente o que estou tentando fazer aqui, onde nós temos N recursos para processar uns dados. O recurso que estamos usando aqui é instâncias da API REST com Docker container, no DotNet é uma `thread`. Em que cada thread executa o código de uma `request`.
+ASP.NET MVC não precisa de replicas para processar as requisições paralelamente **na mesma máquina**. DotNet fornece uma ThreadPool, que é basicamente o que estou tentando fazer aqui, onde nós temos N recursos para processar uns dados. O recurso que estamos usando aqui é instâncias da API REST com Docker container, no DotNet é uma thread. Em que cada thread executa o código de uma request.
 
 ![Thread Pool](/load-balancing/thread-pool.png)
 
-Quando estava tentando rodar 4 instâncias tudo que eu fazia era adicionar mais concorrentes para os recursos da máquina, já que cada instância tem threads o suficiente para executar paralelamente a nível de `CPU Thread`. Isso fazia  com que tivesse menos recursos ainda disponíveis para a API REST e trazendo mais custos como `Context Switching` entre as instâncias.
+Quando estava tentando rodar 4 instâncias tudo que eu fazia era adicionar mais concorrentes para os recursos da máquina, já que cada instância tem threads o suficiente para executar paralelamente a nível de CPU Thread. Isso fazia  com que tivesse menos recursos ainda disponíveis para a API REST e trazendo mais custos como Context Switching entre as instâncias.
 
-Um dos Docker containers rodava e assim consumia todas as 4 `CPU Thread` disponíveis no meu computador. Então uma única instância utilizando bem os recursos da CPU. Colocar mais 3 instâncias só faz aumentar a concorrência entre os 4 processos da API REST rodando.
+Um dos Docker containers rodava e assim consumia todas as 4 CPU Thread disponíveis no meu computador. Então uma única instância utilizando bem os recursos da CPU. Colocar mais 3 instâncias só faz aumentar a concorrência entre os 4 processos da API REST rodando.
 
 ![Thread Pool](/load-balancing/container-concurrent.png)
 
-Em algum momento o `Scheduler` da `Kernel` resolveu dar vez para a API REST 2. Essa troca de contexto e execução entre processos e threads, é `Context Switching`.
+Em algum momento o Scheduler da Kernel resolveu dar vez para a API REST 2. Essa troca de contexto e execução entre processos e threads, é Context Switching.
 
 ![Thread Pool](/load-balancing/container-context-switching.png)
 
 *Context Switching* não é de graça e nem barato, porque tem um custo a mais para a CPU. Como pode ser visto nos resultados do *load test* os *requests per second* diminui em uma quantidade considerável. Por isso com 4 instâncias ficou mais lento, graças a essa troca (*switching*) de contexto (*context*) feita e que trouxe benefício nenhum para esse caso, só mais custo.
 
-Para investigar isso utilizei o comando `htop` após iniciar o *load testing* com `wrk`. E vi que com uma instância da API REST rodando as 4 threads disponíveis da máquina estavam sendo utilizadas.
+Para investigar isso utilizei o comando htop após iniciar o *load testing* com wrk. E vi que com uma instância da API REST rodando as 4 threads disponíveis da máquina estavam sendo utilizadas.
 
 ![htop](/load-balancing/htop.gif)
 
 Meu erro foi não considerar a arquitetura da linguagem de programação e do framework. Se isso fosse Node.JS ou Python estaria tudo bem, porque Node.JS ou Python é single thread. Mas DotNet/C# é multithread.
 
-Isso quer dizer que a API REST em C# não pode escalar? Não. Eu tentei fazer utilizando cada thread do meu computador como se fosse um `virtual server` na AWS ou Google Cloud. Como se cada instância estivesse no seu próprio ´`virtual server`. Mas a arquitetura do ASP.NET MVC e C# não permite isso. 
+Isso quer dizer que a API REST em C# não pode escalar? Não. Eu tentei fazer utilizando cada thread do meu computador como se fosse um virtual server na AWS ou Google Cloud. Como se cada instância estivesse no seu próprio virtual server. Mas a arquitetura do ASP.NET MVC e C# não permite isso. 
 
-É possível escalar uma aplicação multithread como essa. Utilize cada instância da API REST multithread em um `virtual server`, assim como o Nginx e o banco de dados, e comunicação entre o Nginx e as instâncias seria feito via rede utilizando a URL dos `virtual servers` na `upstream` assim como foi feito com o nome do serviço Docker.
+É possível escalar uma aplicação multithread como essa. Utilize cada instância da API REST multithread em um virtual server, assim como o Nginx e o banco de dados, e comunicação entre o Nginx e as instâncias seria feito via rede utilizando a URL dos virtual servers na upstream assim como foi feito com o nome do serviço Docker.
 
 ![Virtual servers](/load-balancing/scaling-multithread-with-virtual-server.png)
 
 
 ### Conclusão
 
-Esperava um resultado e ver sobre um assunto específico, mas acabei indo para `Thread Pool`, `Context Switching` e `Framework Architecture`. Isso mostra o quão enganados estamos no começo de uma jornada, mas também traz ensinamentos após ela. 
+Esperava um resultado e ver sobre um assunto específico, mas acabei indo para Thread Pool, Context Switching e Framework Architecture. Isso mostra o quão enganados estamos no começo de uma jornada, mas também traz ensinamentos após ela. 
 
 Aprendi muito com essa prática e me mostrou alguns conhecimentos que pensei que não tinha haver com isso mas no final acabou tendo.
 

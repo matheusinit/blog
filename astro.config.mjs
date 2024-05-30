@@ -1,24 +1,19 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-
-import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
+import vue from '@astrojs/vue';
 
-import remarkCodeTitles from 'remark-code-titles'
-import { remarkReadingTime } from './remark-reading-time.mjs';
+import expressiveCode from 'astro-expressive-code';
+
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com/',
-  integrations: [mdx(), sitemap(), react(), tailwind()],
+  integrations: [expressiveCode({
+    themes: ['github-dark'],
+  }), mdx(), sitemap(), tailwind(), vue()],
   markdown: {
-    remarkPlugins: [remarkReadingTime, remarkCodeTitles],
-    syntaxHighlight: 'shiki',
-    shikiConfig: {
-      theme: 'one-dark-pro',
-      wrap: true
-    },
     drafts: true
   }
 });

@@ -1,19 +1,24 @@
 ---
+import clsx from 'clsx';
 import '../styles/base.css';
 import BaseHead from './BaseHead.astro';
-import HeaderStatic from './HeaderStatic.astro';
+import Header from './header.astro'
 
 const { title, description } = Astro.props;
+const { pathname: currentPath } = Astro.url
+
+const classProp = clsx('mx-auto size-full', currentPath.includes('blog') ? 'max-w-[740px]' : 'max-w-[1120px]')
+
 ---
 
 <head>
   <BaseHead title={title} description={description} />
 </head>
 <body
-  class="bg-app-gray-base font-display text-neutral-700 transition-colors dark:bg-app-violet-darker dark:text-gray-50"
+  class="bg-background font-display font-normal text-foreground-primary transition-colors"
 >
-  <div class="mx-auto h-full w-full px-4 md:max-w-screen-md md:px-0">
-    <HeaderStatic />
+  <div class={classProp}>
+    <Header />
 
     <div class="md:mt-4">
       <slot />

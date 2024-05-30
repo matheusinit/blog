@@ -1,24 +1,15 @@
-# Blog - matheusinit
-
-## 💻 Projeto
-
-Esse é um projeto para gravar os meus aprendizados para mim mesmo. Dessa forma não poderei ter registrado meu progresso e quem sabe ajudar alguém com uma das minhas postagens.
-
-
-> Light mode
-
-![Home - Light Mode](./.github/readme/Home%20-%20Light%20mode.png)
-
-
-> Dark mode
-
-![Home - Dark Mode](./.github/readme/Home%20-%20Dark%20mode.png)
-
+<!-- # Blog - matheusinit -->
+<h2 align="center">matheusinit - blog</h2>
+<p align="center">
+  <img width="390" alt="matheusinit" src="./.github/readme/logo.svg"/>
+  <br/><br/>
+  <i>Blog é um coleção de blog posts escrito por mim, vulgo matheusinit</i>
+  <br/><br/>
+</p>
 
 ## ⚙️ Tecnologias
 
  - Astro
- - React
  - Typescript
  - Tailwindcss
 
@@ -48,8 +39,6 @@ Se por algum motivo esteja interessado em contribuir ou somente rodar na sua má
 
 ## Créditos
 
-<img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/68296035?v=4" width="100px" />
-
 Feito com :heart: por Matheus Oliveira
 
-[![Linkedin Badge](https://img.shields.io/badge/-Matheus-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/matheus-silva13/)](https://www.linkedin.com/in/matheus-silva13/) 
+[![Linkedin Badge](https://img.shields.io/badge/-Matheus-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/matheus-silva13/)](https://www.linkedin.com/in/matheus-silva13/)

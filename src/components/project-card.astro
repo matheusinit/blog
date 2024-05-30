@@ -1,0 +1,17 @@
+---
+import ArrowTopRightOnSquare from 'astro-heroicons/solid/ArrowTopRightOnSquare.astro';
+
+const { name, description } = Astro.props;
+
+---
+<a href="https://github.com/matheusinit/blog/tree/3.0" target="_blank" rel="noreferrer">
+  <div class="flex w-[21.875em] flex-col space-y-2 rounded-md border border-transparent bg-white p-2 transition-colors hover:border-gray-300">
+    <div class="flex items-center justify-between">
+      <h5>{name}</h5>
+
+      <ArrowTopRightOnSquare class="size-4 text-gray-700" />
+    </div>
+
+    <p class="text-foreground-secondary">{description}</p>
+  </div>
+</a>

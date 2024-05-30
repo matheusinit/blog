@@ -1,0 +1,18 @@
+---
+import NavLink from "./nav-link.astro";
+---
+
+<header>
+  <nav>
+    <ul class="flex items-center space-x-6 pt-6 text-base">
+      <li class="font-mono text-sm font-medium">
+        <a href="/" class="flex items-center">
+          <img src="/logo.svg" alt="Logo" class="size-6 mr-2" />
+
+          matheusinit
+        </a>
+      </li>
+      <li><NavLink href="/blog">Blog</NavLink></li>
+    </ul>
+  </nav>
+</header>
