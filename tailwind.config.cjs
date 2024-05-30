@@ -17,6 +17,13 @@ module.exports = {
     extend: {
       colors: {
         'background': 'hsl(var(--background))',
+        'foreground': 'hsl(var(--foreground))',
+
+        'primary': 'hsl(var(--primary))',
+        'primary-foreground': 'hsl(var(--primary-foreground))',
+
+        'secondary': 'hsl(var(--secondary))',
+        'secondary-foreground': 'hsl(var(--secondary-foreground))',
 
         'foreground-primary': 'hsl(var(--foreground-primary))',
         'foreground-secondary': 'hsl(var(--foreground-secondary))',
