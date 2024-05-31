@@ -18,6 +18,24 @@ import codeWithMosh from '../../public/vector/certifications/code-with-mosh.svg'
 const TITLE = 'Página inicial • matheusinit';
 const DESCRIPTION =
   'Um blog de um dev que fala sobre desenvolvimento de software';
+
+const posts = [
+  {
+    title: 'Ecommerce API',
+    description: 'API REST em Node.js para praticar TDD, CI, AWS e arquitetura de software',
+    href: 'https://github.com/matheusinit/ecommerce-api'
+  },
+  {
+    title: 'Delivery API',
+    description: 'Microsserviço escrito com framework Spring Boot com Kafka',
+    href: 'https://github.com/matheusinit/delivery-api-springboot'
+  },
+  {
+    title: 'Ordering API ASP.NET',
+    description: 'API REST em ASP.NET para praticar TDD, MVC e Testes de integração',
+    href: 'https://github.com/matheusinit/ordering-api-aspnet'
+  }
+] 
 ---
 
 <Base title={TITLE} description={DESCRIPTION}>
@@ -31,26 +49,15 @@ const DESCRIPTION =
         <h3 class="pb-6 pt-24 text-2xl font-bold text-foreground-primary">Projetos</h3>
 
         <ul class="flex justify-between">
-          <li>
-            <ProjectCard
-              name="Ecommerce API"
-              description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
-            />
-          </li>
-
-          <li>
-            <ProjectCard
-              name="Ecommerce API"
-              description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
-            />
-          </li>
-
-          <li>
-            <ProjectCard
-              name="Ecommerce API"
-              description="API REST em microservices com Spring Boot e .NET Framework utilizando testes e Kubernetes"
-            />
-          </li>
+          {posts.map(post => (
+            <li>
+              <ProjectCard
+                name={post.title}
+                description={post.description}
+                href={post.href}
+              />
+            </li>
+          ))}  
         </ul>
       </section>
 
