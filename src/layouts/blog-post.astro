@@ -35,8 +35,12 @@ const {
   </head>
 
   <Base>
-    <div>
-      <main class="font-sans max-w-[740px] mx-auto">
+    <div class="relative font-sans">
+      <aside class="left-72 top-24 fixed">
+        <h5 class="text-foreground-primary font-semibold mb-4 leading-6">Tabela de conteúdo</h5>
+        <ul class="flex flex-col space-y-1.5" role="table" id="table-of-contents"></ul>
+      </aside>
+      <main class="max-w-[740px] mx-auto">
         <div class="mb-8 pt-8 flex flex-col space-y-3">
           <span class="text-sm text-foreground-secondary 2xl:text-base">{dayjs(pubDate).format('DD [de] MMMM [de] YYYY')}</span>
       
@@ -55,4 +59,57 @@ const {
       <Footer />
     </div>
   </Base>
+
+  <script>
+    'use strict'
+    function getHeadings() {
+    // Select all heading elements
+      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      
+      // Extract and log the tag name and text content of each heading
+      const headingContents = [];
+      headings.forEach(heading => {
+        headingContents.push({ tag: heading.tagName, text: heading.textContent });
+      });
+      
+      // Log the result
+      console.log('Headings:', headingContents);
+      
+      return headingContents;
+    }
+
+    function cleanHeadings(headings) {
+      headings.splice(0, 1)
+      headings.splice(0, 1)
+
+      console.log(headings)
+
+      return headings
+    }
+
+    // Execute the function to get and log headings
+    let headings = getHeadings();
+    headings = cleanHeadings(headings)
+
+    const tableOfContentsElement = document.querySelector('#table-of-contents')
+
+
+    for (const heading of headings) {
+      console.log(heading)
+      const listItem = document.createElement('li')
+      const text = heading.text
+
+      const href = document.createElement('a')
+      href.href = '#' + text.replaceAll(' ', '-').toLowerCase().replaceAll('?', '')
+      href.textContent = text
+      href.classList.add('hover:text-foreground-secondary')
+
+      listItem.append(href)
+      tableOfContentsElement.append(listItem)
+    }
+
+    console.log(tableOfContentsElement)
+
+
+  </script>
 </html>
