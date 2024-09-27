@@ -4,109 +4,114 @@
 
 @layer base {
   :root {
-    --background: 0, 0%, 95.69%;
-    --foreground: 222.2 47.4% 11.2%;
-
-
-    /* --primary: 202, 69%, 60%, 1; */
-
+    --background: 0 0% 98.04%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
     --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
+    --primary-foreground: 0, 0.97%, 20.2%;
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --accent: 210 40% 96.1%;
+    --secondary-foreground: 0, 0%, 40%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 0, 5.88%, 93.33%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
-    --foreground-primary: 0, 0.97%, 20.2%;
-    --foreground-secondary: 0, 0%, 40%;
-    --foreground-tertiary: 0, 0%, 66.27%;
-
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem
   }
 }
 
-body {
-  min-height: 100vh;
-}
+@layer base {
+  body {
+    min-height: 100vh;
+  }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-.markdown {
-  @apply prose max-w-max;
-}
+  .markdown {
+    @apply prose max-w-max;
+  }
 
-/* Heading */
+  /* Heading */
 
-.markdown h1 {
-  @apply text-3xl 2xl:text-4xl font-bold mb-4 text-inherit;
-}
+  .markdown h1 {
+    @apply text-3xl 2xl:text-4xl font-bold mb-4 text-inherit;
+  }
 
-.markdown h2 {
-  @apply text-2xl 2xl:text-3xl font-semibold mb-4 text-inherit;
-}
+  .markdown h2 {
+    @apply text-2xl 2xl:text-3xl font-semibold mb-4 text-inherit;
+  }
 
-.markdown h3 {
-  @apply text-xl 2xl:text-2xl font-semibold mb-4 text-inherit;
-}
+  .markdown h3 {
+    @apply text-xl 2xl:text-2xl font-semibold mb-4 text-inherit;
+  }
 
-.markdown h4 {
-  @apply text-lg 2xl:text-xl font-semibold mb-4 text-inherit;
-}
+  .markdown h4 {
+    @apply text-lg 2xl:text-xl font-semibold mb-4 text-inherit;
+  }
 
-/* Texts */
+  /* Texts */
 
-.markdown p {
-  @apply leading-7 mb-6 font-normal text-foreground-primary/80;
-}
+  .markdown p {
+    @apply leading-7 mb-6 font-normal text-primary-foreground/80;
+  }
 
-.markdown p a {
-  @apply underline underline-offset-2 text-gray-700 decoration-gray-700;
-}
+  .markdown p a {
+    @apply underline underline-offset-2 text-gray-700 decoration-gray-700;
+  }
 
-.markdown ul {
-  @apply w-full;
-}
+  .markdown ul {
+    @apply w-full;
+  }
 
-.markdown ul>li {
-  @apply pl-0 text-foreground-primary/80;
-}
+  .markdown ul>li {
+    @apply pl-0;
+  }
 
-.markdown ul>li>a {
-  @apply underline underline-offset-2 leading-snug font-semibold inline-block text-inherit;
-}
+  .markdown ul>li>a {
+    @apply underline underline-offset-2 leading-snug font-semibold inline-block text-inherit;
+  }
 
-.markdown p code {
-  @apply p-1 bg-neutral-300 border-neutral-400 border rounded text-base;
-}
+  .markdown p code {
+    @apply p-1 bg-neutral-300 border-neutral-400 border rounded text-base;
+  }
 
-.markdown blockquote {
-  @apply rounded py-2 px-4 border text-gray-700 border-gray-300 bg-white/20 my-4 transition-colors;
-}
+  .markdown blockquote {
+    @apply rounded py-2 px-4 border text-gray-700 border-gray-300 bg-white/20 my-4 transition-colors;
+  }
 
-.markdown blockquote p {
-  @apply m-0;
-}
+  .markdown blockquote p {
+    @apply m-0;
+  }
 
-/* Code block */
+  /* Code block */
 
-.expressive-code pre>code {
-  @apply text-sm !important;
-}
+  .expressive-code pre>code {
+    @apply text-sm !important;
+  }
 
-/* .markdown pre { */
-/*   @apply rounded-b leading-snug font-mono border-b border-l border-r border-gray-500 mb-6 !important; */
-/* } */
+  /* .markdown pre { */
+  /*   @apply rounded-b leading-snug font-mono border-b border-l border-r border-gray-500 mb-6 !important; */
+  /* } */
 
-/* Assets */
+  /* Assets */
 
-.markdown img {
-  @apply rounded mx-auto;
+  .markdown img {
+    @apply rounded mx-auto;
+  }
 }

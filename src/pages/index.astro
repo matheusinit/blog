@@ -1,121 +1,75 @@
 ---
-import Base from '../components/Base.astro';
-import HeroSection from '../components/hero-section.astro'
-import ProjectCard from '../components/project-card.astro'
+import Base from "../components/Base.astro";
+import Link from "../components/link.astro";
 
-import nodejsVector from '../../public/vector/techs/nodejs.svg'
-import pythonVector from '../../public/vector/techs/python.svg'
-import javaVector from '../../public/vector/techs/java.svg'
-import postgresqlVector from '../../public/vector/techs/postgresql.svg'
-import dockerVector from '../../public/vector/techs/docker.svg'
-import kubernetesVector from '../../public/vector/techs/kubernetes.svg'
-import awsVector from '../../public/vector/techs/aws.svg'
+import "@/styles/base.css";
 
-import awsLogo from '../../public/vector/certifications/aws.svg'
-import cloudBadge from '../../public/vector/certifications/cloud-badge.svg'
-import codeWithMosh from '../../public/vector/certifications/code-with-mosh.svg'
+import ArrowUpRight from "node_modules/astro-heroicons/outline/ArrowUpRight.astro";
 
-const TITLE = 'Página inicial • matheusinit';
+const TITLE = "Página inicial • matheusinit";
 const DESCRIPTION =
-  'Um blog de um dev que fala sobre desenvolvimento de software';
+  "Um blog de um dev que fala sobre desenvolvimento de software";
 
-const posts = [
-  {
-    title: 'Finance',
-    description: 'Aplicação Full-Stack em Ruby on Rails e Tailwind para gerenciar finanças pessoais',
-    href: 'https://github.com/matheusinit/finance'
-  },
-  {
-    title: 'Ecommerce API',
-    description: 'API REST em Node.js para praticar TDD, CI, AWS e arquitetura de software',
-    href: 'https://github.com/matheusinit/ecommerce-api'
-  },
-  {
-    title: 'Delivery API',
-    description: 'Microsserviço escrito com framework Spring Boot com Kafka',
-    href: 'https://github.com/matheusinit/delivery-api-springboot'
-  },
-] 
+const CV_LINK =
+  "https://docs.google.com/document/d/12tTYKw8gcPDiKaeFXR2aqfUAER0uCKxTlAHb_py9C_A/edit?pli=1";
+const LINKEDIN_LINK = "https://www.linkedin.com/in/matheus-oliveira13";
 ---
 
 <Base title={TITLE} description={DESCRIPTION}>
-  <div class="mb-16">
-    <div class="flex flex-col items-center pt-4 2xl:pt-16">
-      <HeroSection />
+  <div class="flex flex-col items-center space-y-5">
+    <a
+      href="/blog"
+      class="text-sm px-3 py-1.5 border border-['#C5C5C5'] rounded-full text-primary-foreground hover:bg-primary-foreground hover:text-background transition-colors"
+      >Siga no meu blog
+    </a>
+
+    <div class="text-secondary-foreground flex flex-col items-center space-y-3">
+      <div>
+        Desenvolvedor de Software com experiência em
+        <span class="font-semibold">Next.js</span>,
+        <span class="font-semibold">Node.js</span> e
+        <span class="font-semibold">TypeScript</span>
+      </div>
+
+      <div>Atuando atualmente como Analista de Dados</div>
     </div>
 
-    <div class="space-y-12">
-      <section class="w-full">
-        <h3 class="pb-6 pt-24 text-2xl font-bold text-foreground-primary">Projetos</h3>
+    <h1 class="font-bold text-[2.5rem] text-primary-foreground">
+      Olá, sou Matheus.
+    </h1>
 
-        <ul class="flex justify-between">
-          {posts.map(post => (
-            <li>
-              <ProjectCard
-                name={post.title}
-                description={post.description}
-                href={post.href}
-              />
-            </li>
-          ))}  
-        </ul>
-      </section>
+    <div class="flex space-x-4">
+      <Link
+        href={CV_LINK}
+        class="bg-primary-foreground hover:bg-primary text-white font-medium"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Currículo <ArrowUpRight class="size-3 ml-1 hover:text-inherit" />
+      </Link>
 
-      <section class="w-full">
-        <h3 class="pb-6 pt-12 text-2xl font-bold text-foreground-primary">Tecnologias</h3>
-
-        <ul class="flex justify-evenly">
-          <li>
-            <img src={nodejsVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
-          </li>
-
-          <li>
-            <img src={pythonVector.src} alt="NodeJS" class="transtion size-20 grayscale hover:grayscale-0" />
-          </li>
-
-          <li>
-            <img src={javaVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
-          </li>
-
-          <li>
-            <img src={postgresqlVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
-          </li>
-
-          <li>
-            <img src={dockerVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
-          </li>
-
-          <li>
-            <img src={kubernetesVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
-          </li>
-
-          <li>
-            <img src={awsVector.src} alt="NodeJS" class="size-20 grayscale transition hover:grayscale-0" />
-          </li>
-        </ul>
-      </section>
-
-      <section class="w-full">
-        <h3 class="pb-6 pt-12 text-2xl font-bold text-foreground-primary">Certificações</h3>
-
-        <ul class="flex justify-evenly">
-          <li class="flex flex-col items-center space-y-1">
-            <img src={cloudBadge.src} alt="NodeJS" class="size-28" />
-            <h6 class="text-lg">Developer Learning Plan</h6>
-          </li>
-
-          <li class="flex flex-col items-center space-y-5">
-            <img src={awsLogo.src} alt="NodeJS" class="size-24" />
-            <h6 class="text-lg">AWS Cloud Essentials</h6>
-          </li>
-
-          <li class="flex flex-col items-center space-y-5">
-            <img src={codeWithMosh.src} alt="NodeJS" class="size-24" />
-            <h6 class="text-lg">The Complete Node.js Course</h6>
-          </li>
-        </ul>
-      </section>
+      <Link
+        href={LINKEDIN_LINK}
+        class="border border-secondary-foreground hover:border-primary hover:text-primary text-secondary-foreground font-medium"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn <ArrowUpRight class="size-3 ml-1 hover:text-inherit" />
+      </Link>
     </div>
 
+    <div class="text-secondary-foreground absolute bottom-10">
+      Desenvolvido por <a
+        class="font-semibold underline underline-offset-2 hover:text-primary-foreground"
+        href="https://github.com/matheusinit"
+        rel="noopener noreferrer"
+        target="_blank">matheusinit</a
+      >. Código aberto disponível no <a
+        class="font-semibold underline underline-offset-2 hover:text-primary-foreground"
+        href="https://github.com/matheusinit/blog"
+        rel="noopener noreferrer"
+        target="_blank">GitHub</a
+      >.
+    </div>
   </div>
 </Base>

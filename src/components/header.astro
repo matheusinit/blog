@@ -1,18 +1,33 @@
 ---
 import NavLink from "./nav-link.astro";
+import Clipboard from "node_modules/astro-heroicons/outline/Clipboard.astro";
 ---
 
-<header>
-  <nav>
-    <ul class="flex items-center space-x-6 pt-6 text-base">
-      <li class="font-mono text-sm font-medium">
-        <a href="/" class="flex items-center">
-          <img src="/logo.svg" alt="Logo" class="size-6 mr-2" />
+<header class="flex justify-between pt-6 font-sm font-medium">
+  <div class="flex space-x-1.5 items-center">
+    <img src="/logo.svg" alt="Logo" class="size-6" />
 
-          matheusinit
-        </a>
-      </li>
-      <li><NavLink href="/blog">Blog</NavLink></li>
-    </ul>
-  </nav>
+    <nav class="">
+      <ul class="flex space-x-3">
+        <li>
+          <NavLink href="/">Início</NavLink>
+        </li>
+        <li>
+          <NavLink href="/blog">Blog</NavLink>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="flex space-x-2 items-center bg-[#F3F4F6] px-3 py-1 rounded-md">
+    <input
+      disabled
+      value="matheus.oliveira.s@protonmail.com"
+      class="w-60 text-sm disabled:font-medium disabled:text-secondary-foreground bg-transparent"
+    />
+
+    <div class="p-1 rounded">
+      <Clipboard class="size-4 text-secondary-foreground cursor-pointer" />
+    </div>
+  </div>
 </header>
