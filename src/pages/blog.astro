@@ -1,20 +1,21 @@
 ---
-import Base from '../components/Base.astro';
-import Footer from '../components/footer.astro'
-import type { BlogPostFrontmatter, BlogPost } from '../types';
-import dayjs from 'dayjs'
-import updateLocale from 'dayjs/plugin/updateLocale';
-import 'dayjs/locale/pt-br';
+import Base from "../components/Base.astro";
+import Footer from "../components/footer.astro";
+import type { BlogPostFrontmatter, BlogPost } from "../types";
+import dayjs from "dayjs";
+import updateLocale from "dayjs/plugin/updateLocale";
+import "dayjs/locale/pt-br";
+import BlogPostCard from "@/components/blog-post-card.astro";
 
-dayjs.extend(updateLocale)
-dayjs.locale('pt-br')
+dayjs.extend(updateLocale);
+dayjs.locale("pt-br");
 
-const posts = (await Astro.glob<BlogPostFrontmatter>('./blog/*.md'))
+const posts = (await Astro.glob<BlogPostFrontmatter>("./blog/*.md"))
   .filter((post) => !post.frontmatter.draft)
   .sort(
     (a, b) =>
       new Date(b.frontmatter.pubDate).valueOf() -
-      new Date(a.frontmatter.pubDate).valueOf()
+      new Date(a.frontmatter.pubDate).valueOf(),
   ) as BlogPost[];
 
 const TITLE = "Blog • matheusinit";
@@ -23,29 +24,11 @@ const DESCRIPTION =
 ---
 
 <Base title={TITLE} description={DESCRIPTION}>
-  <div class="mx-auto max-w-[740px] pb-8 pt-16">
-    <h1 class="mb-6 text-4xl font-bold text-foreground-primary">Blog</h1>
+  <div class="mx-auto pt-6">
+    <h1 class="mb-6 text-[32px] font-bold text-primary-foreground">Blog</h1>
 
-    <div class="flex flex-col space-y-12">
-      {
-        posts.map((post, index) => (
-          <article class="group w-[42em] cursor-pointer" key={index}>
-            <a href={post.url} class="flex flex-col space-y-2">
-              <div class="flex flex-col space-y-2">
-                <span class="text-sm text-foreground-secondary font-thin 2xl:text-base">
-                  {dayjs(post.frontmatter.pubDate).format('DD [de] MMMM [de] YYYY')}
-                </span>
-                <h3 class="text-lg font-semibold text-foreground-primary transition-colors group-hover:text-foreground-secondary 2xl:text-xl">
-                  {post.frontmatter.title}
-                </h3>
-              </div>
-              <p class="text-base font-normal leading-6 tracking-wide text-foreground-secondary 2xl:text-lg">
-                {post.frontmatter.description}
-              </p>
-            </a>
-          </article>
-        ))
-      }
+    <div class="grid md:grid-cols-2 grid-cols-1 md:gap-6">
+      {posts.map(() => <BlogPostCard />)}
     </div>
   </div>
 

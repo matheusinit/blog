@@ -7,12 +7,6 @@ import Header from "./header.astro";
 import { Toaster } from "react-hot-toast";
 
 const { title, description } = Astro.props;
-const { pathname: currentPath } = Astro.url;
-
-const classProp = clsx(
-  "mx-auto size-full",
-  currentPath.includes("blog") ? "max-w-[740px]" : "max-w-[1120px]",
-);
 ---
 
 <head>
@@ -21,7 +15,7 @@ const classProp = clsx(
 <body
   class="bg-background font-display font-normal text-foreground-primary transition-colors"
 >
-  <div class={classProp}>
+  <div class="mx-auto size-full max-w-[1120px]">
     <Header />
 
     <div class="md:mt-4">
