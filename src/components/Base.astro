@@ -4,6 +4,8 @@ import "../styles/base.css";
 import BaseHead from "./BaseHead.astro";
 import Header from "./header.astro";
 
+import { Toaster } from "react-hot-toast";
+
 const { title, description } = Astro.props;
 const { pathname: currentPath } = Astro.url;
 
@@ -25,5 +27,7 @@ const classProp = clsx(
     <div class="md:mt-4">
       <slot />
     </div>
+
+    <Toaster client:load position="top-center" />
   </div>
 </body>

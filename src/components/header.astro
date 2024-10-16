@@ -1,6 +1,7 @@
 ---
 import NavLink from "./nav-link.astro";
-import Clipboard from "node_modules/astro-heroicons/outline/Clipboard.astro";
+
+import { EmailContent } from "./email-content";
 ---
 
 <header class="flex justify-between pt-6 font-sm font-medium">
@@ -19,15 +20,5 @@ import Clipboard from "node_modules/astro-heroicons/outline/Clipboard.astro";
     </nav>
   </div>
 
-  <div class="flex space-x-2 items-center bg-[#F3F4F6] px-3 py-1 rounded-md">
-    <input
-      disabled
-      value="matheus.oliveira.s@protonmail.com"
-      class="w-60 text-sm disabled:font-medium disabled:text-secondary-foreground bg-transparent"
-    />
-
-    <div class="p-1 rounded">
-      <Clipboard class="size-4 text-secondary-foreground cursor-pointer" />
-    </div>
-  </div>
+  <EmailContent client:load />
 </header>
