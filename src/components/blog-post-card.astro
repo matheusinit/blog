@@ -1,5 +1,5 @@
 ---
-const { title, description, date } = Astro.props;
+const { title, description, date, url } = Astro.props;
 
 import dayjs from "dayjs";
 
@@ -8,16 +8,16 @@ function formatDate(dateString: string) {
 }
 ---
 
-<div class="flex items-center space-x-3">
-  <div class="absolute w-[2px] h-36 bg-blue-600 rounded-sm"></div>
+<a href={url} class="flex items-center space-x-3 relative">
+  <div class="absolute w-[2px] h-[80%] bg-blue-600 rounded-sm"></div>
 
   <div class="flex flex-col gap-y-2">
     <div class="text-secondary-foreground text-xs">{formatDate(date)}</div>
-    <div class="text-[22px] font-semibold text-primary-foreground">
+    <div class="text-xl font-semibold text-primary-foreground">
       {title}
     </div>
     <div class="text-secondary-foreground">
       {description}
     </div>
   </div>
-</div>
+</a>
