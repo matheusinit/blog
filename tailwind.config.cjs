@@ -59,8 +59,8 @@ module.exports = {
   			}
   		},
   		fontFamily: {
-  			display: ['system-ui', '-apple-system', 'Urbanist', 'Inter', 'Roboto'],
-  			sans: ['PT Sans', 'system-ui', '-apple-system', 'Roboto'],
+				display: ['system-ui', '-apple-system', 'Urbanist', 'Inter', 'Roboto'],
+				sans: ['Inter', 'system-ui', '-apple-system', 'Roboto'],
   			serif: ['ui-serif', 'Georgia'],
   			mono: [ 'JetBrains Mono', 'Roboto Mono', 'monospace', 'ui-monospace', 'Menlo', 'Monaco', 'Segoe UI Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New'        ]
   		},
