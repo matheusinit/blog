@@ -28,7 +28,15 @@ const DESCRIPTION =
     <h1 class="mb-6 text-[32px] font-bold text-primary-foreground">Blog</h1>
 
     <div class="grid md:grid-cols-2 grid-cols-1 md:gap-6">
-      {posts.map(() => <BlogPostCard />)}
+      {
+        posts.map((p) => (
+          <BlogPostCard
+            title={p.frontmatter.title}
+            description={p.frontmatter.description}
+            date={p.frontmatter.pubDate}
+          />
+        ))
+      }
     </div>
   </div>
 

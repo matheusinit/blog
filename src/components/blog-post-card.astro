@@ -1,20 +1,23 @@
 ---
+const { title, description, date } = Astro.props;
 
+import dayjs from "dayjs";
+
+function formatDate(dateString: string) {
+  return dayjs(dateString).format("DD [de] MMMM [de] YYYY");
+}
 ---
 
-<div class="flex mb-5 items-center space-x-3">
-  <div class="w-2.5 h-36 bg-blue-600 rounded-sm"></div>
+<div class="flex items-center space-x-3">
+  <div class="absolute w-[2px] h-36 bg-blue-600 rounded-sm"></div>
 
   <div class="flex flex-col gap-y-2">
-    <div class="text-secondary-foreground text-xs">31 de maio de 2024</div>
+    <div class="text-secondary-foreground text-xs">{formatDate(date)}</div>
     <div class="text-[22px] font-semibold text-primary-foreground">
-      Escalabilidade de Banco de Dados Relacional
+      {title}
     </div>
     <div class="text-secondary-foreground">
-      Neste blog post, discutiremos estratégias e práticas para escalar bancos
-      de dados relacionais utilizando PostgreSQL. A escalabilidade é crucial
-      para garantir que sua aplicação continue a funcionar de forma eficiente à
-      medida que a quantidade de dados e o número de usuários aumentam.
+      {description}
     </div>
   </div>
 </div>
