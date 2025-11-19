@@ -42,41 +42,41 @@ AWS Elastic Beanstalk é uma solução que utiliza a AWS EC2 junto com um ambien
 
 AWS RDS é a solução para banco de dados que assim como Beanstalk utiliza EC2 como abstração e automatiza o processo de configuração da *VM*, backup e escalabilidade, tirando essas responsabilidades do cliente e gerenciando-as por nós. Se utilizasse uma simples *VM* com EC2 teriamos que gerenciar a VM, os pacotes, atualizações, possíveis bugs que apareceriam, backups, escalabilidade, etc. AWS RDS diminui as nossas responsabilidades com o banco de dados. É suportado diferentes *DBMS* como SQL Server, PostgreSQL, Oracle, MariaDB e MySQL.
 
-![RDS Configuration](./aws-rds-1.png)
+![RDS Configuration](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-rds-1.png)
 
 ### Configuração do RDS
 
 Na página inicial de configuração, escolhemos nossa "Engine" ou *DBMS*. Entre as opções temos: PostgreSQL, Oracle, SQL Server, MySQL, entre outros. Nesse experimento eu utilizarei o PostgreSQL por ser elegível ao **Free tier**.
 
-![RDS Configuration Step 01](./aws-rds-2.png)
+![RDS Configuration Step 01](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-rds-2.png)
 
 Novamente, por eu escolher os benefícios do **Free tier**, o *template* utilizado é o "Free tier".
 
-![RDS Configuration Step 02](./aws-rds-3.png)
+![RDS Configuration Step 02](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-rds-3.png)
 
 Essa é parte mais importante. Aqui definiremos o nome do banco de dados em "DB instance identifier". O nome do usuário em "Master username" e a senha para o usuário em "Master password". Com essas informações que será feita a conexão entre a aplicação e o banco de dados, então **não perca** e **não vaze**. Eles são dados que comprometem com a segurança da sua aplicação e dados.
 
-![RDS Configuration Step 03](./aws-rds-4.png)
+![RDS Configuration Step 03](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-rds-4.png)
 
 Em "Instance configuration", foi escolhida a instância "db.t4g.micro" para a *VM*. Uma bem pequena e elegível a **Free tier**. E **desabilite** a opção "Enable storage autoscaling" se ativada. Com essa opção AWS irá aumentar o tamanho do capacidade do disco *SSD* quando estiver perto de acabar. Como faz isso? Virtualização é a resposta.
 
-![RDS Configuration Step 04](./aws-rds-5.png)
+![RDS Configuration Step 04](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-rds-5.png)
 
 Nessa parte podemos deixar as opções padrões. Aqui é a configuração do "VPC", "subnet group" e do *firewall*.
 
-![RDS Configuration Step 05](./aws-rds-6.png)
+![RDS Configuration Step 05](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-rds-6.png)
 
 Novamente, deixe as opções padrões. O "VPC" selecionado deve ser o mesmo que será utilizado no *app* com Elastic Beanstalk. Em "Public access" está selecionado "No" para que não possa ser acessado através de um IP público, ou seja, para qualquer um que esteja fora do *VPC*. **Não exponha seu banco de dados para o mundo**
 
-![RDS Configuration Step 06](./aws-rds-6.png)
+![RDS Configuration Step 06](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-rds-6.png)
 
 É, você já sabe, tudo padrão.
 
-![RDS Configuration Step 07](./aws-rds-7.png)
+![RDS Configuration Step 07](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-rds-7.png)
 
 Novamente, tudo padrão.
 
-![RDS Configuration Step 08](./aws-rds-8.png)
+![RDS Configuration Step 08](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-rds-8.png)
 
 ### Configuração do Beanstalk
 
@@ -84,7 +84,7 @@ Antes de começar com a configuração, precisamos nos certificar que a aplicaç
 
 Bom, a configuração do Beanstalk simplifica muito hospedar uma aplicação. Nessa parte definimos o nome da aplicação em "Application Name" e o "environment" que é onde nossas configurações serão definidas e preciso dar um nome a ela.
 
-![EB Configuration Step 01](./aws-bs-1.png)
+![EB Configuration Step 01](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-bs-1.png)
 
 Aqui será a parte em que definiremos o linguagem e como executaremos ela na máquina EC2 (Beanstalk é uma abstração do EC2). Vou escolher ".NET Core on Linux", porque estou utilizando uma aplicação em ASP.NET Core, um framework que pertence ao .NET Core. Aqui tem disponíveis outras linguagens, como Node.js, PHP, Go, Java, etc, e uma das opções é Docker. Com ele qualquer linguagem terá suporte então se tem o seu Dockerfile e docker-compose.yml pronto, só mandar ver.
 
@@ -96,7 +96,7 @@ dotnet publish -o UrlRedirector
 
 Com esse comando uma nova pasta será criado com somente .dll e arquivos de configuração. A sua linguagem também deve ter isso. Mais um exemplo é uma aplicação de Typescript em que geramos a pasta dist com um monte de arquivos .js. Essa é a nossa *build* de produção
 
-![EB Configuration Step 02](./aws-bs-2.png)
+![EB Configuration Step 02](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-bs-2.png)
 
 Por fim, é definido um "Preset", aqui temos dois tipos de escolha:
 
@@ -105,37 +105,37 @@ Por fim, é definido um "Preset", aqui temos dois tipos de escolha:
 
 Se caso, foi escolhido "Single instance", não tem problema, pois pode ser mudado para "High availability". Então se estiver em dúvida comece com uma aplicação Single instance e se ver que há necessidade para uma configuração que suporte mais carga, vá para "High availability".
 
-![EB Configuration Step 03](./aws-b2-3.png)
+![EB Configuration Step 03](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-b2-3.png)
 
 Nessa parte, temos que escolher "Service roles". Isso permite restringir quem têm acesso a esse recurso em específico, então é sempre recomendado restringir ao máximo as permissões e acessos externos. Essa foi uma das partes que eu não conseguia fazer funcionar e não sabia o porquê, caso aqui não apareça um "Service role" para selecionar, crie um, por que é necessário.
 
-![EB Configuration Step 04](./aws-bs-5.png)
+![EB Configuration Step 04](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-bs-5.png)
 
 Nessa parte criaremos o VPC (Virtual Private Cloud), o recurso que traz uma segurança e isolamento entre os serviços. Então se o seu serviço se comunica de outro serviço AWS, eles precisam estar no mesmo VPC. E mais abaixo em "Instance subnets", definimos em que seção de endereço IP será executado a aplicação. 
 
-![EB Configuration Step 05](./aws-bs-6.png)
+![EB Configuration Step 05](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-bs-6.png)
 
 Aqui escolhemos o "subnet" em que o banco de dados está rodando, se caso utilizar um. E caso não tenha criando ainda um banco de dados podemos criar por aqui mesmo. Dê um *check* em "Enable database" e adicione as informações e configurações do banco de dados.
 
-![EB Configuration Step 06](./aws-bs-7.png)
+![EB Configuration Step 06](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-bs-7.png)
 
 "Security group" é o que define as permissões dos recursos na VPC escolhida, por exemplo as portas que vão estar abertas, como 5432, 80, 443 ou 22.
 
-![EB Configuration Step 07](./aws-bs-9.png)
+![EB Configuration Step 07](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-bs-9.png)
 
 Após isso, utilizei as configurações padrões. Então continuei avança a próxima etapa até confirmar a configuração do ambiente. E então o resultado que terá é esse. Para ver se sua aplicação foi configurada corretamente, cheque se "Health" está com "OK". Se caso não estiver vá na aba "Logs", então baixe todos os logs e inspecione o que os logs dizem (essa é uma habilidade recompensadora de ter).
 
-![EB Configuration Result](./aws-bs-result.png)
+![EB Configuration Result](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-bs-result.png)
 
 ### Resultado
 
 O resultado posso ver visto nos seguintes prints de tela.
 
-![Tela 1 do resultado](./aws-result.png)
+![Tela 1 do resultado](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-result.png)
 
-![Tela 2 do resultado](./aws-result-1.png)
+![Tela 2 do resultado](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-result-1.png)
 
-![Tela 3 do resultado](./aws-result-2.png)
+![Tela 3 do resultado](/aws-utilizando-elastic-beanstalk-e-rds-com-aspnet-core/aws-result-2.png)
 
 ### Dúvidas
 Algumas dúvidas que ficaram depois desse exercício. (Se não tivesse nenhuma seria estranho)

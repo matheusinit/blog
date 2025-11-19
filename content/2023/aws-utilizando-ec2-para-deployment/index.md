@@ -11,7 +11,7 @@ draft: false
 
 ### AWS EC2
 
-![aws-ec2-logo](/aws-ec2-logo.png)
+![aws-ec2-logo](/aws-utilizando-ec2-para-deployment/aws-ec2-logo.png)
 
 Máquinas virtuais (Virtual Machine/VM) permitem que sistemas operacionais rodem através de software em cima de máquina com hardware.
 
@@ -28,15 +28,15 @@ Para demonstrar a criação de uma instância *EC2* utilizarei um sistema constr
 
 Para iniciar vá até a página do serviço EC2 na AWS. É onde todas as instâncias AWS serão listadas e as principais informações estarão disponíveis.  
 
-![ec2-instances-list](/aws-entry.png)
+![ec2-instances-list](/aws-utilizando-ec2-para-deployment/aws-entry.png)
 
 Ao clicar em "Launch Instance" você será redirecionado para uma página para definir as características e configurações da *VM*. Aqui pode escolher o número de instâncias em "Number of Instances", o nome da aplicação em "Name" e "AMI" ou *Amazon Machine Image*, que é o sistema operacional em que a *VM* rodará. Tem disponível diversas *AMI* como exemplo macOS, Ubuntu, Windows e Amazon Linux. O Amazon Linux é uma distribuição Linux baseada na distribuição Red Hat Enterprise Linux. Por padrão Amazon Linux vem selecionado.
 
-![start-of-configuration](/aws-1.png)
+![start-of-configuration](/aws-utilizando-ec2-para-deployment/aws-1.png)
 
 Mais abaixo poderá escolher propriamente a configuração do "hardware" (não é hardware propriamente dito, é software emulando hardware por cima de servidores reais) da VM. Aqui temos as configuração mais simples até as mais robustas.
 
-![instance-types](/aws-instance-types.png)
+![instance-types](/aws-utilizando-ec2-para-deployment/aws-instance-types.png)
 
 A próxima etapa é criar a chave para que possa conectar no servidor via SSH. Através dela poderemos configurar o servidor, instalar e inspecionar por dentro como qualquer máquina. O conhecimento de linha de comando nesse momento é essencial. A chave vem em um formato .pem para acesso guarde ela com segurança pois qualquer um com essa chave e o IP da sua máquina terá total acesso a ela.
 
@@ -46,7 +46,7 @@ ssh -i [ssh-key-in-pem] [user]@[ip-address-or-domain]
 
 Para podermos nos conectar via SSH na máquina virtual e expor as portas corretas para acesso via browser da nossa aplicação precisamos configurar a parte de *Network*. Essa parte é bem simples, expomos a porta 22 para SSH e permitir que somente o nosso IP seja permitido conecta-lo e abrir a porta 80 (http) e 443 (https) para qualquer um que acessar. E pronto a nossa máquina virtual está pronta para ser criada.
 
-![key-pair-and-network](/aws-3.1.png)
+![key-pair-and-network](/aws-utilizando-ec2-para-deployment/aws-3.1.png)
 
 Após isso é somente se conectar e configurar para que sua aplicação seja executada na máquina virtual.
 
@@ -323,7 +323,7 @@ O código utilizado está disponível no repositório [Ecommerce API](https://gi
 
 O app está rodando e sendo exposto com o serviço EC2 da AWS. Um domínio é oferecido para acesso, como pode ser visto o meu é *ec2-3-145-114-176.us-east-2.compute.amazonaws.com*, o que torna melhor do que somente um IPv4.
 
-![app-in-production](/aws-app-prod.png)
+![app-in-production](/aws-utilizando-ec2-para-deployment/aws-app-prod.png)
 
 Algumas melhorias que podem ser feitas a partir do resultado:
  - Utilizar HTTPS para encriptação nas requisições

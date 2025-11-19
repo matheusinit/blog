@@ -11,7 +11,7 @@ draft: false
 
 ### Introdução
 
-![Asynchronous](./microservices-architecture.png)
+![Asynchronous](/microservices-como-utilizar-mensageria-com-apache-kafka/microservices-architecture.png)
 
 
 Mensageria (*Streaming*) é uma método de comunicação entre serviços em que é utilizado *logs* por meio de eventos. É uma alternativa a comunicação feita com *REST*. Esse tipo de comunicação é utilizado por soluções como **Apache Kafka**, **RabbitMQ** e **Redis Streams**, que vou chamar de Message Broker. Essa comunicação é um método utilizado na arquitetura de microsserviços por permitir o desacoplamento entre os microserviços. Isso vai ser explicado mais abaixo.
@@ -22,14 +22,14 @@ Para este exemplo utilizarei dois projetos em andamentos, um em Java com Spring 
 
 #### Síncrona
 
-![Request-Reply](./comunicação-sincrona.png)
+![Request-Reply](/microservices-como-utilizar-mensageria-com-apache-kafka/comunicação-sincrona.png)
 
 A comunicação síncrona é aquela em que um serviço A faz uma chamada a outro serviço B, mas tem que esperar a resposta do serviço B para dar continuidade, assim ficando bloqueado até que a resposta seja recebida. Isso é chamado de Synchronous Blocking.  Para que a chamada síncrona ocorra de forma correta, os dois microsserviços A e B precisam estar rodando. O que tornam um dependente do outro.
 
 
 #### Assíncrona
 
-![Asynchronous](./comunicação-assincrona-com-message-broker.png)
+![Asynchronous](/microservices-como-utilizar-mensageria-com-apache-kafka/comunicação-assincrona-com-message-broker.png)
 
 A comunicação assíncrona é o inverso da síncrona. Quando um serviço A faz uma "chamada" para o serviço B ele não fica aguardando a resposta retornar, a aplicação continua. Eventualmente o serviço B vai ser receber a requisição feita pelo o serviço A e processar. Não necessariamente precisa retornar uma resposta, mas se precisar pode ser feito.
 
@@ -58,7 +58,7 @@ Para saber mais sobre isso recomendo o livro **Building Microservices: Designing
 
 Nesse exemplo terei dois microsserviços que se comunicará de forma assíncrona para fazer um compartilhamento de dados. O microsserviço de pedidos irá compartilhar dados de um pedido feito e eventualmente o microsserviço de entrega irá receber e cadastrar em seu banco de dados.
 
-![Asynchronous](./microservices-architecture.png)
+![Asynchronous](/microservices-como-utilizar-mensageria-com-apache-kafka/microservices-architecture.png)
 
 ### Como Message Broker utiliza Topics
 

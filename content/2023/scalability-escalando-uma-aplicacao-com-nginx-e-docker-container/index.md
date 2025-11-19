@@ -13,7 +13,7 @@ draft: false
 
 Desta vez, quero falar um pouco sobre escalabilidade (*Scaling*) com 4 instâncias de uma aplicação ASP.NET MVC. Para isso vou falar sobre Load Balancing, Scaling e estratégias existentes. Para demonstrar a prática utilizarei Nginx, Docker e uma aplicação API REST. Não importa a tecnologia utilizada, esse conhecimento é agnóstico a frameworks. Foi escolhido ASP.NET porque é o framework que estou aprendendo atualmente e estou construindo um projeto para dominar a tecnologia.
 
-![Load Balancer Architecture](./load-balancer-arch.png)
+![Load Balancer Architecture](/scalability-escalando-uma-aplicacao-com-nginx-e-docker-container/load-balancer-arch.png)
 
 ### O que é Scaling (Escalabilidade)?
 
@@ -40,7 +40,7 @@ Como soluções de Load Balancer, existem duas escolhas populares: Nginx e HAPro
 
 O método de *Round Robin* com o Nginx pode ser feito assim. No Nginx, Round Robin é o padrão.  No código de configuração abaixo do Nginx, eu estou definindo o grupo de servers em que o método *Round Robin* vai definir qual deles vai processar a requisição HTTP.
 
-![Thread Pool](./round-robin.png)
+![Thread Pool](/scalability-escalando-uma-aplicacao-com-nginx-e-docker-container/round-robin.png)
 
 Estou utilizando api-rest-n pois esse é nome do serviço no arquivo docker-compose.yml.
 
@@ -463,23 +463,23 @@ E então porque o aumento de instâncias está fazendo a API REST aceitar menos 
 
 ASP.NET MVC não precisa de replicas para processar as requisições paralelamente **na mesma máquina**. DotNet fornece uma ThreadPool, que é basicamente o que estou tentando fazer aqui, onde nós temos N recursos para processar uns dados. O recurso que estamos usando aqui é instâncias da API REST com Docker container, no DotNet é uma thread. Em que cada thread executa o código de uma request.
 
-![Thread Pool](./thread-pool.png)
+![Thread Pool](/scalability-escalando-uma-aplicacao-com-nginx-e-docker-container/thread-pool.png)
 
 Quando estava tentando rodar 4 instâncias tudo que eu fazia era adicionar mais concorrentes para os recursos da máquina, já que cada instância tem threads o suficiente para executar paralelamente a nível de CPU Thread. Isso fazia  com que tivesse menos recursos ainda disponíveis para a API REST e trazendo mais custos como Context Switching entre as instâncias.
 
 Um dos Docker containers rodava e assim consumia todas as 4 CPU Thread disponíveis no meu computador. Então uma única instância utilizando bem os recursos da CPU. Colocar mais 3 instâncias só faz aumentar a concorrência entre os 4 processos da API REST rodando.
 
-![Thread Pool](./container-concurrent.png)
+![Thread Pool](/scalability-escalando-uma-aplicacao-com-nginx-e-docker-container/container-concurrent.png)
 
 Em algum momento o Scheduler da Kernel resolveu dar vez para a API REST 2. Essa troca de contexto e execução entre processos e threads, é Context Switching.
 
-![Thread Pool](./container-context-switching.png)
+![Thread Pool](/scalability-escalando-uma-aplicacao-com-nginx-e-docker-container/container-context-switching.png)
 
 *Context Switching* não é de graça e nem barato, porque tem um custo a mais para a CPU. Como pode ser visto nos resultados do *load test* os *requests per second* diminui em uma quantidade considerável. Por isso com 4 instâncias ficou mais lento, graças a essa troca (*switching*) de contexto (*context*) feita e que trouxe benefício nenhum para esse caso, só mais custo.
 
 Para investigar isso utilizei o comando htop após iniciar o *load testing* com wrk. E vi que com uma instância da API REST rodando as 4 threads disponíveis da máquina estavam sendo utilizadas.
 
-![htop](./htop.gif)
+![htop](/scalability-escalando-uma-aplicacao-com-nginx-e-docker-container/htop.gif)
 
 Meu erro foi não considerar a arquitetura da linguagem de programação e do framework. Se isso fosse Node.JS ou Python estaria tudo bem, porque Node.JS ou Python é single thread. Mas DotNet/C# é multithread.
 
@@ -487,7 +487,7 @@ Isso quer dizer que a API REST em C# não pode escalar? Não. Eu tentei fazer ut
 
 É possível escalar uma aplicação multithread como essa. Utilize cada instância da API REST multithread em um virtual server, assim como o Nginx e o banco de dados, e comunicação entre o Nginx e as instâncias seria feito via rede utilizando a URL dos virtual servers na upstream assim como foi feito com o nome do serviço Docker.
 
-![Virtual servers](./scaling-multithread-with-virtual-server.png)
+![Virtual servers](/scalability-escalando-uma-aplicacao-com-nginx-e-docker-container/scaling-multithread-with-virtual-server.png)
 
 
 ### Conclusão
