@@ -12,7 +12,7 @@ draft: false
 
 ### Introdução
 
-![AWS ECS](./03-aws-ecs.jpg)
+![AWS ECS](/aws-container-orchestration-com-ecs-em-cluster-ec2-com-load-balancer/03-aws-ecs.jpg)
 
 AWS Elastic Container Service é a solução desenvolvida pela AWS  para orquestração de containers. É uma das formas de realizar *deploy* de Docker Images na AWS. Nesse blog post mostrarei o meu aprendizado e método para o *deploy* de Docker containers na AWS.
 
@@ -129,7 +129,7 @@ Para criar o VPC:
 
 Como resultado teremos o *VPC* criado com *Subnets* que são rede internas ao *VPC* com 2 rotas públicas e 2 privadas, *Route tables* e *Network connections* para a conexão do *VPC* a internet ou para acesso ao serviço *AWS S3*. Agora nós temos um *VPC* (rede na nuvem) que tem 2 sub-redes públicas para o *Load Balancer* e 2 sub-redes para os serviços internos como *EC2 instances*, *ECS Cluster*, etc.
 
-![VPC Creation](./00-vpc-creation.png)
+![VPC Creation](/aws-container-orchestration-com-ecs-em-cluster-ec2-com-load-balancer/00-vpc-creation.png)
 
 #### Limitando o acesso dos serviços
 
@@ -297,7 +297,7 @@ Agora podemos criar uma *Service* para executar *tasks*:
 
 Agora temos o nosso serviço rodando em uma instância de *EC2*
 
-![Load Balancer](./01-spring-app-home.png)
+![Load Balancer](/aws-container-orchestration-com-ecs-em-cluster-ec2-com-load-balancer/01-spring-app-home.png)
 
 ### Testando o *Auto Scaling Group*
 
@@ -318,7 +318,7 @@ wrk -t4 -c300 -d60s http://javaapploadbalancer-1023036236.us-east-1.elb.amazonaw
 
 Com o comando novas instâncias vão ser criadas para lidar com os requests feitos:
 
-![Auto Scaling Group](./02-instances-created.png)
+![Auto Scaling Group](/aws-container-orchestration-com-ecs-em-cluster-ec2-com-load-balancer/02-instances-created.png)
 
 As instâncias não vão ser destruídas pois precisa definir o *Scale-out*, o que não me preocupei em fazer nesse exemplo. Mas quando as conexões aumentarem, uma nova instância de *EC2* será criada e também uma *task* nova (que é um *container Docker*).
 
